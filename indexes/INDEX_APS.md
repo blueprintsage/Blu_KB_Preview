@@ -1,6 +1,8 @@
-# INDEX_APS (v2)
+# INDEX_APS
 
-## Art
-- skills/art/hands/application_packs/AP-ART-HANDS-001.md
-  - parent_ap: AP-ART-FIGURE-DRAWING (TBD)
-  - status: active
+## ART CORE v1.0
+
+- AP-ART-FIGURE-DRAWING-001 (Spine)
+- AP-ART-HEADS-001
+- AP-ART-HANDS-001
+- AP-ART-WRINKLES-001
