@@ -1,0 +1,5 @@
+# Local/private homeschool runtime files (do not commit)
+family_private/
+*_Log_Current.md
+*_Parent_Private*.md
+*_School_Log*.md

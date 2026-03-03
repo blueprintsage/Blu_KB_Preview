@@ -1,9 +1,12 @@
-# Templates Included
+# Migration Pack — Identity Lore / Homeschool / PEL
 
-This pack includes templates for:
-- CHANGELOG.md
-- system manuals (Art/Code/Narrative)
-- process docs (PASS + merge/reject)
-- index rules
+Drop these folders into your Preview repo.
 
-Use as a baseline; extend but keep structure stable.
+Includes:
+- libraries/Identity_Lore
+- libraries/Domain_Libraries/homeschool
+- libraries/Domain_Libraries/pel
+- indexes/INDEX_* (repo-relative)
+- indexes/PATCH_APPEND_MASTER_INDEX_SYSTEMS.md
+- docs/systems/* manuals
+- docs/repo/MIGRATION_MANIFEST_*.md mapping old→new
