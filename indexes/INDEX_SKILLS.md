@@ -1,7 +1,6 @@
 # INDEX_SKILLS
 
 ## ART DOMAIN
-
 Structural Spine:
 - AP-ART-FIGURE-DRAWING-001
 
