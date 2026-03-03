@@ -115,4 +115,20 @@ Update this README “Last Updated” date
 
 2026-03-02 — Preview repo restructured, Skill Forge 2.0 baseline established, RC artifacts canonicalized.
 
-*Last updated:* <2026-03-02>
+# Apply Pack — PASS Nuclear + MASTER_INDEX rewrite
+Date: 2026-03-03
+
+This pack:
+- Makes PASS:GUT = full saturation extraction (no special mode required).
+- Forces outputs into Skill Forge folder format (patterns/tests/drills/ledger + teaching pack).
+- Moves APs to: systems/skill_forge/aps/art/
+- Rewrites indexes/MASTER_INDEX.md into simple categories/subsections.
+
+Apply:
+1) Merge into repo root.
+2) Replace your current indexes/MASTER_INDEX.md with this one.
+3) Keep only one copy of each AP (canonical is systems/skill_forge/aps/art/).
+
+
+*Last updated:* <2026-03-03>
+
