@@ -1,4 +1,0 @@
-# APPEND TO: indexes/INDEX_DRILLS.md
-
-## NARRATIVE DOMAIN
-- skills/narrative/drills/DRILLS-NARRATIVE-FOUNDATIONS.md

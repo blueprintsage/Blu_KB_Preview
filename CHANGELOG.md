@@ -69,3 +69,23 @@ Dates are local: America/Chicago.
 - This triage is heuristic. Review TRIAGE_REPORT.md before deleting legacy rc_low_priority in staging.
 
 ---
+
+## [2026-03-03] — Character LockPack Template Migrated
+
+### Added
+- templates/character/lockpack/ (legacy Character Archetype Generator output template)
+
+---
+
+## [2026-03-03] — Legacy Incoming Archived
+
+### Added
+- docs/archive/legacy_about/
+- docs/archive/legacy_indexes/
+- templates/legacy_unreviewed/
+
+### Notes
+- Legacy indexes kept for reference only; current indexes remain authoritative.
+- Legacy templates quarantined until individually reviewed/promoted.
+
+---
