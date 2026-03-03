@@ -1,15 +1,9 @@
-# NARRATIVE CORE v0.1 (CROSS-MEDIUM)
+# Code PASS Runs — All Books Pack
 
-Generated: 2026-03-03T00:11:15.254912
+Contains PASS:GUT-LADDER runs (repo-safe) for each uploaded code book, plus patch snippets.
 
-This pack adds a cross-medium Narrative Spine to Skill Forge:
-- AP-NARRATIVE-SEQUENCES-001 (spine)
-- PATTERNS-NARRATIVE (global law clusters, ladder-bound)
-- DRILLS-NARRATIVE-FOUNDATIONS (human teaching drills)
-- Index patch snippets (append-only)
-
-Works for:
-- comics
-- storyboards
-- animation beats
-- visual novels
+Suggested repo destinations:
+- docs/ledger/BOOK_LEDGER_CODE.md
+- docs/pass_runs/*
+- skills/code/patterns/PATCH_PATTERNS_*.md (merge into PATTERNS-CODE.md)
+- skills/code/drills/PATCH_DRILLS_*.md (merge into drills)
