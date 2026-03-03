@@ -1,11 +1,15 @@
-# CODE DOMAIN CORE v0.1 (LANGUAGE-AGNOSTIC)
+# NARRATIVE CORE v0.1 (CROSS-MEDIUM)
 
-Generated: 2026-03-03T00:07:39.572067
+Generated: 2026-03-03T00:11:15.254912
 
-This pack adds the Code Domain Spine to Skill Forge:
-- AP-CODE-SYSTEMS-001 (spine)
-- PATTERNS-CODE (global law clusters, ladder-bound)
-- DRILLS-CODE-FOUNDATIONS (human teaching drills)
+This pack adds a cross-medium Narrative Spine to Skill Forge:
+- AP-NARRATIVE-SEQUENCES-001 (spine)
+- PATTERNS-NARRATIVE (global law clusters, ladder-bound)
+- DRILLS-NARRATIVE-FOUNDATIONS (human teaching drills)
 - Index patch snippets (append-only)
 
-No language-specific modules included (by design).
+Works for:
+- comics
+- storyboards
+- animation beats
+- visual novels

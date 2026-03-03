@@ -1,10 +1,10 @@
 # APPEND TO: indexes/INDEX_SKILLS.md
 
-## CODE DOMAIN
+## NARRATIVE DOMAIN
 
 Structural Spine:
-- AP-CODE-SYSTEMS-001
+- AP-NARRATIVE-SEQUENCES-001
 
 Core Assets:
-- skills/code/patterns/PATTERNS-CODE.md
-- skills/code/drills/DRILLS-CODE-FOUNDATIONS.md
+- skills/narrative/patterns/PATTERNS-NARRATIVE.md
+- skills/narrative/drills/DRILLS-NARRATIVE-FOUNDATIONS.md
