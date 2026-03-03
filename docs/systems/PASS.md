@@ -6,6 +6,14 @@ Date: 2026-03-03
 ## Definition
 PASS is a deterministic extraction engine that converts source material into enforceable patterns, gates, and merge-ready artifacts.
 
+## Defaults (v1.0 Preview)
+- **Default mode:** `PASS:GUT-LADDER`
+- **Default output:** `both` (**Lane B** first — Blu Runtime canonical, then **Lane A** — Teaching Pack)
+- **Reject test:** ON (mandatory)
+- **No copy/paste:** ON (convert concepts into original technical language)
+
+---
+
 PASS does:
 - Strip-mine structured material
 - Extract laws (patterns)

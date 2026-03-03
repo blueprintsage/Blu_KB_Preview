@@ -85,3 +85,17 @@ For each PASS run, record:
 - run_date
 - counts: produced NEW/UPDATE/VARIANT/REJECT by type
 - top risk gates (highest impact HARD patterns)
+
+# PASS — Default Mode Patch Note (v1.0)
+Date: 2026-03-03
+
+Change:
+- PASS default mode is now **PASS:GUT-LADDER**.
+- Default output is **both lanes**:
+  - Lane B (canonical runtime) first
+  - Lane A (compiled teaching pack) second
+
+Enforcement:
+- Convert source concepts into original technical language (no copy/paste).
+- Prefer enforceable gates.
+- Mandatory reject test before accepting a source for extraction.

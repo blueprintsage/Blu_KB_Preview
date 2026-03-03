@@ -100,9 +100,36 @@ Case studies:
 - docs/systems/PASS.md
 - docs/process/PASS_GUT_LADDER.md
 - docs/ledger/PASS_LEDGER_SCHEMA.md
+- contracts/pass/PASS_GUT_LADDER_CONTRACT.md
+- templates/systems/skill_forge/SKILLFORGE_DUAL_LANE_SUBJECT_TEMPLATE_v1_0.md
+- docs/systems/COLD_STORE_PASS_GUT_LADDER_DUAL_LANE_v1_0.md
 
 ---
 
+# Hogarth Lane A Teaching v1.2
+
+teaching/art/hogarth_core_v1.2/
+    README.md
+    SYLLABUS.md
+    PATTERNS.md
+    DRILLS.md
+    TESTS.md
+    LEDGER.md
+
+---
+
+# Hogarth Lane B Runtime v1.2
+
+skills/art/hogarth/_hogarth_core/
+    upper_body_pass2/
+    head_neck_pass2/
+    pelvis_leg_pass1/
+    lower_body_cloth_pass1/
+    full_body_integration/
+    refinement_pass/
+
+---
+	
 ## Notes
 - Keep “quick links” minimal. Canon listings should live in the relevant INDEX_*.md files.
 - Staging is a quarantine lane and should usually be empty:
