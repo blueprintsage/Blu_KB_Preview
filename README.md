@@ -1,9 +1,3 @@
-# Code PASS Runs — All Books Pack
+# Art Book Ledger Pack
 
-Contains PASS:GUT-LADDER runs (repo-safe) for each uploaded code book, plus patch snippets.
-
-Suggested repo destinations:
-- docs/ledger/BOOK_LEDGER_CODE.md
-- docs/pass_runs/*
-- skills/code/patterns/PATCH_PATTERNS_*.md (merge into PATTERNS-CODE.md)
-- skills/code/drills/PATCH_DRILLS_*.md (merge into drills)
+Drop `docs/ledger/BOOK_LEDGER_ART.md` into the Preview repo to prevent re-processing the same art books.
