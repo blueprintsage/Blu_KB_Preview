@@ -41,3 +41,31 @@ Dates are local: America/Chicago.
 
 ### Notes
 - Repo hygiene policy remains: do not commit third-party copyrighted source captures (PDFs, scans, rips). Ledgers + extracted patterns/drills/APs are repo-safe.
+
+---
+
+## [2026-03-03] — RC Keep Items Moved to Canon
+
+### Added
+- ops/ (burnins + promotion checklists)
+- tests/ (smokes + regression seeds)
+- tools/ (repo utilities + diagnostics)
+- tasks/CPM/ (Critical Path Manager templates/validators)
+- reports/ (RC SIM report)
+
+### Notes
+- Engine patch contract moved under contracts/engine_patches/.
+- Capsule-like engine_patch file (05_USERCAP.md) intentionally not copied into canon.
+
+---
+
+## [2026-03-03] — RC Low-Priority Triage
+
+### Added
+- docs/archive/rc/ (archived RC-era materials)
+- staging/outgoing/rc_keep/ (selected KEEP items staged for canonical placement)
+
+### Notes
+- This triage is heuristic. Review TRIAGE_REPORT.md before deleting legacy rc_low_priority in staging.
+
+---

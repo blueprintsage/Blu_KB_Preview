@@ -1,0 +1,13 @@
+# Asset sidecar metadata (YAML)
+# Save alongside an asset: IMG-xxxx.yml or VID-xxxx.yml
+
+id: IMG-<THEME>-####           # or VID-<THEME>-####
+type: image|video|palette|moodboard|shotlist|storyboard
+tags: [ ... ]
+use: [mood, lighting, composition, palette, poses, typography, pacing]
+license: owned|cc0|cc-by|cc-by-sa|unknown
+source: "<where it came from>"          # optional
+notes: "<what to borrow / what to avoid>"
+prompt_hints:
+  - "<hint 1>"
+  - "<hint 2>"

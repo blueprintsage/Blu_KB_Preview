@@ -1,0 +1,26 @@
+# blu_repo_diag_rules.yaml
+# Deterministic diagnostics rules for Blu_KB.
+# Add new rules here; keep scanners in blu_repo_diag.py.
+
+include_globs:
+  - "**/*.md"
+
+exclude_globs:
+  - ".git/**"
+  - "node_modules/**"
+  - "**/.DS_Store"
+  - "**/dist/**"
+
+rules:
+  R001_no_html_module_markers:
+    enabled: true
+  R002_no_leading_space_module_tokens:
+    enabled: true
+  R003_module_balance:
+    enabled: true
+  R004_no_headers_inside_modules:
+    enabled: true
+  R005_no_heading_ids:
+    enabled: true
+  R006_no_angle_placeholders:
+    enabled: true
