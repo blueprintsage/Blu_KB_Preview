@@ -1,3 +1,9 @@
-# Art Book Ledger Pack
+# Templates Included
 
-Drop `docs/ledger/BOOK_LEDGER_ART.md` into the Preview repo to prevent re-processing the same art books.
+This pack includes templates for:
+- CHANGELOG.md
+- system manuals (Art/Code/Narrative)
+- process docs (PASS + merge/reject)
+- index rules
+
+Use as a baseline; extend but keep structure stable.
