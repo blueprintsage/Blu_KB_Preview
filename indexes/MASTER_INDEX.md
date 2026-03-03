@@ -96,6 +96,13 @@ Case studies:
 
 ---
 
+## Systems
+- docs/systems/PASS.md
+- docs/process/PASS_GUT_LADDER.md
+- docs/ledger/PASS_LEDGER_SCHEMA.md
+
+---
+
 ## Notes
 - Keep “quick links” minimal. Canon listings should live in the relevant INDEX_*.md files.
 - Staging is a quarantine lane and should usually be empty:

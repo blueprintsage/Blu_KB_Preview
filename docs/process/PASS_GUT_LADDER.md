@@ -1,17 +1,34 @@
-# Process — PASS:GUT-LADDER
+# PASS:GUT-LADDER — Extraction Spec
+Version: v1.0
+Date: 2026-03-03
 
-## Goal
-Convert a source (book/pdf/etc.) into repo-safe Skill Forge assets:
-- Patterns (laws): “IF X THEN Y” with evidence + failure signals
-- Drills: human practice sequences bound to Step Ladder
-- AP modules (optional): when the source defines a reusable execution system
+## Purpose
+Standardized deep extraction aligned to Step Ladder.
 
-## Merge/Reject Discipline
-- Merge: keep best rule, add variants as modules, eliminate duplicates.
-- Reject: if the source adds no durable patterns/drills, record as REJECTED in the ledger.
-- Ledger rule: mark PASSED only when merged into canonical patterns/drills/APs.
+## Step 0 — Concept Constraints
+- Intent
+- Scope
+- Audience
+- Hard limits
 
-## Outputs (repo-safe)
-- docs/pass_runs/PASS_<tag>.md
-- skills/<domain>/patterns/PATCH_PATTERNS_<tag>.md
-- skills/<domain>/drills/PATCH_DRILLS_<tag>.md
+## Step 1 — Structural Systems
+- Frameworks
+- Composition logic
+- Architecture rules
+
+## Step 2 — Mechanics
+- Execution steps
+- Dependencies
+- Conditional flows
+
+## Step 3 — Refinement Logic
+- Optimization
+- Error correction
+- Quality improvements
+
+## Step 4 — Production Standards
+- Final output requirements
+- Tolerances
+- Compliance markers
+
+All outputs must conform to PASS Output Schema.

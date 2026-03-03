@@ -89,3 +89,16 @@ Dates are local: America/Chicago.
 - Legacy templates quarantined until individually reviewed/promoted.
 
 ---
+
+# CHANGELOG_PATCH — PASS Meta-Doc v1
+
+## [2026-03-03] — PASS System Canonized
+
+### Added
+- PASS system definition (docs/systems/PASS.md)
+- PASS:GUT-LADDER spec (docs/process/PASS_GUT_LADDER.md)
+- PASS ledger schema (docs/ledger/PASS_LEDGER_SCHEMA.md)
+
+### Notes
+- Locks formal definition of PASS (Pattern Analysis Support System)
+- Establishes deterministic extraction + merge discipline
