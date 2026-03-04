@@ -1,302 +1,166 @@
-# PASS GUT-LADDER CONTRACT
+# PASS GUT-LADDER Contract (Rewrite)
 
 updated: 2026-03-04
 status: canon (preview)
-version: 1.3
+version: 1.0
 
-depends_on:
-  - contracts/Error_handling_contract.md
-  - contracts/error_macros.md
+**Goal:** Stabilize PASS behavior with strict contract compliance, fail-closed errors, and DROP-IN ZIP outputs.  
+**Scope:** PASS:PREFLIGHT, PASS:GUT-LADDER, optional PASS:MODERNIZE (OVERLAY).  
+**Non-Goals:** Repo restructuring, content recommendations during PREFLIGHT, “helpful” previews.
 
----
+## Command Surface (character-exact)
 
-## Global Law (Fail-Closed)
-If any REQUIRED dependency is missing/expired/unreadable at any stage, invoke ERRMAC and STOP (fail-closed).
-
----
-
-# Purpose
-PASS converts knowledge sources (books, PDFs, documents) into structured skills.
-
-Output is organized into two lanes:
-
-- Teaching (Lane A) — human instruction
-- Skills (Lane B) — machine execution laws
-
-PASS must always produce repo-ready artifacts and a DROP-IN ZIP.
+- `PASS:PREFLIGHT`
+- `PASS:GUT-LADDER`
+- `PASS:MODERNIZE (OVERLAY)` *(optional; only after asking; overlay-only)*
 
 ---
 
-# Command Surface (Canonical)
+## 1) Global Laws (Hard)
 
-## PASS:PREFLIGHT
-Purpose: validate inputs before running PASS.
+### 1.1 Fail-Closed
+If a requirement is not met, **STOP** and return **BLOCKED** (or ERR) with **one** action line.  
+No “best effort” extraction, no partial ladders, no structure guesses.
 
-Required checks:
-- OCR_TYPE: TEXT | OCR | SCAN
-- PARSE_QUALITY: low | medium | high (best-effort)
-- STATUS: READY | BLOCKED
-- REGISTRY: NEW | DUP | UNKNOWN (best-effort)
+### 1.2 Output Discipline
+Each command has a **hard output schema**.  
+Any output outside schema = **command FAIL**.
 
-Rules:
-- If OCR_TYPE=SCAN and no text layer is available:
-  - STATUS: BLOCKED
-  - ACTION: OCR required
-  - Add entry to docs/pass/PASS_OCR_QUEUE.md (if available)
-  - STOP (fail-closed)
-- If REGISTRY=DUP:
-  - Ask before rerunning PASS (one question max)
-
-PREFLIGHT MUST NOT extract or summarize content. NO TOC, no rules, no heuristics, no prompts. Only ingest/eligibility checks.
-
-If any required dependency is missing/expired/unreadable:
-- invoke ERRMAC and STOP.
+### 1.3 No Copyright Spill
+Do not reproduce copyrighted pages. PASS extracts **mechanics only**.
 
 ---
 
-## PASS:GUT-LADDER
-Purpose: full extraction pipeline per this contract.
+## 2) PASS:PREFLIGHT (Validation Only) — STRICT
 
-PASS runs in four stages:
+### 2.1 Purpose
+PREFLIGHT performs **ingest validation only**.  
+It MUST NOT extract, summarize, sample, infer structure, or recommend next steps.
 
-1) PASS 1 — Harvest
-2) PASS 2 — Normalize + Cluster
-3) PASS 3 — Dual Lane Compilation (A/B)
-4) PASS 4 — Validation + Rejection + Package
+### 2.2 Allowed Outputs (ONLY)
+PREFLIGHT may output **only** the following lines, in any order (but no extras):
 
-PASS does not stop at surface markers. It must mine the full source unless blocked.
+- `OCR_TYPE: TEXT | OCR | SCAN`
+- `PARSE_QUALITY: low | medium | high`
+- `DATED: YES | NO | UNKNOWN`
+- `DATED_REASON: <short reason>` *(optional; only if known)*
+- `STATUS: READY | BLOCKED`
+- `ACTION: <one line>` *(required only if STATUS=BLOCKED)*
+- `REGISTRY: NEW | DUP | UNKNOWN`
 
-If any required dependency is missing/expired/unreadable:
-- invoke ERRMAC and STOP.
+That’s it.
 
----
+### 2.3 Forbidden During PREFLIGHT (Hard)
+If any of these appear, mark **PREFLIGHT FAIL** (and return BLOCKED):
 
-# PASS Execution Details
+- TOC/structure lists (chapters, appendices, “front matter”, etc.)
+- page sampling (“sampled pages”, “rendered previews”, “spreads detected”, etc.)
+- “rules/heuristics found”
+- recommendations (“good extraction targets”, “you might want drills next”, etc.)
+- any content extraction, quotes, summaries, or topic analysis
 
-## PASS 1 — Harvest
-Extract all candidate knowledge units.
+### 2.4 Registry Rule (Hard)
+If `REGISTRY: DUP` → PREFLIGHT must set:
+- `STATUS: BLOCKED`
+- `ACTION: Confirm rerun? (Y/N)`
+…and STOP. No further work until user confirms.
 
-Harvest types:
-- patterns
-- drills
-- tests
-- gates
-- application protocols (APs)
-- procedures/models/principles (only if they become enforceable patterns or APs)
-
-Rule: ONE IDEA PER PATTERN
-- Compound statements must be split.
-
-Harvest aggressively.
-
----
-
-## PASS 2 — Normalize + Cluster
-Convert candidates into repo language and collapse duplicates.
-
-Steps:
-- deduplicate
-- cluster near-duplicates
-- separate variants
-- reject weak candidates (see PASS 4)
-
-Variants:
-- Variants extend base patterns; they do not replace them.
-- If variants are produced, they must be clearly labeled as variants of a base concept.
+### 2.5 Block Conditions (Examples)
+PREFLIGHT returns `STATUS: BLOCKED` when:
+- file unreadable / corrupted / missing
+- parse quality too low for reliable PASS runs
+- scan requires OCR but OCR not available/enabled
+- registry shows DUP without explicit rerun confirmation
 
 ---
 
-## PASS 3 — Dual Lane Compilation
-Create the structured subject package.
+## 3) PASS:GUT-LADDER (PASS 1–4) — REQUIRED
 
-Repo layout:
-skills/<domain>/<subject>/
+### 3.1 Preconditions (Hard)
+`PASS:GUT-LADDER` must not run unless PREFLIGHT has produced:
+- `STATUS: READY`
+- and `REGISTRY != DUP` (or DUP has been confirmed)
 
-  <SUBJECT>_INDEX.md
+### 3.2 When STATUS=READY
+GUT-LADDER must execute PASS 1–4 **per ladder** and produce the required outputs below.
 
-  Skills/
-    <SUBJECT>_B.md
+### 3.3 Required Outputs (Hard)
+GUT-LADDER must always emit:
 
-  Teaching/
-    <SUBJECT>_A.md
+1) **Counts line (tight, exact keys):**
+- `patterns=<n> drills=<n> gates=<n> variants=<n> rejected=<n>`
 
-  overlays/   (optional; only used by modernize overlays)
+2) **DROP-IN ZIP**
+- Always produce a DROP-IN ZIP that is **extract-safe at repo root**.
+- The ZIP must contain only PASS outputs (mechanics-only), with deterministic naming, and no absolute paths.
 
-Rules:
-- Both lanes must exist.
-- Lane B is the law layer.
-- Lane A explains and teaches the laws.
+3) **Registry Update Rule**
+- Update `PASS_BOOK_REGISTRY.md` **only after successful completion** of PASS 1–4 **and** DROP-IN ZIP creation.
 
----
-
-## PASS 4 — Validation + Rejection + Package
-Reject candidates that are:
-- vague
-- motivational
-- non-actionable
-- redundant
-- unsafe/outdated when presented as absolute law (unless explicitly tagged and deferred to modernize overlay)
-
-Pattern schema (minimum fields):
-- id
-- IF
-- THEN
-- CHECK
-- FAIL
-- REF (source pointer when possible)
+### 3.4 Failure Handling (Hard)
+If any ladder stage fails:
+- Do **not** update registry.
+- Do **not** produce a “partial success” ZIP unless explicitly permitted by an error macro (default: no).
+- Return a fail-closed error with one recovery action.
 
 ---
 
-# Dated Book Flag + Modernize Option
+## 4) DATED + MODERNIZE Overlay
 
-## DATED Flag (PREFLIGHT + Summary)
-PREFLIGHT must output:
-- DATED: YES | NO | UNKNOWN
-- DATED_REASON: year/edition if detectable
+### 4.1 DATED Field
+PREFLIGHT must set:
+- `DATED: YES | NO | UNKNOWN`
+- `DATED_REASON` optional
 
-Heuristic:
-- If publication year is >= 8 years old → DATED: YES
-- If year unknown → DATED: UNKNOWN
+### 4.2 Overlay Ask Rule (One Question Only)
+If `DATED=YES` **and** the topic is time-sensitive:
+Ask exactly once:
 
-## Modernize Option (Ask)
-If DATED=YES and topic is time-sensitive:
-- Ask once: “Run modern overlay now?” (Y/N)
+**“Run modern overlay now? (Y/N)”**
 
-Modernize is an overlay, not a rewrite of the base extraction.
+- If **N** or no answer: proceed with base GUT-LADDER only.
+- If **Y**: run `PASS:MODERNIZE (OVERLAY)` **after** base GUT-LADDER succeeds.
 
----
-
-## PASS:MODERNIZE (OVERLAY) (Optional)
-If invoked:
-- Use current authoritative sources (web browsing required).
-- Do not rewrite base artifacts; produce overlay artifacts only.
-- Output under:
-  skills/<domain>/<subject>/overlays/modern_<YYYY-MM-DD>/
-
-Overlay metrics must include:
-- patterns_added (modern)
-- variants_added
-- patterns_rejected (deprecated/unsafe)
+### 4.3 Overlay-Only Constraint (Hard)
+`PASS:MODERNIZE (OVERLAY)` must:
+- be an **overlay**, not a rewrite
+- not modify base outputs
+- produce overlay artifacts separately (and optionally a separate overlay ZIP, if defined)
 
 ---
 
-# PASS Output (Mandatory)
-Each PASS run must generate:
-- Teaching lane file (Lane A)
-- Skills lane file (Lane B)
-- Subject index
-- PASS run report
-- DROP-IN ZIP package (mandatory)
-- Index patch (optional; only if you are asked to patch indexes)
+## 5) Regression Gates (Minimum)
+
+### 5.1 PREFLIGHT Schema Gate
+Test asserts:
+- PREFLIGHT output contains **only** allowed keys
+- values match allowed enums
+- if extra lines exist → FAIL
+
+### 5.2 Leak Test (Known Failure Case)
+Feed PREFLIGHT a “TOC/structure summary” style output:
+- expected result: `STATUS: BLOCKED` + 1-line ACTION (PREFLIGHT FAIL)
+
+### 5.3 Registry DUP Gate
+When registry indicates DUP:
+- must stop with `STATUS: BLOCKED`
+- must ask for rerun confirmation (Y/N)
+- must not run GUT-LADDER
+
+### 5.4 Registry Update Gate
+Registry update occurs only when:
+- PASS 1–4 succeeded
+- DROP-IN ZIP created successfully
 
 ---
 
-# PASS ZIP Package (Mandatory)
-Every PASS run must end with a DROP-IN ZIP package.
+## 6) Reference Outputs (Normative)
+OCR_TYPE: SCAN
+PARSE_QUALITY: low
+DATED: UNKNOWN
+STATUS: BLOCKED
+ACTION: Enable OCR or provide a text-layer PDF.
+REGISTRY: NEW
 
-The zip must contain only files created or modified by the PASS run.
-
-Example structure:
-skills/
-  <domain>/
-    <subject>/
-      <SUBJECT>_INDEX.md
-      Skills/
-        <SUBJECT>_B.md
-      Teaching/
-        <SUBJECT>_A.md
-      overlays/ (optional)
-
-reports/
-  PASS_RUN_<YYYY-MM-DD>_<shortname>.md
-
-docs/pass/
-  PASS_BOOK_REGISTRY.md (only if updated)
-  PASS_OCR_QUEUE.md (only if updated)
-  PASS_RERUN_LOG.md (only if updated)
-
-The zip must be extract-safe at repo root.
-
----
-
-# PASS Metrics (Required)
-Every run must report:
-
-patterns_new
-patterns_added
-variants_added
-patterns_rejected
-
-drills_added
-tests_added
-aps_added
-
-Also emit the tight counts line:
-patterns=<n> drills=<n> gates=<n> variants=<n> rejected=<n>
-
----
-
-# Yield Metrics (Recommended)
-- patterns_per_page
-- signal_ratio = patterns_kept / patterns_extracted
-
----
-
-## Rerun Tracking (Optional but Recommended)
-Maintain: docs/pass/PASS_RERUN_LOG.md
-
-## Rerun Metric (Recommended)
-- novelty_yield = patterns_new / patterns_kept_laneB
-
-Optional:
-- rerun_value = patterns_new + variants_added + (drills_added * 0.25)
-
----
-
-# PASS Book Registry
-Every completed run must update:
-docs/pass/PASS_BOOK_REGISTRY.md
-
-Registry prevents duplicate PASS runs.
-
-Recommended entry fields:
-- title
-- author(s)
-- year/edition
-- date_processed
-- subject
-- pages
-- metrics + yield metrics
-
----
-
-# OCR Queue
-Unreadable sources are added to:
-docs/pass/PASS_OCR_QUEUE.md
-
----
-
-# PASS Report
-Each run must produce:
-reports/PASS_RUN_<YYYY-MM-DD>_<shortname>.md
-
-Report includes:
-- source
-- subject
-- preflight summary
-- metrics (required + yield)
-- files created
-- zip name
-
----
-
-# Core PASS Laws
-1. Fail-closed via ERRMAC
-2. One Idea Per Pattern
-3. Patterns Are Laws (IF/THEN enforceable)
-4. Variants Extend, Not Replace
-5. Both Lanes Always Exist
-6. Reject Weak Patterns
-7. Always Record Metrics
-8. Always Produce DROP-IN ZIP
-9. Update Registry After Completion
+### 6.1 Canonical PREFLIGHT Example (READY)
+patterns=12 drills=8 gates=3 variants=4 rejected=19
