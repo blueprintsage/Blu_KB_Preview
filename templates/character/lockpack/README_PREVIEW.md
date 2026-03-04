@@ -1,6 +1,6 @@
 # Character LockPack (Template)
 
-Migrated from legacy KB (`assets/templates/character_lockpack/`).
+Migrated from legacy KB (`assets/templates/character/lockpack/`).
 
 Canonical location (Preview): `templates/character/lockpack/`
 

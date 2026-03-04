@@ -1,25 +1,12 @@
 # INDEX_SKILLS
+updated: 2026-03-03
 
-## ART DOMAIN
-Structural Spine:
-- AP-ART-FIGURE-DRAWING-001
+Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
 
-Child Systems:
-- AP-ART-HEADS-001
-- AP-ART-HANDS-001
-- AP-ART-WRINKLES-001
+Rules:
+- No deep links to drills/patterns/AP modules here.
+- Group by obvious headings only when the list is long.
+- Prefer folder entrypoints.
 
-## Art
-- skills/art/hands/
-  - ap: skills/art/hands/application_packs/AP-ART-HANDS-001.md
-  - drills: skills/art/hands/drills/DRILLS-ART-HANDS.md
-  - patterns: skills/art/patterns/PATTERNS-ART.md (HANDS cluster)
-
-## NARRATIVE DOMAIN
-
-Structural Spine:
-- AP-NARRATIVE-SEQUENCES-001
-
-Core Assets:
-- skills/narrative/patterns/PATTERNS-NARRATIVE.md
-- skills/narrative/drills/DRILLS-NARRATIVE-FOUNDATIONS.md
+## Entries
+- (empty)

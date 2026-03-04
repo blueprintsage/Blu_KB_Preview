@@ -1,7 +1,12 @@
-# INDEX_PROTOCOLS.md
+# INDEX_PROTOCOLS
+updated: 2026-03-03
 
-All protocol files live under /protocols/
+Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
 
-## Rules
-- If a protocol affects execution, reference it in CHANGELOG.md.
-- If a protocol modifies a system, reference that system manual.
+Rules:
+- No deep links to drills/patterns/AP modules here.
+- Group by obvious headings only when the list is long.
+- Prefer folder entrypoints.
+
+## Entries
+- protocols

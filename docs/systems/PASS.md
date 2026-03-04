@@ -1,101 +1,51 @@
 # PASS — Pattern Analysis Support System
-Version: v1.0
-Baseline: Preview Track
-Date: 2026-03-03
+Version: v1.1 (Lockdown)
+Track: Preview
+Updated: 2026-03-03
 
-## Definition
-PASS is a deterministic extraction engine that converts source material into enforceable patterns, gates, and merge-ready artifacts.
+## What PASS is for
+PASS converts source material into **merge-ready skill content**:
+- Lane B first (machine-optimized, anti-drift)
+- Lane A second (human-facing teaching pack)
 
-## Defaults (v1.0 Preview)
-- **Default mode:** `PASS:GUT-LADDER`
-- **Default output:** `both` (**Lane B** first — Blu Runtime canonical, then **Lane A** — Teaching Pack)
-- **Reject test:** ON (mandatory)
-- **No copy/paste:** ON (convert concepts into original technical language)
+PASS is for **building and updating the repo**, not for teaching live, and not for executing tasks.
 
----
+## What PASS produces
+For any subject, PASS outputs or updates a **skill family** with this fixed shape:
 
-PASS does:
-- Strip-mine structured material
-- Extract laws (patterns)
-- Convert rules into IF/THEN gates
-- Output merge-ready artifacts
+skills/<domain>/<skill_family>/
+- <SKILL_FAMILY>_INDEX.md
+- lane_a/<SKILL_FAMILY>_A.md
+- lane_b/<SKILL_FAMILY>_B.md
 
-PASS does NOT:
-- Select APs
-- Execute skills
-- Teach (Drills teach)
-- Store copyrighted source material
+Inside each lane file:
+- `base.*` modules (foundation = “structure” in that domain)
+- `overlay.<style|medium|language>.*` modules (deltas only)
 
----
+APs, drills, and patterns live **inside** the lane files as modules.
 
-## Modes
+## Hard laws (non-negotiable)
+- Patterns: must be explicit IF/THEN (plus CHECK/FAIL fields).
+- Drills: must include PASS/FAIL (or scoring + stop).
+- Lane separation: A content never mixes with B content in a single module.
+- Overlays never replace base; overlays only add/adjust.
+- No new folder shapes. If a target folder doesn’t exist, PASS must stop and ask.
 
-### PASS:GUT
-Full extraction at maximum depth.
+## What PASS does NOT do
+- It does not “teach the curriculum” (Teaching capsule / SkillForge lessons do that).
+- It does not store or reproduce copyrighted pages; it extracts mechanics only.
+- It does not invent missing user constraints; **when in doubt, ask**.
 
-### PASS:GUT-LADDER
-Full extraction structured through Step Ladder:
-0 — Concept constraints
-1 — Structural systems
-2 — Mechanics
-3 — Refinement logic
-4 — Production standards
+## Index behavior
+PASS may update **view indexes** only:
+- indexes/INDEX_SKILLS.md
+- indexes/INDEX_APS.md
+- indexes/INDEX_DRILLS.md
+- indexes/INDEX_PATTERNS.md
 
-### PASS:MERGE
-Integrates extracted gates into canonical AP/Pattern system.
+PASS does **not** edit indexes/MASTER_INDEX.md.
 
-### PASS:REJECT
-Rejects material if redundant, inferior, unverifiable, or stylistic noise.
-
----
-
-## Output Schema (Non‑Negotiable)
-
-Every gate must include:
-- Gate ID
-- Domain
-- IF (Trigger)
-- THEN (Requirement)
-- PASS condition
-- FAIL condition
-- Evidence artifact
-- Exceptions
-- Source reference note (no verbatim text)
-
----
-
-## Merge Law
-
-Patterns:
-- One canonical pattern per rule.
-- Variants must be labeled.
-- No duplicates.
-
-APs:
-- May reference patterns.
-- May not redefine patterns.
-
-Drills:
-- Teach application.
-- Do not redefine laws.
-
----
-
-## Rejection Law
-
-Reject if:
-- Already covered by stronger canonical pattern
-- Stylistic preference disguised as rule
-- Redundant phrasing
-- No testable condition
-- No evidence requirement
-
----
-
-## Canon Placement
-
-Patterns → skills/.../patterns/
-AP updates → skills/.../aps/
-Drills → skills/.../drills/
-PASS runs → docs/pass_runs/
-Ledger → docs/ledger/
+## What needs done (worklist)
+- Confirm canonical skill domains (folder chapters) used by INDEX_SKILLS.
+- Add/verify skill-family index templates for A/B lane structure + base/overlay module naming.
+- Add a PASS run checklist: “no new folders, no schema drift, no deep links in indexes.”

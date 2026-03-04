@@ -1,9 +1,12 @@
-# INDEX_DRILLS (v2)
+# INDEX_DRILLS
+updated: 2026-03-03
 
-## Art
-- skills/art/hands/drills/DRILLS-ART-HANDS.md
-  - modules: DRL-ART-HANDS-001..007
-  - status: draft
+Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
 
-## NARRATIVE DOMAIN
-- skills/narrative/drills/DRILLS-NARRATIVE-FOUNDATIONS.md
+Rules:
+- No deep links to drills/patterns/AP modules here.
+- Group by obvious headings only when the list is long.
+- Prefer folder entrypoints.
+
+## Entries
+- (empty)

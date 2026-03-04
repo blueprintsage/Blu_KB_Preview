@@ -82,7 +82,7 @@ Dates are local: America/Chicago.
 ### Added
 - docs/archive/legacy_about/
 - docs/archive/legacy_indexes/
-- templates/legacy_unreviewed/
+- templates/
 
 ### Notes
 - Legacy indexes kept for reference only; current indexes remain authoritative.

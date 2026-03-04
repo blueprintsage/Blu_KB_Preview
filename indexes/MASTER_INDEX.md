@@ -1,78 +1,44 @@
-# MASTER INDEX
-Repo: Blu_KB_Preview
-Updated: 2026-03-03
+# MASTER_INDEX
+repo: Blu_KB_Preview
 tz: America/Chicago
+updated: 2026-03-03
 
-Canonical navigation map. Keep it **short, scannable, and stable**.
-Rule: Prefer linking **folders** (stable) over deep files (fragile), except for system “entrypoint” docs/contracts.
+Canonical navigation map (TOC). Keep it short, scannable, and stable.
+Rule: Prefer linking folders (chapters). Index files are “views” into chapters.
 
----
-
-## About
+## Chapters
 - about/
-- docs/about/
-
-## Indexes
-- indexes/
-- indexes/MASTER_INDEX.md
-
-## Documentation
-- docs/
-- docs/systems/
-- docs/process/
-- docs/ledger/   *(if present)*
-
----
-
-## Systems
-
-### Skill Forge
-- systems/skill_forge/
-- systems/skill_forge/aps/
-- systems/skill_forge/aps/art/
-  - systems/skill_forge/aps/art/AP-ART-FIGURE-DRAWING-001.md
-  - systems/skill_forge/aps/art/AP-ART-HANDS-001.md
-  - systems/skill_forge/aps/art/AP-ART-HEADS-001.md
-  - systems/skill_forge/aps/art/AP-ART-WRINKLES-001.md
-
-### PASS
-- docs/systems/PASS.md
-- docs/systems/PASS/
-  - docs/systems/PASS/PASS_GUT_LADDER_WALKTHROUGH_v1_0.md
-  - docs/systems/PASS/PASS_LENS_REGISTRY_v1_0.md
-
-### Operations & Release Discipline
-- ops/
-- reports/
-- tests/
-
----
-
-## Skills
-
-### Art
-- skills/art/
-- skills/art/hogarth/
-- skills/art/hogarth/_hogarth_core/
-
-### Code
-- skills/code/
-
-### Narrative
-- skills/narrative/
-
----
-
-## Teaching
-- teaching/
-
-## Templates
-- templates/
-
-## Contracts
+- assets/
 - contracts/
+- docs/
+- indexes/
+- libraries/
+- ops/
+- protocols/
+- reports/
+- systems/
+- tasks/
+- templates/
+- tests/
+- tools/
 
----
-
-## Legacy
-- archive/legacy/
+## Index views
+- indexes/INDEX_ABOUT.md
+- indexes/INDEX_APS.md
+- indexes/INDEX_AVATARS.md
+- indexes/INDEX_BURNINS.md
+- indexes/INDEX_CONTRACTS.md
+- indexes/INDEX_DOCS.md
+- indexes/INDEX_DRILLS.md
+- indexes/INDEX_HOMESCHOOL.md
+- indexes/INDEX_IDENTITY_LORE.md
+- indexes/INDEX_LIBRARIES.md
+- indexes/INDEX_PATTERNS.md
+- indexes/INDEX_PEL.md
+- indexes/INDEX_PROTOCOLS.md
+- indexes/INDEX_REPORTS.md
+- indexes/INDEX_SCHEMAS.md
+- indexes/INDEX_SKILLS.md
+- indexes/INDEX_SYSTEMS.md
+- indexes/INDEX_TEMPLATES.md
+- indexes/INDEX_TESTS.md

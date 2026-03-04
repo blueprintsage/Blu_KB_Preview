@@ -1,8 +1,12 @@
-# INDEX — Identity Lore
+# INDEX_IDENTITY_LORE
+updated: 2026-03-03
 
-Repo-relative index (no raw links).
+Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
 
-## Files
-- `libraries/Identity_Lore/Identity_Lore_Library.md`
-- `libraries/Identity_Lore/README.md`
+Rules:
+- No deep links to drills/patterns/AP modules here.
+- Group by obvious headings only when the list is long.
+- Prefer folder entrypoints.
 
+## Entries
+- libraries/Identity_Lore

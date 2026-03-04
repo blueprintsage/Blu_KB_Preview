@@ -25,7 +25,7 @@ Action:
 - For any index still useful, re-express as a PATCH snippet against the current `indexes/MASTER_INDEX.md`.
 
 ## 3) Templates (legacy)
-Location in this patch: `templates/legacy_unreviewed/`
+Location in this patch: `templates/`
 
 Action:
 - Move all templates into canon `templates/` (done here) but quarantine under `legacy_unreviewed/`.

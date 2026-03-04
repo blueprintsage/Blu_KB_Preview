@@ -1,11 +1,12 @@
 # INDEX_APS
+updated: 2026-03-03
 
-## ART CORE v1.0
-- AP-ART-FIGURE-DRAWING-001 (Spine)
-- AP-ART-HEADS-001
-- AP-ART-HANDS-001
-- AP-ART-WRINKLES-001
+Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
 
-## NARRATIVE DOMAIN
-- AP-NARRATIVE-SEQUENCES-001 (Spine)
+Rules:
+- No deep links to drills/patterns/AP modules here.
+- Group by obvious headings only when the list is long.
+- Prefer folder entrypoints.
 
+## Entries
+- systems/skill_forge/aps
