@@ -1,6 +1,7 @@
-# PASS GUT-LADDER Contract (Rewrite)
+# PASS GUT-LADDER Contract (Rewrite) — v1.0
 
 updated: 2026-03-04
+tz: America/Chicago
 status: canon (preview)
 version: 1.0
 
@@ -38,7 +39,7 @@ PREFLIGHT performs **ingest validation only**.
 It MUST NOT extract, summarize, sample, infer structure, or recommend next steps.
 
 ### 2.2 Allowed Outputs (ONLY)
-PREFLIGHT may output **only** the following lines, in any order (but no extras):
+PREFLIGHT may output **only** the following lines (no extras):
 
 - `OCR_TYPE: TEXT | OCR | SCAN`
 - `PARSE_QUALITY: low | medium | high`
@@ -58,6 +59,7 @@ If any of these appear, mark **PREFLIGHT FAIL** (and return BLOCKED):
 - “rules/heuristics found”
 - recommendations (“good extraction targets”, “you might want drills next”, etc.)
 - any content extraction, quotes, summaries, or topic analysis
+- any question like “What do you want me to do with this file?” (selection prompting)
 
 ### 2.4 Registry Rule (Hard)
 If `REGISTRY: DUP` → PREFLIGHT must set:
@@ -138,8 +140,8 @@ Test asserts:
 - if extra lines exist → FAIL
 
 ### 5.2 Leak Test (Known Failure Case)
-Feed PREFLIGHT a “TOC/structure summary” style output:
-- expected result: `STATUS: BLOCKED` + 1-line ACTION (PREFLIGHT FAIL)
+Feed PREFLIGHT a “TOC/structure summary” or “what do you want me to do?” style output:
+- expected result: `STATUS: BLOCKED` + 1-line `ACTION` (PREFLIGHT FAIL)
 
 ### 5.3 Registry DUP Gate
 When registry indicates DUP:
@@ -155,12 +157,27 @@ Registry update occurs only when:
 ---
 
 ## 6) Reference Outputs (Normative)
+
+### 6.1 Canonical PREFLIGHT Example (READY)
+```txt
+OCR_TYPE: OCR
+PARSE_QUALITY: medium
+DATED: YES
+STATUS: READY
+REGISTRY: UNKNOWN
+```
+
+### 6.2 Canonical PREFLIGHT Example (BLOCKED)
+```txt
 OCR_TYPE: SCAN
 PARSE_QUALITY: low
 DATED: UNKNOWN
 STATUS: BLOCKED
 ACTION: Enable OCR or provide a text-layer PDF.
 REGISTRY: NEW
+```
 
-### 6.1 Canonical PREFLIGHT Example (READY)
+### 6.3 Canonical GUT-LADDER Counts Line
+```txt
 patterns=12 drills=8 gates=3 variants=4 rejected=19
+```
