@@ -4,8 +4,12 @@ updated: 2026-03-04
 status: interim-canon
 scope: all systems + kernel capsules
 depends_on: contracts/error_handling_contract.md
-If any REQUIRED dependency is missing/expired/unreadable at any stage, invoke ERRMAC and STOP (fail-closed).
+
 ---
+
+## Global Law (Fail-Closed)
+If any REQUIRED dependency is missing/expired/unreadable at any stage, invoke ERRMAC and STOP (fail-closed).
+
 
 ## Macro: ERRMAC (FATAL, FAIL-CLOSED)
 
