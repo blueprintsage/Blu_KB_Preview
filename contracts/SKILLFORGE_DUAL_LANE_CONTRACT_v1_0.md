@@ -1,7 +1,9 @@
 # Skill Forge Dual-Lane Contract
 Version: v1.0
 Date: 2026-03-03
-
+depends_on:
+  - contracts/Error_handling_contract.md
+  - contracts/error_macros.md
 ## Purpose
 Skill Forge subjects must ship in **two lanes**:
 - **Lane B (Blu Runtime)**: machine-first modular source-of-truth for parsing and enforcement.
@@ -10,6 +12,9 @@ Skill Forge subjects must ship in **two lanes**:
 This gives “best of both worlds”: fast internal execution + clean human instruction.
 
 ---
+
+## Global Law (Fail-Closed)
+If any REQUIRED dependency is missing/expired/unreadable at any stage, invoke ERRMAC and STOP (fail-closed).
 
 ## Lane Definitions
 

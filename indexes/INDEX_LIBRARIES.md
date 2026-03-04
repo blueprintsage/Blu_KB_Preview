@@ -10,3 +10,6 @@ Rules:
 
 ## Entries
 - libraries
+- Home School → libraries/home_school
+- Identity Lore → libraries/identity_lore
+- Personal Experience Library → libraries/pel

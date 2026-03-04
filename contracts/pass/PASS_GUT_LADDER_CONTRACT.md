@@ -1,173 +1,379 @@
-# PASS — Lockdown (Nuclear GUT-LADDER Default)
-updated: 2026-03-03
-status: interim-canon
-tz: America/Chicago
+# PASS GUT-LADDER CONTRACT (NUCLEAR)
 
-## Purpose
-PASS converts sources into a structured, dual-lane skill package:
-- Teaching (Lane A): human-facing
-- Skills (Lane B): machine-facing (anti-drift laws + execution support)
-
-PASS must produce an extract-and-drop zip with updated indexes at the end of a run.
+Updated: 2026-03-04  
+Status: Canon (Preview)
+Version: 1.2
+depends_on:
+  - contracts/Error_handling_contract.md
+  - contracts/error_macros.md
 
 ---
 
-## Canon Folder Layout (Interim)
-For every subject:
+## Global Law (Fail-Closed)
+If any REQUIRED dependency is missing/expired/unreadable at any stage, invoke ERRMAC and STOP (fail-closed).
+
+# Purpose
+
+PASS converts knowledge sources (books, PDFs, documents) into structured skills.
+
+Output is organized into two lanes:
+
+Teaching (Lane A) — human instruction  
+Skills (Lane B) — machine execution laws
+
+PASS must always produce **repo-ready artifacts**.
+
+---
+
+# Default Mode
+
+PASS operates in:
+
+PASS:GUT-LADDER (NUCLEAR)
+
+Meaning:
+
+- full document harvest
+- multi-pass extraction
+- aggressive candidate gathering
+- normalization and rejection
+
+PASS does not stop at surface markers.
+
+---
+
+# PASS PREFLIGHT (Required)
+
+Before running PASS:
+
+## OCR Check
+
+Detect PDF type:
+
+TEXT PDF  
+OCR PDF  
+IMAGE SCAN  
+
+If image scan:
+
+STATUS: BLOCKED  
+ACTION: OCR required  
+
+Add entry to:
+
+docs/pass/PASS_OCR_QUEUE.md
+
+---
+
+## Registry Check
+
+Verify book has not already been processed.
+
+File:
+
+docs/pass/PASS_BOOK_REGISTRY.md
+
+If book exists:
+
+STATUS: Already Processed  
+ACTION: Ask before rerunning PASS
+
+---
+
+# PASS EXECUTION
+
+PASS runs in four stages.
+
+---
+
+# PASS 1 — Harvest
+
+Extract candidate knowledge units.
+
+Harvest types:
+
+patterns  
+drills  
+tests  
+gates  
+application protocols  
+principles  
+models  
+procedures  
+
+Extraction rule:
+
+ONE IDEA PER PATTERN
+
+Compound statements must be split.
+
+Harvest aggressively.
+
+---
+
+# PASS 2 — Normalize + Cluster
+
+Candidates are normalized into repo language.
+
+Steps:
+
+- deduplicate patterns
+- cluster similar ideas
+- reject vague statements
+- separate variants
+
+Variants extend base patterns.
+
+Example:
+
+variant_of: FIG-PAT-012  
+variant_style: manga
+
+## Dated-Book Flag (PREFLIGHT + Summary)
+PREFLIGHT must output:
+- DATED: YES|NO|UNKNOWN
+- DATED_REASON: year/edition if detectable
+- MODERNIZE_ELIGIBLE: YES|NO
+
+Heuristic:
+- If publication year is >= 8 years old → DATED: YES
+- If year unknown → DATED: UNKNOWN
+
+## PASS:MODERNIZE (OVERLAY) (Optional)
+After PASS:GUT-LADDER completes, offer:
+- Run PASS:MODERNIZE (OVERLAY) now
+- Or defer and run later by subject
+
+If invoked:
+- Use current authoritative sources (web browsing required).
+- Do not rewrite base artifacts; produce an overlay only.
+- Output overlay under:
+  skills/<domain>/<subject>/overlays/modern_<YYYY-MM-DD>/{Skills,Teaching}/...
+
+Metrics must include:
+- patterns_added (modern)
+- variants_added
+- patterns_rejected (deprecated/unsafe)
+- drills_added/tests_added/aps_added (if any)
+
+---
+
+# PASS 3 — Dual Lane Compilation
+
+Create structured skill.
+
+Repo layout:
 
 skills/<domain>/<subject>/
+
   <SUBJECT>_INDEX.md
 
   Skills/
-    <SUBJECT>_B.md     # Lane B (modules)
+    <SUBJECT>_B.md
 
   Teaching/
-    <SUBJECT>_A.md     # Lane A (modules)
+    <SUBJECT>_A.md
 
-  overlays/ (only if needed)
-    <overlay_id>/
-      Skills/<SUBJECT>_B_<OVERLAY>.md
-      Teaching/<SUBJECT>_A_<OVERLAY>.md
+  overlays/
 
 Rules:
-- Always output BOTH lanes.
-- No inbox/staging/dump folders.
-- Overlays are organized (folder-per-overlay), never dumped.
+
+Both lanes must exist  
+Lane B is the law layer  
+Lane A explains the laws
 
 ---
 
-## Default Mode (Nuclear)
-PASS defaults to:
-- mode: GUT-LADDER
-- intensity: NUCLEAR (full harvest)
-- output: BOTH lanes + zip + index patch
-- reporting: FULL unless user requests COUNTS_ONLY
+# PASS 4 — Validation + Rejection
 
-NUCLEAR means:
-- do not stop at marker counts
-- do not rely on headings alone
-- scan end-to-end, extract everything that can become law/procedure/practice
-- multi-pass allowed/expected when needed
+Final validation pass.
 
----
+Reject candidates that are:
 
-## Multi-Pass Rule (Mandatory)
-PASS may require multiple passes. Label them explicitly.
+vague  
+motivational  
+non-actionable  
+redundant  
 
-### PASS 1 — Harvest
-- Extract all candidates:
-  - Patterns (laws)
-  - Drills (practice actions)
-  - Gates (enforcement wrapper)
-  - Tests (proof checks)
-  - APs (application protocols)
-  - Models/Principles (FULL mode only)
-- Tag candidates with source pointers (page/section) without quoting text.
+Patterns must be enforceable.
 
-### PASS 2 — Normalize + Dedupe
-- Normalize wording into repo-native language.
-- Merge duplicates and near-duplicates.
-- Resolve conflicts:
-  - keep base law in Skills (Lane B)
-  - move style/medium/language differences into overlays
-  - reject destabilizing/inferior techniques
+Pattern schema:
 
-### PASS 3 — Compile Dual Lane
-- Lane B (Skills): laws first, then proof + execution.
-- Lane A (Teaching): explanations + progression + human drills, referencing Lane B IDs.
-
-### PASS 4 — Validate + Reject Test
-- Enforce schema requirements (below).
-- If new content does not add enforceable value, reject it.
+id  
+IF  
+THEN  
+CHECK  
+FAIL  
+REF  
 
 ---
 
-## Artifact Definitions (Interim Canon)
-### Patterns (Laws)
-Primary “IF X THEN Y” rules. Patterns are carried as law.
+# PASS OUTPUT
 
-Pattern constraint: “A pattern must encode a single rule; compound statements must be split; clustering happens before promotion.”
+Each PASS run must generate:
 
-### Gates
-Interim mapping: 1 gate per pattern (wrapper used for enforcement tracking).
-(We keep the term “Gate” for accounting and validation, but “Pattern” remains the law interface.)
-
-### Tests
-Proof checks tied to gates/patterns. Interim mapping: 1 test per gate (minimum viable proof).
-
-### Drills
-Practice loops that build mastery. Each drill targets pattern IDs.
-
-### APs
-Callable procedures used during execution/teaching requests.
+Teaching file  
+Skills file  
+subject index  
+PASS run report  
+index patch  
 
 ---
 
-## Lane B Required Module Groups (Single File)
-Skills/<SUBJECT>_B.md MUST contain modules for:
-- meta
-- patterns (laws)
-- gates (optional group module; items still keyed to pattern ids)
-- tests
-- drills
-- aps
-- ledger
+# PASS ZIP PACKAGE (MANDATORY)
 
-Patterns MUST be explicit:
-- id
-- IF
-- THEN
-- CHECK
-- FAIL
-- NOTES (optional)
-- REF (source pointer; no quotes)
+Every PASS run must end with a **drop-in ZIP package**.
 
-Drills MUST include:
-- id
-- targets [pattern_ids]
-- procedure (or steps)
-- scoring OR pass/fail
-- stop
+The zip must contain only the files created or modified by the PASS run.
 
----
+Example structure:
 
-## Lane A Required Module Groups (Single File)
-Teaching/<SUBJECT>_A.md MUST contain modules for:
-- meta
-- lesson_map
-- core_explanations
-- patterns (human-facing; may reference Lane B IDs)
-- drills (human)
-- aps (usage/how-to)
-- ledger
+skills/
+  <domain>/
+    <subject>/
+      <SUBJECT>_INDEX.md
+      Skills/
+        <SUBJECT>_B.md
+      Teaching/
+        <SUBJECT>_A.md
+
+reports/
+  PASS_RUN_<date>.md
+
+The zip must be **extract-safe at repo root**.
+
+Purpose:
+
+- allows manual repo merges
+- prevents partial updates
+- supports mobile PASS sessions
 
 ---
 
-## Report Modes
-### FULL (default)
-PASS writes/updates artifacts (A + B) and emits zip.
+# PASS METRICS
 
-### COUNTS_ONLY (user request)
-PASS may report only totals for:
-- patterns, drills, gates, tests, aps
-…but still performs the full gut ladder internally if explicitly commanded.
+Every run must report metrics.
 
----
+patterns_new  
+patterns_added  
+variants_added  
+patterns_rejected  
 
-## Output Packaging (Always)
-At end of run produce a zip containing:
-- only the subject folder(s) touched
-- updated index files required (e.g., indexes/INDEX_SKILLS.md)
-- a run report: reports/PASS_RUN_<YYYY-MM-DD>.md listing:
-  - counts added/updated/rejected
-  - files changed
-  - indexes touched
-
-PASS must NOT modify indexes/MASTER_INDEX.md unless a new chapter folder is introduced (rare, explicit).
+drills_added  
+tests_added  
+aps_added  
 
 ---
 
-## “When in doubt, ask”
-If an instruction is unclear or would require invention:
-- ask ONE clarifying question
-- otherwise fail closed (do not guess).
+## Rerun Tracking (Optional but Recommended)
+Maintain: docs/pass/PASS_RERUN_LOG.md
+
+## Rerun Metric (Recommended)
+- novelty_yield = patterns_new / patterns_kept_laneB
+
+Optional:
+- rerun_value = patterns_new + variants_added + (drills_added * 0.25)
+
+
+# Yield Metrics
+
+Evaluate book quality.
+
+patterns_per_page  
+signal_ratio  
+
+Signal ratio formula:
+
+patterns_kept / patterns_extracted
+
+Low ratio indicates low-value source material.
+
+---
+
+# PASS BOOK REGISTRY
+
+Every completed run must update:
+
+docs/pass/PASS_BOOK_REGISTRY.md
+
+Entry fields:
+
+title  
+author  
+date_processed  
+subject  
+pages  
+
+patterns_new  
+patterns_added  
+variants_added  
+patterns_rejected  
+
+drills_added  
+tests_added  
+aps_added  
+
+patterns_per_page  
+signal_ratio  
+
+---
+
+# OCR Queue
+
+Unreadable books are added to:
+
+docs/pass/PASS_OCR_QUEUE.md
+
+Example:
+
+BOOK  
+Writing for Comics & Graphic Novels — Peter David  
+
+PROBLEM  
+Image scan PDF  
+
+ACTION  
+Run OCR in Acrobat
+
+---
+
+# PASS REPORT
+
+Each run must produce:
+
+reports/PASS_RUN_<date>.md
+
+Report includes:
+
+source  
+subject  
+metrics  
+files created  
+indexes patched  
+
+---
+
+# Core PASS Laws
+
+1. One Idea Per Pattern  
+2. Patterns Are Laws  
+3. Variants Extend, Not Replace  
+4. Both Lanes Always Exist  
+5. Reject Weak Patterns  
+6. Always Record Metrics  
+7. Always Update Registry  
+8. Every PASS run produces a ZIP package  
+
+---
+
+# PASS Philosophy
+
+PASS prioritizes signal over volume.
+
+Large extraction counts are acceptable.
+
+Final pattern set must remain:
+
+clear  
+enforceable  
+non-redundant

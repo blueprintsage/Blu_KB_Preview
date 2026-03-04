@@ -13,7 +13,13 @@ source: repo
 domain: engine_patches
 schema: capsule_header_v1.1
 body_schema: blu_modular_v1
+depends_on:
+  - contracts/Error_handling_contract.md
+  - contracts/error_macros.md
 ---
+
+## Global Law (Fail-Closed)
+If any REQUIRED dependency is missing/expired/unreadable at any stage, invoke ERRMAC and STOP (fail-closed).
 
 # School Cap Auto-Patch (Migration Contract)
 

@@ -1,7 +1,7 @@
 # MASTER_INDEX
 repo: Blu_KB_Preview
 tz: America/Chicago
-updated: 2026-03-03
+updated: 2026-03-04
 
 Canonical navigation map (TOC). Keep it short, scannable, and stable.
 Rule: Prefer linking folders (chapters). Index files are “views” into chapters.
