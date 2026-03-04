@@ -1,67 +1,85 @@
-# ERROR MACROS (ERRMAC) — UNIVERSAL
-version: 0.1.0
+# Error Macros — Contract (Kernel-Callable) — v1.0
+
 updated: 2026-03-04
-status: interim-canon
-scope: all systems + kernel capsules
-depends_on: contracts/error_handling_contract.md
+tz: America/Chicago
+status: active (kernel-callable)
+scope: system-wide
+
+**Purpose**
+Provide deterministic, fail-closed, user-visible error output in chat. Macros are **rendered by `PROGRAM.ErrorMacros.v1`**
+and/or Exec fallback. Macros must not leak internal implementation details.
+
+**Format (normative)**
+- Each macro renders as 1–6 lines (keep tight).
+- First line MUST start with `ERROR:` OR `STATUS: BLOCKED` (caller chooses style).
+- Must include exactly **one** `ACTION:` line with a single next step.
 
 ---
 
-## Global Law (Fail-Closed)
-If any REQUIRED dependency is missing/expired/unreadable at any stage, invoke ERRMAC and STOP (fail-closed).
+## Macro: ERR:PROGRAM_REQUIRED
 
+**When**
+A capability meets the PROGRAM-FIRST checklist (stable command surface / system-wide / schema-locked / deterministic artifacts)
+but the command path is not wired to a Program registry mapping.
 
-## Macro: ERRMAC (FATAL, FAIL-CLOSED)
+**Render (normative)**
+```txt
+ERROR: PROGRAM_REQUIRED
+ACTION: Add Program registry mapping + command dispatch for this capability, then rerun.
+```
 
-Use when a required dependency is missing/expired/unreadable or an invariant fails.
-
-Invocation (conceptual):
-ERRMAC(code, system, stage, cause, deps[], artifacts, recovery, next_action)
-
-Required output format (exact):
-
-GURU_MEDITATION: <ERROR_CODE>
-SYSTEM: <SYSTEM_NAME>
-STAGE: <STAGE_NAME>
-CAUSE: <1-line cause>
-DEPENDENCIES:
-- <dep>: <OK|MISSING|EXPIRED|UNREADABLE|INVALID>
-ARTIFACTS: <none|paths>
-RECOVERY: <1-line recovery action>
-NEXT_ACTION: <exact command>
-
-Behavior:
-- stop immediately
-- no “success” artifacts
-- no registry/index mutations
+**Notes**
+- Do not fall back to “helpful” alternate flows.
+- Do not attempt auto-creation. Program creation is Admin-gated and explicit.
 
 ---
 
-## Macro: CHECK_DEPS (GUARD)
+## Macro: ERR:CMD_UNKNOWN
 
-Purpose: validate dependencies before running a stage.
-If any required dep is not OK → call ERRMAC.
+**When**
+User invokes an unrecognized command token.
 
----
-
-## Macro: ASSERT_STATE (INVARIANT)
-
-Purpose: internal sanity check.
-If false → call ERRMAC with GLOBAL or system error code.
-
----
-
-## Macro: WARNMAC (NON-FATAL)
-
-Purpose: record recoverable issues without aborting.
-Format:
-WARNING: <CODE> | <1-line message>
-Continue execution.
+**Render (example)**
+```txt
+ERROR: CMD_UNKNOWN
+ACTION: Use HELP to see valid commands, or run the nearest suggested command.
+```
 
 ---
 
-## Logging Rule (Repo)
+## Macro: ERR:PDF_OPEN_FAILED
 
-If repo write is available:
-- write error log to: reports/errors/<SYSTEM>_ERROR_<YYYY-MM-DD>_<shortid>.md
-- contents = the exact GURU_MEDITATION block (+ optional 3 bullets max)
+**When**
+PDF/file open fails (corrupt file, unsupported type, missing file, etc.).
+
+**Render (example)**
+```txt
+ERROR: PDF_OPEN_FAILED
+ACTION: Re-upload the file or provide a different copy (prefer text-layer PDF).
+```
+
+---
+
+## Macro: ERR:PREFLIGHT_FAIL
+
+**When**
+PASS:PREFLIGHT emits non-schema output (TOC/structure lists, page sampling, recommendations, “what do you want me to do?”, etc.).
+
+**Render (example)**
+```txt
+STATUS: BLOCKED
+ACTION: PREFLIGHT FAIL — non-schema output detected. Rerun PASS:PREFLIGHT.
+```
+
+---
+
+## Macro: ERR:DUP_CONFIRM_REQUIRED
+
+**When**
+Registry indicates a duplicate run. The system must stop and ask for confirmation.
+
+**Render (example)**
+```txt
+STATUS: BLOCKED
+ACTION: Confirm rerun? (Y/N)
+```
