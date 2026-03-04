@@ -47,6 +47,8 @@ Rules:
 - If REGISTRY=DUP:
   - Ask before rerunning PASS (one question max)
 
+PREFLIGHT MUST NOT extract or summarize content. NO TOC, no rules, no heuristics, no prompts. Only ingest/eligibility checks.
+
 If any required dependency is missing/expired/unreadable:
 - invoke ERRMAC and STOP.
 
