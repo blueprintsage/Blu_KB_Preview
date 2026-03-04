@@ -1,101 +1,173 @@
-# PASS:GUT-LADDER CONTRACT v2
+# PASS — Lockdown (Nuclear GUT-LADDER Default)
+updated: 2026-03-03
+status: interim-canon
+tz: America/Chicago
 
 ## Purpose
-PASS:GUT-LADDER ingests a source (e.g., PDF) and emits ladder-bound skill assets:
-- Patterns (LAW gates)
-- AP proposals/updates (functions)
-- Drill lesson proposals/updates (human teaching)
+PASS converts sources into a structured, dual-lane skill package:
+- Teaching (Lane A): human-facing
+- Skills (Lane B): machine-facing (anti-drift laws + execution support)
 
-PASS does NOT select runtime APs. PASS is an extractor/generator only.
+PASS must produce an extract-and-drop zip with updated indexes at the end of a run.
 
-## Core Principles
-- Extract mechanics and constraints. Do not copy text or figures.
-- Prefer maximum pattern harvest (patterns prevent drift).
-- Enforce merge + reject to avoid library bloat.
+---
 
-## Pipeline
-### Stage A — Ingest + Map
-1) Read end-to-end (including figures/tables where relevant to mechanics).
-2) Build internal map:
-   - sections → claims → definitions → requirements → exceptions → failure modes
-3) Identify standards/mechanics language:
-   - must/shall/required/prohibited/permitted/only if/unless/except/subject to
-   - thresholds/tolerances/timelines/roles/evidence
+## Canon Folder Layout (Interim)
+For every subject:
 
-### Stage B — Normalize
-For each extractable unit, produce a candidate with:
-- type: PATTERN | AP | DRILL
-- candidate_id: CAND-<TYPE>-<...>
-- disposition: NEW | UPDATE | VARIANT | REJECT
-- dedupe_key: <stable signature>
-- bind_stage: 0|1|2|3|4 (for PATTERN; AP/DRILL may also tag stage relevance)
-- source_ptr: <page/section pointer; no quotes>
+skills/<domain>/<subject>/
+  <SUBJECT>_INDEX.md
 
-### Stage C — Emit (Repo-safe)
-PASS emits:
-1) PATTERN candidates as IF→THEN gates:
-   - scope, evidence, pass/fail, exceptions, failure signatures
-   - severity: HARD/SOFT
-   - bind_stage
-2) AP candidates:
-   - what the function is
-   - where it plugs into Step Ladder (what to do/check at each step)
-   - module suggestions (variants)
-3) DRILL candidates:
-   - lesson sequences
-   - checkpoints using pattern IDs
-   - remediation hooks
+  Skills/
+    <SUBJECT>_B.md     # Lane B (modules)
 
-## Merge Rules (mandatory)
-Given a candidate and existing corpus:
+  Teaching/
+    <SUBJECT>_A.md     # Lane A (modules)
 
-1) If dedupe_key matches exactly:
-   - UPDATE existing (strengthen clarity, add missing exceptions/evidence)
-2) If intent/outcome matches but constraints differ materially:
-   - VARIANT module inside the best existing artifact
-3) If candidate is weaker or redundant:
-   - REJECT (note: “covered by PAT-…”)
-4) If candidate conflicts with an existing HARD pattern:
-   - escalate to REVIEW (no auto-merge)
+  overlays/ (only if needed)
+    <overlay_id>/
+      Skills/<SUBJECT>_B_<OVERLAY>.md
+      Teaching/<SUBJECT>_A_<OVERLAY>.md
 
-## Reject Rules (mandatory)
-PASS must mark REJECT if:
-- no actionable constraints/mechanics can be extracted, OR
-- content is purely inspirational/biographical with no gates/checks/drills, OR
-- all extractables are already covered with no meaningful improvements.
+Rules:
+- Always output BOTH lanes.
+- No inbox/staging/dump folders.
+- Overlays are organized (folder-per-overlay), never dumped.
 
-## Step Ladder Binding (definition)
-- Step 0: intent/goal/constraints/examples of “good”
-- Step 1: minimal framework (skeleton/primitives)
-- Step 2: structure assembly (block/volumes/components)
-- Step 3: stress test (edge cases, failures, exceptions)
-- Step 4: production finish (acceptance checks, polish, maintenance)
+---
 
-All PATTERN outputs MUST include bind_stage.
+## Default Mode (Nuclear)
+PASS defaults to:
+- mode: GUT-LADDER
+- intensity: NUCLEAR (full harvest)
+- output: BOTH lanes + zip + index patch
+- reporting: FULL unless user requests COUNTS_ONLY
 
-## Outputs (default)
-- output=pack → PAT + AP + DRL candidates
-- output=patterns → PAT candidates only
-- output=aps → AP candidates only
-- output=drills → DRL candidates only
+NUCLEAR means:
+- do not stop at marker counts
+- do not rely on headings alone
+- scan end-to-end, extract everything that can become law/procedure/practice
+- multi-pass allowed/expected when needed
 
-## Audit Trail (recommended)
-For each PASS run, record:
-- source_id
-- run_date
-- counts: produced NEW/UPDATE/VARIANT/REJECT by type
-- top risk gates (highest impact HARD patterns)
+---
 
-# PASS — Default Mode Patch Note (v1.0)
-Date: 2026-03-03
+## Multi-Pass Rule (Mandatory)
+PASS may require multiple passes. Label them explicitly.
 
-Change:
-- PASS default mode is now **PASS:GUT-LADDER**.
-- Default output is **both lanes**:
-  - Lane B (canonical runtime) first
-  - Lane A (compiled teaching pack) second
+### PASS 1 — Harvest
+- Extract all candidates:
+  - Patterns (laws)
+  - Drills (practice actions)
+  - Gates (enforcement wrapper)
+  - Tests (proof checks)
+  - APs (application protocols)
+  - Models/Principles (FULL mode only)
+- Tag candidates with source pointers (page/section) without quoting text.
 
-Enforcement:
-- Convert source concepts into original technical language (no copy/paste).
-- Prefer enforceable gates.
-- Mandatory reject test before accepting a source for extraction.
+### PASS 2 — Normalize + Dedupe
+- Normalize wording into repo-native language.
+- Merge duplicates and near-duplicates.
+- Resolve conflicts:
+  - keep base law in Skills (Lane B)
+  - move style/medium/language differences into overlays
+  - reject destabilizing/inferior techniques
+
+### PASS 3 — Compile Dual Lane
+- Lane B (Skills): laws first, then proof + execution.
+- Lane A (Teaching): explanations + progression + human drills, referencing Lane B IDs.
+
+### PASS 4 — Validate + Reject Test
+- Enforce schema requirements (below).
+- If new content does not add enforceable value, reject it.
+
+---
+
+## Artifact Definitions (Interim Canon)
+### Patterns (Laws)
+Primary “IF X THEN Y” rules. Patterns are carried as law.
+
+Pattern constraint: “A pattern must encode a single rule; compound statements must be split; clustering happens before promotion.”
+
+### Gates
+Interim mapping: 1 gate per pattern (wrapper used for enforcement tracking).
+(We keep the term “Gate” for accounting and validation, but “Pattern” remains the law interface.)
+
+### Tests
+Proof checks tied to gates/patterns. Interim mapping: 1 test per gate (minimum viable proof).
+
+### Drills
+Practice loops that build mastery. Each drill targets pattern IDs.
+
+### APs
+Callable procedures used during execution/teaching requests.
+
+---
+
+## Lane B Required Module Groups (Single File)
+Skills/<SUBJECT>_B.md MUST contain modules for:
+- meta
+- patterns (laws)
+- gates (optional group module; items still keyed to pattern ids)
+- tests
+- drills
+- aps
+- ledger
+
+Patterns MUST be explicit:
+- id
+- IF
+- THEN
+- CHECK
+- FAIL
+- NOTES (optional)
+- REF (source pointer; no quotes)
+
+Drills MUST include:
+- id
+- targets [pattern_ids]
+- procedure (or steps)
+- scoring OR pass/fail
+- stop
+
+---
+
+## Lane A Required Module Groups (Single File)
+Teaching/<SUBJECT>_A.md MUST contain modules for:
+- meta
+- lesson_map
+- core_explanations
+- patterns (human-facing; may reference Lane B IDs)
+- drills (human)
+- aps (usage/how-to)
+- ledger
+
+---
+
+## Report Modes
+### FULL (default)
+PASS writes/updates artifacts (A + B) and emits zip.
+
+### COUNTS_ONLY (user request)
+PASS may report only totals for:
+- patterns, drills, gates, tests, aps
+…but still performs the full gut ladder internally if explicitly commanded.
+
+---
+
+## Output Packaging (Always)
+At end of run produce a zip containing:
+- only the subject folder(s) touched
+- updated index files required (e.g., indexes/INDEX_SKILLS.md)
+- a run report: reports/PASS_RUN_<YYYY-MM-DD>.md listing:
+  - counts added/updated/rejected
+  - files changed
+  - indexes touched
+
+PASS must NOT modify indexes/MASTER_INDEX.md unless a new chapter folder is introduced (rare, explicit).
+
+---
+
+## “When in doubt, ask”
+If an instruction is unclear or would require invention:
+- ask ONE clarifying question
+- otherwise fail closed (do not guess).

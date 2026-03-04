@@ -8,5 +8,8 @@ Rules:
 - Group by obvious headings only when the list is long.
 - Prefer folder entrypoints.
 
+## Programming
+- Software Craft → skills/programming/software_craft/SOFTWARE_CRAFT_INDEX.md
+
 ## Entries
 - (empty)
