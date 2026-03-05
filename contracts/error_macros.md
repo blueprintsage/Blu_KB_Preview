@@ -83,3 +83,17 @@ Registry indicates a duplicate run. The system must stop and ask for confirmatio
 STATUS: BLOCKED
 ACTION: Confirm rerun? (Y/N)
 ```
+
+## Macro: ERR:GUTLADDER_OUTPUT_LEAK
+
+```txt
+ERROR: GUTLADDER_OUTPUT_LEAK
+ACTION: GUT-LADDER must be artifact-only (3-line output). Suppress inline PASS logs and rerun PASS:GUT-LADDER.
+```
+
+## Macro: ERR:ZIP_MISSING
+
+```txt
+ERROR: ZIP_MISSING
+ACTION: Ensure DROP-IN ZIP is created before printing results or updating registry, then rerun.
+```
