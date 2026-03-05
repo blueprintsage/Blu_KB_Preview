@@ -203,3 +203,16 @@ signal_ratio: 0.27
 Quality: High  
 Comments: Strong ML engineering workflow patterns. Good procedural AP extraction.
 
+## BOOK
+
+Title: C# Programming Yellow Book (7th Edition)
+Author: Rob Miles
+Year: 2015
+Source: PDF
+Subject Path: skills/programming/csharp
+Adapter: GUT-LADDER
+Mode: NUCLEAR
+
+Notes:
+Beginner-to-intermediate C# fundamentals with practical examples.
+
