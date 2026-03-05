@@ -90,7 +90,7 @@ GUT-LADDER must execute PASS 1–4 **per ladder** and produce the required outpu
 GUT-LADDER must always emit:
 
 1) **Counts line (tight, exact keys):**
-- `patterns=<n> drills=<n> APs=<n> variants=<n> rejected=<n>`
+- `patterns=<n> drills=<n> gates=<n> variants=<n> rejected=<n>`
 
 2) **DROP-IN ZIP**
 - Always produce a DROP-IN ZIP that is **extract-safe at repo root**.
@@ -181,6 +181,3 @@ REGISTRY: NEW
 ```txt
 patterns=12 drills=8 gates=3 variants=4 rejected=19
 ```
-
-
-Dual-lane packing is unconditional for all PASS runs (all skills under SkillForge).

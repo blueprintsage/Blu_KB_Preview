@@ -14,3 +14,5 @@ Rules:
 - Error Handling Contract → contracts/Error_handling_contract.md
 - Error Macros → contracts/error_macros.md
 - SkillForge Dual Lane Contract → contracts/SKILLFORGE_DUAL_LANE_CONTRACT_v1_0.md
+
+- contracts/UNIFORMITY_STANDARD_v1_0.md

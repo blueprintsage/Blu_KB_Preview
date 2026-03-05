@@ -1,6 +1,30 @@
+# Error Macros (Quick Reference) — v1.1.0
+
+CAPSULE HEADER v1.1 (NO-YAML)
+capsule_id: blu__error_macros_quickref
+title: Error Macros (Quick Reference)
+date: 2026-03-05
+updated: 2026-03-05
+version: 1.2.0
+status: active
+topic: ops
+type: spec
+tags: [error-macros, quickref]
+sensitivity: high
+visibility: shared
+source: doc
+domain: ops
+schema: capsule_header_block_v1.1
+body_schema: blu_modular_v1
+END CAPSULE HEADER
+
+module: blu__errmacros.Q01 | name="Quick reference"
+See: `contracts/ERROR_MACROS_PROGRAM_CATALOG_v1_0.md` (normative).
+/module
+
 # Error Macros — Contract (Kernel-Callable) — v1.0
 
-updated: 2026-03-04
+updated: 2026-03-05
 tz: America/Chicago
 status: active (kernel-callable)
 scope: system-wide
@@ -84,16 +108,18 @@ STATUS: BLOCKED
 ACTION: Confirm rerun? (Y/N)
 ```
 
-## Macro: ERR:GUTLADDER_OUTPUT_LEAK
 
-```txt
-ERROR: GUTLADDER_OUTPUT_LEAK
-ACTION: GUT-LADDER must be artifact-only (3-line output). Suppress inline PASS logs and rerun PASS:GUT-LADDER.
-```
-
-## Macro: ERR:ZIP_MISSING
-
-```txt
-ERROR: ZIP_MISSING
-ACTION: Ensure DROP-IN ZIP is created before printing results or updating registry, then rerun.
-```
+module: blu__errmacros.Q02 | name="Macro IDs"
+PROGRAM_REQUIRED
+CMD_UNKNOWN
+PDF_OPEN_FAILED
+PDF_EXPIRED
+PREFLIGHT_FAIL
+GUTLADDER_OUTPUT_LEAK
+ZIP_MISSING
+PACK_DUAL_LANE_FAILED
+SKILLFORGE_SCHEMA_VIOLATION
+HEADER_VERSION_STALE
+ZIP_NAME_NONUNIFORM
+KERNEL_ZIP_VERSION_MISSING
+/module
