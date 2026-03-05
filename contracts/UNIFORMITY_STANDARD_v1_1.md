@@ -5,7 +5,7 @@ capsule_id: blu__uniformity_standard
 title: Uniformity Standard (Repo + Kernel)
 date: 2026-03-05
 updated: 2026-03-05
-version: 1.2.0
+version: 1.2.1
 status: active
 topic: blu
 type: spec
@@ -207,4 +207,9 @@ module: blu__uniformity.M08 | name="System-Wide Enforcement (HARD)"
 - Exec must enforce `ERR:GUTLADDER_OUTPUT_LEAK` if PASS prints inline logs/mechanics.
 - Before ZIP + registry update, run `SKILLFORGE:VALIDATE_UNIFORM_SCHEMA`.
   On failure: emit `ERR:SKILLFORGE_SCHEMA_VIOLATION`, do not zip, do not update registry.
+/module
+
+
+module: blu__uniformity.M10 | name="PASS mechanics normalization (HARD)"
+- PASS must normalize raw findings into uniform mechanics via `PROGRAM.Pass.Normalizer.v1` before packing.
 /module

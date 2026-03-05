@@ -5,7 +5,7 @@ capsule_id: blu__error_macros_catalog
 title: Error Macros — Program Catalog (System-Wide)
 date: 2026-03-05
 updated: 2026-03-05
-version: 1.1.0
+version: 1.2.0
 status: active
 topic: ops
 type: spec
@@ -138,5 +138,13 @@ ACTION: Kernel ZIP must include package version (<YYYY-MM-DD>_<HHMM>_Name_versio
 ```txt
 ERROR: ZIP_NAME_NONUNIFORM
 ACTION: Name the ZIP <YYYY-MM-DD>_<HHMM>_<Name>(_<version>).zip per Uniformity Standard, then rerun.
+```
+/module
+
+module: blu__errmacros.M06 | name="Additional macros"
+QUOTE_DUMP_DETECTED
+```txt
+ERROR: QUOTE_DUMP_DETECTED
+ACTION: Normalize to mechanics (IF/THEN/BECAUSE/CHECK). Reject quote/OCR dumps, then rerun.
 ```
 /module
