@@ -1,15 +1,11 @@
 # INDEX_LIBRARIES
-updated: 2026-03-03
+updated: 2026-03-06
 
-Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
-
-Rules:
-- No deep links to drills/patterns/AP modules here.
-- Group by obvious headings only when the list is long.
-- Prefer folder entrypoints.
+Purpose:
+Index view. Keep it scannable.
 
 ## Entries
-- libraries
-- Home School → libraries/home_school
-- Identity Lore → libraries/identity_lore
-- Personal Experience Library → libraries/pel
+- libraries/
+- libraries/homeschool/
+- libraries/Identity_Lore/
+- libraries/pel/

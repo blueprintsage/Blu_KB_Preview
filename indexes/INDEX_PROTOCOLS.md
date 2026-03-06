@@ -1,12 +1,17 @@
 # INDEX_PROTOCOLS
-updated: 2026-03-03
+updated: 2026-03-06
 
-Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
-
-Rules:
-- No deep links to drills/patterns/AP modules here.
-- Group by obvious headings only when the list is long.
-- Prefer folder entrypoints.
+Purpose:
+Index view. Keep it scannable.
 
 ## Entries
-- protocols
+- protocols/
+- protocols/AI2AI/
+- protocols/exec/
+- protocols/parent/
+- protocols/programs/
+- protocols/RELEASE_PROTOCOL.md
+- protocols/SCOPE_LOCK_ENFORCEMENT.md
+- protocols/SIM_REPORT_TEMPLATE.md
+- protocols/SIM_TAGS_CANONICAL.md
+- protocols/SMOKE_TESTS_CANONICAL.md

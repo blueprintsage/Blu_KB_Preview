@@ -1,18 +1,17 @@
 # INDEX_CONTRACTS
-updated: 2026-03-04
+updated: 2026-03-06
 
-Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
-
-Rules:
-- No deep links to drills/patterns/AP modules here.
-- Group by obvious headings only when the list is long.
-- Prefer folder entrypoints.
+Purpose:
+Index view. Keep it scannable.
 
 ## Entries
 - contracts/
-- PASS Contract → contracts/pass/pass_gut_ladder_contract.md
-- Error Handling Contract → contracts/Error_handling_contract.md
-- Error Macros → contracts/error_macros.md
-- SkillForge Dual Lane Contract → contracts/SKILLFORGE_DUAL_LANE_CONTRACT.md
-
-- contracts/UNIFORMITY_STANDARD.md
+- contracts/engine_patches/
+- contracts/pass/
+- contracts/pass/PASS_GUT_LADDER_CONTRACT.md
+- contracts/ERROR_MACROS_PROGRAM_CATALOG.md
+- contracts/Error_handling_contract.md
+- contracts/GURU_HEADER_LINT.md
+- contracts/GURU_PACKAGE_LINT.md
+- contracts/PROGRAM_PASS_NORMALIZER.md
+- contracts/PROGRAM_SKILLFORGE_VALIDATOR.md

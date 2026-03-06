@@ -1,12 +1,19 @@
 # INDEX_TEMPLATES
-updated: 2026-03-03
+updated: 2026-03-06
 
-Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
-
-Rules:
-- No deep links to drills/patterns/AP modules here.
-- Group by obvious headings only when the list is long.
-- Prefer folder entrypoints.
+Purpose:
+Index view. Keep it scannable.
 
 ## Entries
-- templates
+- templates/
+- templates/PASS/pass/
+- templates/_meta/
+- templates/art/comics/boards/
+- templates/cold_store/
+- templates/kernels/
+- templates/memory/
+- templates/parent/
+- templates/pel/
+- templates/school/
+- templates/tools/
+- templates/wizards/

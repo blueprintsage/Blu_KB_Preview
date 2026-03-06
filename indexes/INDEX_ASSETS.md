@@ -1,12 +1,8 @@
 # INDEX_ASSETS
-updated: 2026-03-03
+updated: 2026-03-06
 
-Purpose: Index view. List entrypoints only (folders or *_INDEX.md files). Keep it scannable.
-
-Rules:
-- No deep links to drills/patterns/AP modules here.
-- Group by obvious headings only when the list is long.
-- Prefer folder entrypoints.
+Purpose:
+Index view. List entrypoints only. Keep it scannable.
 
 ## Entries
-- assets
+- assets/
