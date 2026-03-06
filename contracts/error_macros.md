@@ -19,7 +19,7 @@ body_schema: blu_modular_v1
 END CAPSULE HEADER
 
 module: blu__errmacros.Q01 | name="Quick reference"
-See: `contracts/ERROR_MACROS_PROGRAM_CATALOG_v1_0.md` (normative).
+See: `contracts/ERROR_MACROS_PROGRAM_CATALOG.md` (normative).
 /module
 
 # Error Macros — Contract (Kernel-Callable) — v1.0
@@ -125,7 +125,7 @@ KERNEL_ZIP_VERSION_MISSING
 /module
 
 # ERROR_MACROS_PROGRAM_CATALOG — PATCH — v1.2.1
-# Add these four macros to ERROR_MACROS_PROGRAM_CATALOG_v1_0.md
+# Add these four macros to ERROR_MACROS_PROGRAM_CATALOG.md
 # Insert after macro 12 (ZIP_NAME_NONUNIFORM), before the closing module tag.
 # Also add IDs to the Q02 module in error_macros.md quickref.
 

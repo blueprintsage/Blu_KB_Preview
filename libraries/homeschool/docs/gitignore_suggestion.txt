@@ -1,5 +1,0 @@
-# Keep family/private data out of git
-family_private/
-*_Log_Current.md
-School_Log_*.md
-**/*_PRIVATE*.md

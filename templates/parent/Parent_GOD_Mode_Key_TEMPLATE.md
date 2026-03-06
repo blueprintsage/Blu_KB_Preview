@@ -46,7 +46,7 @@ parent.gate.key_policy:            # persistent|single_use (wizard fills; hosted
 - ttl (recommended): `PARENT:UNLOCK` grants a timed window (default 15 minutes). TTL is evaluated when a protected command is run.
 - session: `PARENT:UNLOCK` remains valid until `PARENT:LOCK`.
 - Deprecated: one-shot “spent” key behavior is not recommended for hosted chat.
-- Reference: `protocols/parent/Parent_Gate_TTL_v1.md`
+- Reference: `protocols/parent/Parent_Gate_TTL.md`
 
 # Store only a hash (recommended). Do NOT store the plain passphrase here.
 # Format: sha256:<HEX>
