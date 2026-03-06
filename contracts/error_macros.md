@@ -123,3 +123,45 @@ HEADER_VERSION_STALE
 ZIP_NAME_NONUNIFORM
 KERNEL_ZIP_VERSION_MISSING
 /module
+
+# ERROR_MACROS_PROGRAM_CATALOG — PATCH — v1.2.1
+# Add these four macros to ERROR_MACROS_PROGRAM_CATALOG_v1_0.md
+# Insert after macro 12 (ZIP_NAME_NONUNIFORM), before the closing module tag.
+# Also add IDs to the Q02 module in error_macros.md quickref.
+
+updated: 2026-03-05
+reason: Four macros referenced in PASS pipeline and Program System had no catalog entries.
+
+---
+
+13) ADAPTER_UNKNOWN
+```txt
+STATUS: BLOCKED
+ACTION: ADAPTER_UNKNOWN — rerun with adapter=PDF|NOVEL|COMICZIP|IMAGES|VIDZIP
+```
+
+14) SOURCE_EXPIRED
+```txt
+STATUS: BLOCKED
+ACTION: SOURCE_EXPIRED — re-upload the source file and rerun PASS:PREFLIGHT.
+```
+
+15) LENS_RESOLUTION_FAILED
+```txt
+ERROR: LENS_RESOLUTION_FAILED
+ACTION: Provide subject= override or verify source title/type is recognizable, then rerun PASS:GUT-LADDER.
+```
+
+16) ZIP_ASSEMBLY_FAILED
+```txt
+ERROR: ZIP_ASSEMBLY_FAILED
+ACTION: Check state_delta from PackDualLane for missing content; fix and rerun PASS:GUT-LADDER.
+```
+
+---
+# Q02 module additions (error_macros.md quickref):
+# Add these four IDs to the existing macro ID list:
+# ADAPTER_UNKNOWN
+# SOURCE_EXPIRED
+# LENS_RESOLUTION_FAILED
+# ZIP_ASSEMBLY_FAILED
