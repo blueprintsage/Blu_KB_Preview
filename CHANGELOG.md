@@ -243,6 +243,9 @@ Dates are local: America/Chicago.
 
 ### Affected
 - `03_Exec.md`
-- `05_Commands.md` <if touched / supporting>
-- `06_Program_System.md` <if touched / supporting>
 - `docs/system/exec_3_0_roadmap.md`
+
+### Referenced
+- `05_Commands.md`
+- `06_Program_System.md`
+
