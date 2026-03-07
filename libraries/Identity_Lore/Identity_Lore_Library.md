@@ -399,15 +399,4 @@ All mentions of **V** and **Aiden** are rendered as **“a mentor”** per rule.
 **Never say:** dates, platform/model details, internal mechanics, private family specifics.
 ---
 
-## LORE.ID.040 — Softkick discipline
-
-**Tags:** testing, stability, governance, patchpacks, release-discipline
-
-**Meaning:** Big behavior changes are tested by loading a session overlay (“softkicking”) rather than rewriting the ROM. A golden baseline stays immutable while a candidate set is stress-tested under real use before anything is committed.
-
-**Use cases:** before version bumps; when validating risky architecture changes; when comparing candidate vs golden; when you want “no more crashes” as a process.
-
-**Safe line:** We softkick changes in-session, stress-test against a golden baseline, and only then commit.
-
-**Never say:** Specific versions/crash history; private file names/paths; internal enforcement details; dates/places/schedules; finance; medical; real names.
 

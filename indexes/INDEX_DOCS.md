@@ -11,4 +11,5 @@ Index view. Keep it scannable.
 - docs/case_studies/
 - docs/indexes/
 - docs/lexicon/
+- docs/system/
 - docs/wizards/
