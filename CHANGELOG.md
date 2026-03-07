@@ -208,3 +208,44 @@ Dates are local: America/Chicago.
 - `07_Engine.md`
 - `02_Operations_Law.md`
 - changelog / repo governance flow
+
+## 2026-03-07 — Exec 3.0 Phase 1 Closeout: Exec Truth Lock
+
+### Summary
+Phase 1 of the v0.9.0 roadmap is now closed out.
+Exec Truth Lock is considered complete.
+
+### Purpose
+Lock the core kernel truth boundary so Exec only represents work as successful after valid ownership, valid reply, and successful applicable state commit.
+
+### Files
+- `03_Exec.md`
+- `05_Commands.md` <if touched / supporting>
+- `06_Program_System.md` <if touched / supporting>
+- `docs/system/exec_3_0_roadmap.md`
+
+### Locked behaviors
+- Exec is the canonical inbound dispatcher and single public output lane.
+- Every executable route must resolve to one authoritative owner.
+- Ambiguous ownership fails closed.
+- Exec does not own workflow logic or Program business logic.
+- No success output may print before required state validation and applicable commit complete successfully.
+- Programs may propose output; Programs may not print directly.
+- Missing or malformed route, owner, entrypoint, reply schema, dependency, source, or commit integrity fails closed.
+
+### Verification performed
+Phase 1 narrow closeout verification run completed for:
+- one-owner dispatch law
+- ambiguous ownership fail-closed behavior
+- commit-before-confirmation law
+- no workflow ownership by Exec
+- output-lane discipline through Exec only
+
+### Result
+Phase 1 marked complete.
+Next active phase: **Phase 2 — Verification + Wiring Lock**
+
+### Remaining work
+- expand verification to live route families
+- audit Commands ↔ Program_System ↔ Exec wiring
+- archive pass/fail logs for real-path testing

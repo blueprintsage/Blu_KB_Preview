@@ -16,5 +16,8 @@ Index view. Keep it scannable.
 - templates/pel/
 - templates/school/
 - templates/systems/
+- templates/systems/CHANGELOG_ENTRY_TEMPLATE.md
+- templates/systems/KERNEL_CAPSULE_MODULE_TEMPLATE.md
+- templates/systems/PROGRAM_SYSTEM_MODULE_TEMPLATE.md
 - templates/tools/
 - templates/wizards/
