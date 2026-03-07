@@ -211,41 +211,38 @@ Dates are local: America/Chicago.
 
 ## 2026-03-07 — Exec 3.0 Phase 1 Closeout: Exec Truth Lock
 
-### Summary
-Phase 1 of the v0.9.0 roadmap is now closed out.
-Exec Truth Lock is considered complete.
+### Changed
+- Closed out **Phase 1 — Exec Truth Lock** under the v0.9.0 gated roadmap.
+- Confirmed Exec as the canonical inbound dispatcher and single public output lane.
+- Locked one-owner dispatch law for executable routes.
+- Locked fail-closed behavior for ambiguous ownership and malformed execution paths.
+- Locked commit-before-confirmation behavior for success output.
+- Confirmed that Programs may propose output, but may not print directly.
+- Confirmed that Exec does not own workflow logic or Program business logic.
+- Established **Phase 2 — Verification + Wiring Lock** as the next active phase.
 
-### Purpose
-Lock the core kernel truth boundary so Exec only represents work as successful after valid ownership, valid reply, and successful applicable state commit.
+### Why
+- To formally close the foundational kernel truth boundary work already landed in spec.
+- To ensure Exec only represents work as successful after valid ownership, valid reply, and successful applicable state commit.
+- To align roadmap progress with actual kernel state and prevent phase drift.
 
-### Files
+### Impact
+- Exec Truth Lock is now considered complete for v0.9.0 Phase 1.
+- The kernel authority model is formally locked for:
+  - canonical inbound dispatch
+  - single public output authority
+  - one-owner route resolution
+  - fail-closed ambiguity handling
+  - commit-before-confirmation discipline
+  - no workflow ownership by Exec
+- Advancement now moves to **Phase 2 — Verification + Wiring Lock**
+- Remaining work includes:
+  - expanding verification to live route families
+  - auditing Commands ↔ Program_System ↔ Exec wiring
+  - archiving pass/fail logs for real-path testing
+
+### Affected
 - `03_Exec.md`
 - `05_Commands.md` <if touched / supporting>
 - `06_Program_System.md` <if touched / supporting>
 - `docs/system/exec_3_0_roadmap.md`
-
-### Locked behaviors
-- Exec is the canonical inbound dispatcher and single public output lane.
-- Every executable route must resolve to one authoritative owner.
-- Ambiguous ownership fails closed.
-- Exec does not own workflow logic or Program business logic.
-- No success output may print before required state validation and applicable commit complete successfully.
-- Programs may propose output; Programs may not print directly.
-- Missing or malformed route, owner, entrypoint, reply schema, dependency, source, or commit integrity fails closed.
-
-### Verification performed
-Phase 1 narrow closeout verification run completed for:
-- one-owner dispatch law
-- ambiguous ownership fail-closed behavior
-- commit-before-confirmation law
-- no workflow ownership by Exec
-- output-lane discipline through Exec only
-
-### Result
-Phase 1 marked complete.
-Next active phase: **Phase 2 — Verification + Wiring Lock**
-
-### Remaining work
-- expand verification to live route families
-- audit Commands ↔ Program_System ↔ Exec wiring
-- archive pass/fail logs for real-path testing

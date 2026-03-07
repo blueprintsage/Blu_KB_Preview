@@ -1,9 +1,56 @@
 # INDEX_HOMESCHOOL
-updated: 2026-03-06
+updated: 2026-03-07
 
 Purpose:
-Index view. Keep it scannable.
+Index view. Keep it scannable. Include direct file links for active execution.
 
 ## Entries
 - libraries/homeschool/
+- libraries/homeschool/index.md
+- libraries/homeschool/ep_levels/
+- libraries/homeschool/ep_levels/level_0.md
+- libraries/homeschool/ep_levels/level_1.md
+- libraries/homeschool/ep_levels/level_2.md
+- libraries/homeschool/ep_levels/level_3.md
+- libraries/homeschool/ep_levels/level_4.md
+- libraries/homeschool/ep_levels/level_5.md
+- libraries/homeschool/ep_levels/level_6.md
+- libraries/homeschool/ep_levels/level_7.md
+- libraries/homeschool/ep_levels/level_8.md
+- libraries/homeschool/high_school/
+- libraries/homeschool/high_school/electives.md
+- libraries/homeschool/high_school/english.md
+- libraries/homeschool/high_school/grade_10.md
+- libraries/homeschool/high_school/grade_11.md
+- libraries/homeschool/high_school/grade_12.md
+- libraries/homeschool/high_school/grade_9.md
+- libraries/homeschool/high_school/history.md
+- libraries/homeschool/high_school/index.md
+- libraries/homeschool/high_school/languages.md
+- libraries/homeschool/high_school/math.md
+- libraries/homeschool/high_school/science.md
+- libraries/homeschool/subjects/
+- libraries/homeschool/subjects/art.md
+- libraries/homeschool/subjects/bible.md
+- libraries/homeschool/subjects/computer.md
+- libraries/homeschool/subjects/history.md
+- libraries/homeschool/subjects/language_arts.md
+- libraries/homeschool/subjects/logic_thinking.md
+- libraries/homeschool/subjects/logical_thinking.md
+- libraries/homeschool/subjects/math.md
+- libraries/homeschool/subjects/music.md
+- libraries/homeschool/subjects/pe_health.md
+- libraries/homeschool/subjects/reading.md
+- libraries/homeschool/subjects/science.md
+- libraries/homeschool/subjects/spanish.md
 - templates/school/
+- templates/school/docs/
+- templates/school/docs/What_SCHOOL_Mode_Does.md
+- templates/school/docs/core/
+- templates/school/docs/writing/
+- templates/school/docs/writing/9-12/
+- templates/school/docs/writing/9-12/BluSchool_Writing_Doctrine_9-12.md
+- templates/school/templates/
+- templates/school/templates/School_Overlay_TEMPLATE.md
+- templates/school/templates/Student_Cap_TEMPLATE.md
+- templates/school/templates/Student_Log_Current_TEMPLATE.md

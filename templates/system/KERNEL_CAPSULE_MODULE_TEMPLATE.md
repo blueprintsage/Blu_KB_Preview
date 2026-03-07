@@ -12,8 +12,6 @@ sensitivity: <low|med|high|critical>
 visibility: <shared|private>
 source: doc
 domain: <core|ops|teach|security>
-schema: capsule_header_v1.1
-body_schema: blu_modular_v1
 ---
 
 # <capsule title>

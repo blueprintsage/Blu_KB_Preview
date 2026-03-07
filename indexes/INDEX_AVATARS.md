@@ -1,8 +1,8 @@
 # INDEX_AVATARS
-updated: 2026-03-06
+updated: 2026-03-07
 
 Purpose:
-Index view. List entrypoints only. Keep it scannable.
+Index view. Keep it scannable. Include direct folder and file entrypoints for avatar work.
 
 ## Entries
 - about/avatars/

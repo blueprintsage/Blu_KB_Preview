@@ -1,23 +1,49 @@
 # INDEX_TEMPLATES
-updated: 2026-03-06
+updated: 2026-03-07
 
 Purpose:
-Index view. Keep it scannable.
+Index view. Keep it scannable. Include direct file links for active execution.
 
 ## Entries
 - templates/
-- templates/PASS/pass/
-- templates/_meta/
+- templates/art/
+- templates/art/comics/
 - templates/art/comics/boards/
 - templates/cold_store/
+- templates/cold_store/COLD_STORE_KNOWLEDGE_TEMPLATE.md
 - templates/kernels/
+- templates/kernels/Kernel_Capsule_Template.md
 - templates/memory/
+- templates/memory/Memory_Vault_Template.md
 - templates/parent/
+- templates/parent/Parent_GOD_Mode_Key_TEMPLATE.md
+- templates/PASS/
+- templates/PASS/pass/
+- templates/PASS/pass/INGEST_MANIFEST_TEMPLATE.md
 - templates/pel/
+- templates/pel/TEMPLATE_PEL_LIBRARY_ENTRY.md
+- templates/pel/TEMPLATE_PEL_OPS_ENTRY.md
 - templates/school/
-- templates/systems/
-- templates/systems/CHANGELOG_ENTRY_TEMPLATE.md
-- templates/systems/KERNEL_CAPSULE_MODULE_TEMPLATE.md
-- templates/systems/PROGRAM_SYSTEM_MODULE_TEMPLATE.md
+- templates/school/docs/
+- templates/school/docs/What_SCHOOL_Mode_Does.md
+- templates/school/docs/core/
+- templates/school/docs/writing/
+- templates/school/docs/writing/9-12/BluSchool_Writing_Doctrine_9-12.md
+- templates/school/templates/
+- templates/school/templates/School_Overlay_TEMPLATE.md
+- templates/school/templates/Student_Cap_TEMPLATE.md
+- templates/school/templates/Student_Log_Current_TEMPLATE.md
+- templates/system/
+- templates/system/CHANGELOG_ENTRY_TEMPLATE.md
+- templates/system/KERNEL_CAPSULE_MODULE_TEMPLATE.md
+- templates/system/PROGRAM_SYSTEM_MODULE_TEMPLATE.md
 - templates/tools/
+- templates/tools/FFmpeg_Frame_Export_Setup_Template.md
 - templates/wizards/
+- templates/wizards/PARENT_KEY_WIZARD.md
+- templates/wizards/SCHOOL_SETUP_WIZARD.md
+- templates/wizards/USERPREFS_HELP.md
+- templates/wizards/USERPREFS_WIZARD.md
+- templates/_meta/
+- templates/_meta/module_format_standard.md
+- templates/_meta/repo_fetch_rules.md
