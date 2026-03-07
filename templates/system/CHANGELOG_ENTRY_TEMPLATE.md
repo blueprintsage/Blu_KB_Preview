@@ -1,0 +1,13 @@
+## [YYYY-MM-DD] <change title>
+
+### Changed
+- ...
+
+### Why
+- ...
+
+### Impact
+- ...
+
+### Affected
+- ...

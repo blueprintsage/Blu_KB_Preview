@@ -15,5 +15,6 @@ Index view. Keep it scannable.
 - templates/parent/
 - templates/pel/
 - templates/school/
+- templates/systems/
 - templates/tools/
 - templates/wizards/
