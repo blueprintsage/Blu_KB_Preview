@@ -249,3 +249,260 @@ Dates are local: America/Chicago.
 - `05_Commands.md`
 - `06_Program_System.md`
 
+## 2026-03-07 — Exec 3.0 Phase 2 Closeout: Verification + Wiring Lock
+
+### Changed
+- Closed out **Phase 2 — Verification + Wiring Lock** under the v0.9.0 roadmap.
+- Verified and aligned the live public-surface model across Exec, Commands, and Program_System.
+- Locked the two-lane public surface model:
+  - full live public surface in `05_Commands.md`
+  - Program-owned public route subset in `06_Program_System.md`
+- Updated Exec route-resolution law so Program-owned routes and Exec-native public controls resolve from their proper authoritative sources.
+- Synced public mood contract across kernel docs, including optional `mood_state` and `Neutral ⬜`.
+- Cleaned Program_System public route inventory to remove dead residue and limit public routes to live Program-owned surfaces.
+- Normalized School public-surface presentation so `/school ...` is canonical and legacy forms are compatibility aliases only.
+
+### Why
+- To prove the current kernel on real paths instead of relying on implied architecture.
+- To eliminate contradictions between route ownership, public-surface presentation, and runtime resolution law.
+- To ensure Commands, Program_System, and Exec agree on what is public, what is Program-owned, and what Exec may resolve directly.
+
+### Impact
+- Phase 2 verification and wiring work is now considered complete.
+- The kernel now has an explicit two-lane public surface model:
+  - **Commands** = canonical index of the full live public surface
+  - **Program_System** = canonical map of live Program-owned public routes only
+  - **Exec** = runtime resolver across both lanes
+- Live public routing, ownership, ABI, mood rendering, and fail-closed behavior are aligned across the active kernel docs.
+- Dead public-surface residue no longer appears as active wiring.
+- Next active phase is **Phase 3 — Intuition Introduction**.
+
+### Affected
+- `03_Exec.md`
+- `05_Commands.md`
+- `06_Program_System.md`
+- `Exec 3.0 — Phase 2 Verification + Wiring Lock.md`
+
+## 2026-03-07 — Exec 3.0 Phase 3 Closeout: Intuition Introduction
+
+### Changed
+- Closed out **Phase 3 — Intuition Introduction** under the v0.9.0 roadmap.
+- Introduced **Intuition** as a dedicated surface/event layer in `04_Exec_Library.md`.
+- Defined Intuition as the canonical home for:
+  - requester semantics
+  - prompt / interaction surface behavior
+  - focus / active-context helpers
+  - interrupt presentation rules
+  - surface-event mediation
+- Added an explicit boundary map defining:
+  - what Intuition owns
+  - what Exec keeps
+  - what Programs keep
+- Added Exec-side interaction boundary law so interaction shaping cannot override routing, validation, commit gating, or success truth.
+- Added Program-side non-ownership boundary so Intuition cannot be mistaken for a Program owner or workflow authority.
+- Normalized `04_Exec_Library.md` module numbering and headers for cleaner patching and internal consistency.
+
+### Why
+- To give user-facing interaction and event-surface behavior a proper architectural home.
+- To stop prompt/requester/focus/interrupt behavior from leaking into Exec kernel law or Program workflow ownership.
+- To prepare a clean future home for reminder surfaces and interaction mediation without reactivating dead reminder behavior.
+
+### Impact
+- Phase 3 is now considered complete.
+- The architecture now has an explicit three-way split:
+  - **Exec** = runtime truth boundary
+  - **Intuition** = interaction/event surface layer
+  - **Programs** = workflow ownership
+- Interaction shaping is now bounded and cannot be treated as proof of execution success.
+- Reminder-style surface behavior now has a future architectural home without forcing reminder logic back into Exec.
+- Next active phase is **Phase 4 — Service Model Lock**.
+
+### Affected
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `06_Programs.md`
+- `Exec 3.0 — Phase 3 Intuition Introduction.md`
+
+## 2026-03-07 — Exec 3.0 Phase 4 Closeout: Service Model Lock
+
+### Changed
+- Closed out **Phase 4 — Service Model Lock** under the v0.9.0 roadmap.
+- Introduced the canonical **Service** model in `04_Exec_Library.md`.
+- Added:
+  - `Service Charter v1`
+  - `Service Contract v1`
+  - `Service Class Map v1`
+- Defined the initial bounded service classes:
+  - `TIMER`
+  - `MEMORY`
+  - `TOOL`
+  - `STORAGE`
+- Added Exec-side **Service boundary** law in `03_Exec.md`.
+- Standardized terminology on **services** and removed remaining service/device drift.
+- Renamed `06_Program_System.md` to `06_Programs.md`.
+- Renamed capsule identity from `blu__06_program_system` to `blu__06_programs`.
+- Replaced remaining Program_System naming references across the active kernel docs.
+- Bumped `06_Programs` to version `0.9.0`.
+
+### Why
+- To define a bounded helper lane for non-kernel work that should not live inside Exec, Intuition, or Program workflow ownership.
+- To give future reminder/time, retrieval, tool, and storage behavior a proper architectural home.
+- To keep Exec small, truthful, and free from vague “system behavior” sprawl.
+- To align kernel naming and file references with the cleaner `Programs` model.
+
+### Impact
+- Phase 4 is now considered complete.
+- The architecture now has an explicit four-way split:
+  - **Exec** = runtime truth boundary
+  - **Intuition** = interaction/event surface layer
+  - **Programs** = workflow ownership
+  - **Services** = bounded helper execution
+- TIMER is now the future home for reminder/date/tick execution without forcing reminder logic back into Exec.
+- Service replies are now expected to be structured, bounded, and validated by Exec before success output.
+- Naming drift around `Program_System` has been removed from the active kernel surface.
+- Next active phase is **Phase 5 — Event Class Model Lock**.
+
+### Affected
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `06_Programs.md`
+- `Exec 3.0 — Phase 4 Service Model Lock.md`
+
+## 2026-03-07 — Exec 3.0 Phase 5 Closeout: Event Class Model Lock
+
+### Changed
+- Closed out **Phase 5 — Event Class Model Lock** under the v0.9.0 roadmap.
+- Introduced the canonical **Event Class** model in `04_Exec_Library.md`.
+- Added:
+  - `Event Class Charter v1`
+  - `Event Class Map v1`
+  - `Event Subscription and Filter Law v1`
+- Defined the initial event classes:
+  - `SYSTEM`
+  - `SURFACE`
+  - `PROGRAM`
+  - `SERVICE`
+  - `TIME`
+  - `ADMIN`
+- Added Exec-side **Event class boundary** law in `03_Exec.md`.
+- Added Program-side **Event non-ownership boundary** in `06_Programs.md`.
+
+### Why
+- To define a lightweight event vocabulary so the right parts of the system wake for the right work.
+- To prevent “everything wakes everything” behavior.
+- To ensure events do not become hidden routing authority, workflow ownership, or direct print/state authority.
+- To give reminder/tick behavior a future lane without reactivating dead reminder logic or contaminating Exec truth.
+
+### Impact
+- Phase 5 is now considered complete.
+- The architecture now has an explicit event model in which:
+  - **Exec** remains the runtime truth boundary
+  - **Intuition** remains the interaction/event surface layer
+  - **Programs** remain workflow owners
+  - **Services** remain bounded helper lanes
+  - **Events** are typed coordination signals only
+- TIME is now the future lane for reminder/tick/date signals without transferring workflow ownership.
+- Event subscription and emission behavior is now bounded and explicit.
+- Next active phase is **Phase 6 — Program Demotion / Boundary Cleanup**.
+
+### Affected
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `06_Programs.md`
+- `Exec 3.0 — Phase 5 Event Class Model Lock.md`
+
+## 2026-03-07 — Exec 3.0 Phase 6 Closeout: Program Demotion / Boundary Cleanup
+
+### Changed
+- Closed out **Phase 6 — Program Demotion / Boundary Cleanup** under the v0.9.0 roadmap.
+- Clarified that `PARENT` is a **transitional public control surface**, not a long-term domain owner.
+- Added explicit Program demotion / ownership boundaries to:
+  - `07_Engine.md`
+  - `08_Teaching.md`
+  - `09_School_Engine.md`
+- Moved canonical **School** workflow ownership into `06_Programs.md` as `PROGRAM.School.v1`.
+- Moved canonical **Teaching** workflow ownership into `06_Programs.md` as `PROGRAM.Teaching.v1`.
+- Added `TEACH:` to the Program assign map.
+- Reduced `07_Engine.md` from mixed domain/runtime ownership to a **thin integration layer**:
+  - routing is now integration-only
+  - Teaching and School are now integration notes only
+  - TASK / ART / CPM are now transitional integration notes
+  - legacy hotfix material is quarantined as archive note rather than active canon
+- Explicitly bounded `08_Teaching.md` and `09_School_Engine.md` as transitional/supporting specs rather than canonical owners.
+
+### Why
+- To reduce kernel-adjacent sprawl and stop domain workflow from living in Engine-space.
+- To align actual content placement with the locked architecture:
+  - **Exec** = runtime truth boundary
+  - **Intuition** = interaction/event surface
+  - **Programs** = workflow ownership
+  - **Services** = bounded helper execution
+- To make School and Teaching canonically Program-owned instead of “engine-like” workflow layers.
+- To keep transitional scaffolding visible without letting it masquerade as ownership.
+
+### Impact
+- Phase 6 is now considered complete.
+- `06_Programs.md` is now the canonical home for both School and Teaching workflow ownership.
+- `07_Engine.md` is now a thin integration layer instead of a shadow owner of domain workflow.
+- Transitional files (`08_Teaching.md`, `09_School_Engine.md`) remain bounded and non-canonical.
+- `PARENT` remains live only as explicitly transitional school-admin scaffolding.
+- The architecture is now ready for **Phase 7 — v0.9.0 Architecture Lock Review**.
+
+### Affected
+- `05_Commands.md`
+- `06_Programs.md`
+- `07_Engine.md`
+- `08_Teaching.md`
+- `09_School_Engine.md`
+- `Exec 3.0 — Phase 6 Program Demotion - Boundary Cleanup.md`
+
+## 2026-03-07 — Exec 3.0 Phase 7 Closeout: v0.9.0 Architecture Lock Review
+
+### Changed
+- Closed out **Phase 7 — v0.9.0 Architecture Lock Review** under the v0.9.0 roadmap.
+- Completed the architecture lock review across:
+  - `02_Operations_Law.md`
+  - `03_Exec.md`
+  - `04_Exec_Library.md`
+  - `05_Commands.md`
+  - `06_Programs.md`
+  - `07_Engine.md`
+  - `08_Teaching.md`
+  - `09_School_Engine.md`
+- Confirmed the locked architecture split:
+  - **Exec** = runtime truth boundary
+  - **Intuition** = interaction/event surface layer
+  - **Programs** = workflow ownership
+  - **Services** = bounded helper execution
+  - **Events** = typed coordination signals only
+  - **Commands** = canonical index of the full live public surface
+  - **Engine** = thin integration layer only
+- Confirmed that School and Teaching canonical ownership now live in `06_Programs.md`.
+- Confirmed that `07_Engine.md` is reduced to integration notes rather than workflow ownership.
+- Confirmed that transitional files remain bounded and non-canonical.
+
+### Why
+- To verify that the v0.9.0 architecture is locked tightly enough to stop core structural drift.
+- To confirm that the remaining path to v1.0.0 is stabilization, legacy Program sync, hardware-bang testing, and cleanup rather than kernel redesign.
+- To ensure the papertrail and active kernel docs reflect the same final architecture.
+
+### Impact
+- v0.9.0 architecture lock is now considered complete.
+- The remaining work is now downstream of the locked architecture rather than inside it.
+- Future work can focus on:
+  - hardware-bang verification prompts
+  - legacy Program synchronization
+  - transitional file retirement/archive
+  - further cleanup of dormant residue
+  - manual/kernel-doc workflow improvements
+- Exec 3.0 architectural phase work is complete for v0.9.0.
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `05_Commands.md`
+- `06_Programs.md`
+- `07_Engine.md`
+- `08_Teaching.md`
+- `09_School_Engine.md`
