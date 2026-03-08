@@ -749,3 +749,49 @@ v0.9.0 architecture lock confirmed and held.
 - `08_Teaching.md`
 - Program NL routing behavior
 - Teaching ownership and command-surface wiring
+
+## [2026-03-08] Update kernel capsules for Program routing, Time/Teaching, and School rebuild prep
+
+### Changed
+- Updated `03_Exec.md` to clarify public-surface routing and NL auto-kick requirements for Program-owned routes.
+- Updated `04_Exec_Library.md`:
+  - split deterministic time logic into `DateLib`
+  - added/clarified `Time Service` ownership boundaries
+  - added `local_weekday` for explicit weekday/weekend resolution
+- Updated `05_Commands.md` to harden Exec-native command handling so public controls like `/usercap ...` do not require Program-map ownership.
+- Updated `06_Programs.md` to:
+  - remove `.v1` suffixes from Program IDs
+  - use stable Program IDs plus explicit `version:` metadata
+  - add `PROGRAM.Teaching`
+  - wire `/teach ...` into the Program command surface
+  - add NL metadata for Teaching auto-kick
+- Updated `08_Teaching.md` to align with `PROGRAM.Teaching` as the canonical Teaching authority / migration target.
+- Exported refreshed kernel bundle for runtime testing:
+  - `03_Exec.md`
+  - `04_Exec_Library.md`
+  - `05_Commands.md`
+  - `06_Programs.md`
+  - `08_Teaching.md`
+
+### Why
+- Stable Program IDs are safer than embedding version suffixes in names/links.
+- Teaching needed to become a real Program with NL-routable behavior.
+- Time needed clearer deterministic/runtime separation for school-day and weekend logic.
+- Exec-native public controls needed explicit protection from being misclassified as missing Programs.
+- School rebuild work needs current kernels aligned before live runtime testing.
+
+### Impact
+- Programs now use stable IDs with version tracked in metadata instead of identifier suffixes.
+- Teaching can be treated as a standalone Program and is eligible for NL normalization through `/teach ...`.
+- Weekend/non-school-day logic is easier to express through `DateLib.local_weekday`.
+- `/usercap ...` should resolve cleanly without false Program ownership errors.
+- The exported kernel bundle is the correct baseline for new-chat School runtime testing.
+
+### Affected
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `05_Commands.md`
+- `06_Programs.md`
+- `08_Teaching.md`
+- Program routing / NL normalization
+- Time and school-day support logic
