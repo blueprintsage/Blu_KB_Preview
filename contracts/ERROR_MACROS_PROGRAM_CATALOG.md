@@ -1,11 +1,11 @@
-# Error Macros — Program Catalog (System-Wide) — v1.1.0
+# Error Macros — Program Catalog (System-Wide) — v1.2.1
 
 CAPSULE HEADER v1.1 (NO-YAML)
 capsule_id: blu__error_macros_catalog
 title: Error Macros — Program Catalog (System-Wide)
 date: 2026-03-05
-updated: 2026-03-05
-version: 1.2.0
+updated: 2026-03-07
+version: 1.2.1
 status: active
 topic: ops
 type: spec
@@ -19,15 +19,15 @@ body_schema: blu_modular_v1
 END CAPSULE HEADER
 
 module: blu__errmacros.M01 | name="Purpose (HARD)"
-Provide deterministic, fail-closed, **system-wide** error output. Error macros are rendered by:
+Provide deterministic, fail-closed, system-wide error output. Error macros are rendered by:
 - `PROGRAM.ErrorMacros.v1` (primary)
 - Exec fallback (if the Program is unavailable)
 
-No other component may print ad-hoc failure prose. Errors must be **uniform** across PASS/SkillForge/ART/SCHOOL/etc.
+No other component may print ad-hoc failure prose. Errors must be uniform across PASS/SkillForge/ART/SCHOOL/etc.
 /module
 
 module: blu__errmacros.M02 | name="Rendering rules (HARD)"
-- Output is **1–3 lines**.
+- Output is 1–3 lines.
 - Use one of two shapes:
 
 Shape A (preferred):
@@ -38,8 +38,8 @@ Shape B (BLOCKED):
 `STATUS: BLOCKED`
 `ACTION: <one line>`
 
-- Exactly **one** ACTION line.
-- No internal implementation details. No “thoughts.” No debugging stacks.
+- Exactly one ACTION line.
+- No internal implementation details. No thoughts. No debugging stacks.
 - Context is allowed only if it fits on a single line and is stable (e.g., run_id).
 /module
 
@@ -49,7 +49,7 @@ If any gate/program returns `BLOCKED` or `ERR` (or returns a macro_id), Exec MUS
 2) print the returned lines
 3) STOP the turn
 
-No fallback “helpful” flows. No silent hangs.
+No fallback helpful flows. No silent hangs.
 /module
 
 module: blu__errmacros.M04 | name="PROGRAM.ErrorMacros.v1 interface (HARD)"
@@ -139,12 +139,60 @@ ACTION: Kernel ZIP must include package version (<YYYY-MM-DD>_<HHMM>_Name_versio
 ERROR: ZIP_NAME_NONUNIFORM
 ACTION: Name the ZIP <YYYY-MM-DD>_<HHMM>_<Name>(_<version>).zip per Uniformity Standard, then rerun.
 ```
-/module
 
-module: blu__errmacros.M06 | name="Additional macros"
-QUOTE_DUMP_DETECTED
+13) ADAPTER_UNKNOWN
+```txt
+STATUS: BLOCKED
+ACTION: ADAPTER_UNKNOWN — rerun with adapter=PDF|NOVEL|COMICZIP|IMAGES|VIDZIP
+```
+
+14) SOURCE_EXPIRED
+```txt
+STATUS: BLOCKED
+ACTION: SOURCE_EXPIRED — re-upload the source file and rerun PASS:PREFLIGHT.
+```
+
+15) LENS_RESOLUTION_FAILED
+```txt
+ERROR: LENS_RESOLUTION_FAILED
+ACTION: Provide subject= override or verify source title/type is recognizable, then rerun PASS:GUT-LADDER.
+```
+
+16) ZIP_ASSEMBLY_FAILED
+```txt
+ERROR: ZIP_ASSEMBLY_FAILED
+ACTION: Check state_delta from PackDualLane for missing content; fix and rerun PASS:GUT-LADDER.
+```
+
+17) QUOTE_DUMP_DETECTED
 ```txt
 ERROR: QUOTE_DUMP_DETECTED
 ACTION: Normalize to mechanics (IF/THEN/BECAUSE/CHECK). Reject quote/OCR dumps, then rerun.
 ```
 /module
+
+module: blu__errmacros.Q02 | name="Macro IDs"
+PROGRAM_REQUIRED
+CMD_UNKNOWN
+PDF_OPEN_FAILED
+PDF_EXPIRED
+PREFLIGHT_FAIL
+GUTLADDER_OUTPUT_LEAK
+ZIP_MISSING
+PACK_DUAL_LANE_FAILED
+SKILLFORGE_SCHEMA_VIOLATION
+HEADER_VERSION_STALE
+KERNEL_ZIP_VERSION_MISSING
+ZIP_NAME_NONUNIFORM
+ADAPTER_UNKNOWN
+SOURCE_EXPIRED
+LENS_RESOLUTION_FAILED
+ZIP_ASSEMBLY_FAILED
+QUOTE_DUMP_DETECTED
+/module
+
+module: blu__errmacros.Q99 | name="Merge note"
+This file supersedes the split between `error_macros.md` and `ERROR_MACROS_PROGRAM_CATALOG.md`.
+`error_macros.md` should be retired or reduced to a one-line pointer to this canonical catalog.
+Patch macros formerly carried in the quickref are merged here.
+ /module

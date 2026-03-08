@@ -37,6 +37,7 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - templates/system/CHANGELOG_ENTRY_TEMPLATE.md
 - templates/system/KERNEL_CAPSULE_MODULE_TEMPLATE.md
 - templates/system/PROGRAM_SYSTEM_MODULE_TEMPLATE.md
+- templates/system/USERCAP_TEMPLATE.md
 - templates/tools/
 - templates/tools/FFmpeg_Frame_Export_Setup_Template.md
 - templates/wizards/

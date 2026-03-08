@@ -2,7 +2,9 @@
 
 ## <Human Header>
 
-module: blu__06_program_system.<MXX> | name="<Module Name>"
+module: blu__06_programs.<MXX> | name="<Module Name>"
+- version: 
+  - <version number>
 - Purpose:
   - <what this module owns or defines>
 - Hard rules:

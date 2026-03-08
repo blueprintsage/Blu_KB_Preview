@@ -5,7 +5,7 @@ All notable changes to this repository will be documented in this file.
 Format: Keep entries additive. Prefer “Added / Changed / Fixed / Removed”.  
 Dates are local: America/Chicago.  
 
-## [2026-03-06] Standardize kernel capsule module formatting
+## [2026-03-06] - Standardize kernel capsule module formatting
 
 ### Changed
 - Standardized capsule layout toward a consistent module-first shape.
@@ -37,7 +37,7 @@ Dates are local: America/Chicago.
 - `10_USERCAP.md`
 - `template/systems/KERNEL_CAPSULE_MODULE_TEMPLATE.md`
 
-## [2026-03-06] Clean up Program_System and convert capsule to module format
+## [2026-03-06] - Clean up Program_System and convert capsule to module format
 
 ### Changed
 - Converted `06_Program_System.md` to human-header plus module format throughout.
@@ -63,7 +63,7 @@ Dates are local: America/Chicago.
 - `template/systems/PROGRAM_SYSTEM_MODULE_TEMPLATE.md`
 - `<canonical changelog file>`
 
-## [2026-03-06] Start Exec 3.0 Phase 1 kernel truth pass
+## [2026-03-06] - Start Exec 3.0 Phase 1 kernel truth pass
 
 ### Changed
 - Updated `03_Exec.md` from `version: 2.1.4` to `version: 3.0.0`.
@@ -87,7 +87,7 @@ Dates are local: America/Chicago.
 - `03_Exec.md`
 - `<canonical changelog file>`
  
-## [2026-03-06] Remove reminder capability from active kernel capsules
+## [2026-03-06] - Remove reminder capability from active kernel capsules
 
 ### Changed
 - Removed reminder-specific runtime behavior from `03_Exec.md` and replaced it with generic interrupt/tick language.
@@ -115,7 +115,7 @@ Dates are local: America/Chicago.
 - `07_Engine.md`
 - `<canonical changelog file>`
 
-## [2026-03-06] Advance Exec 3.0 Phase 2 around dispatch packets, owner resolution, and commit gating
+## [2026-03-06] - Advance Exec 3.0 Phase 2 around dispatch packets, owner resolution, and commit gating
 
 ### Changed
 - Updated `03_Exec.md` to `version: 3.1.0`.
@@ -139,7 +139,7 @@ Dates are local: America/Chicago.
 - `03_Exec.md`
 - `<canonical changelog file>`
 
-## [2026-03-06] Restore PASS dual-lane as the default for teachable skill sources
+## [2026-03-06] - Restore PASS dual-lane as the default for teachable skill sources
 
 ### Changed
 - Updated `PASS:GUT-LADDER` packaging rules so dual-lane output is the default for teachable skill sources.
@@ -159,7 +159,7 @@ Dates are local: America/Chicago.
 - `05_Commands.md`
 - `06_Program_System.md`
 
-## [2026-03-06] Rewrite Commands from the ground up around live public surface only
+## [2026-03-06] - Rewrite Commands from the ground up around live public surface only
 
 ### Changed
 - Rewrote `05_Commands.md` from scratch in a cleaner module-first format.
@@ -183,7 +183,7 @@ Dates are local: America/Chicago.
 - `05_Commands.md`
 - `<canonical changelog file>`
 
-## [2026-03-07] Mood render contract enforcement + changelog law
+## [2026-03-07] - Mood render contract enforcement + changelog law
 
 ### Changed
 - Patched Exec so visible mood rendering is injected in the final output lane after reply validation and before output print.
@@ -209,7 +209,7 @@ Dates are local: America/Chicago.
 - `02_Operations_Law.md`
 - changelog / repo governance flow
 
-## 2026-03-07 — Exec 3.0 Phase 1 Closeout: Exec Truth Lock
+## [2026-03-07] — Exec 3.0 Phase 1 Closeout: Exec Truth Lock
 
 ### Changed
 - Closed out **Phase 1 — Exec Truth Lock** under the v0.9.0 gated roadmap.
@@ -249,7 +249,7 @@ Dates are local: America/Chicago.
 - `05_Commands.md`
 - `06_Program_System.md`
 
-## 2026-03-07 — Exec 3.0 Phase 2 Closeout: Verification + Wiring Lock
+## [2026-03-07] — Exec 3.0 Phase 2 Closeout: Verification + Wiring Lock
 
 ### Changed
 - Closed out **Phase 2 — Verification + Wiring Lock** under the v0.9.0 roadmap.
@@ -283,7 +283,7 @@ Dates are local: America/Chicago.
 - `06_Program_System.md`
 - `Exec 3.0 — Phase 2 Verification + Wiring Lock.md`
 
-## 2026-03-07 — Exec 3.0 Phase 3 Closeout: Intuition Introduction
+## [2026-03-07] — Exec 3.0 Phase 3 Closeout: Intuition Introduction
 
 ### Changed
 - Closed out **Phase 3 — Intuition Introduction** under the v0.9.0 roadmap.
@@ -323,7 +323,7 @@ Dates are local: America/Chicago.
 - `06_Programs.md`
 - `Exec 3.0 — Phase 3 Intuition Introduction.md`
 
-## 2026-03-07 — Exec 3.0 Phase 4 Closeout: Service Model Lock
+## [2026-03-07] — Exec 3.0 Phase 4 Closeout: Service Model Lock
 
 ### Changed
 - Closed out **Phase 4 — Service Model Lock** under the v0.9.0 roadmap.
@@ -368,7 +368,7 @@ Dates are local: America/Chicago.
 - `06_Programs.md`
 - `Exec 3.0 — Phase 4 Service Model Lock.md`
 
-## 2026-03-07 — Exec 3.0 Phase 5 Closeout: Event Class Model Lock
+## [2026-03-07] — Exec 3.0 Phase 5 Closeout: Event Class Model Lock
 
 ### Changed
 - Closed out **Phase 5 — Event Class Model Lock** under the v0.9.0 roadmap.
@@ -411,7 +411,7 @@ Dates are local: America/Chicago.
 - `06_Programs.md`
 - `Exec 3.0 — Phase 5 Event Class Model Lock.md`
 
-## 2026-03-07 — Exec 3.0 Phase 6 Closeout: Program Demotion / Boundary Cleanup
+## [2026-03-07] — Exec 3.0 Phase 6 Closeout: Program Demotion / Boundary Cleanup
 
 ### Changed
 - Closed out **Phase 6 — Program Demotion / Boundary Cleanup** under the v0.9.0 roadmap.
@@ -456,7 +456,7 @@ Dates are local: America/Chicago.
 - `09_School_Engine.md`
 - `Exec 3.0 — Phase 6 Program Demotion - Boundary Cleanup.md`
 
-## 2026-03-07 — Exec 3.0 Phase 7 Closeout: v0.9.0 Architecture Lock Review
+## [2026-03-07] — Exec 3.0 Phase 7 Closeout: v0.9.0 Architecture Lock Review
 
 ### Changed
 - Closed out **Phase 7 — v0.9.0 Architecture Lock Review** under the v0.9.0 roadmap.
@@ -563,3 +563,189 @@ v0.9.0 architecture lock confirmed and held.
 - Failure logging inside the locked frame
 - Teaching rewrite after stabilization
 - School rewrite after Teaching
+
+## [2026-03-07] — USERCAP surface cleanup and format migration
+
+### Changed
+- migrated USERCAP from YAML-oriented examples to a **plain markdown key-path format**
+- standardized the portable prefs structure around `usercap_v2.*`
+- clarified that USERCAP is a **portable preference surface**, not a runtime state container
+- updated `USERPREFS_HELP` to match the new key-path format
+- updated `USERPREFS_WIZARD` to match the new key-path format
+- expanded wizard documentation so each step explains **what the setting controls**
+
+### Removed
+- removed YAML examples from the new USERCAP template
+- removed deprecated portable-pref branches from the public USERCAP surface:
+  - `usercap_v2.prefs.art_pipeline.*`
+  - `usercap_v2.prefs.repo.offer_on_teach`
+  - `usercap_v2.prefs.ticks.*`
+- removed stale wording that described USERCAP as “state” where the intent was actually portable prefs
+
+### Fixed
+- corrected spec language around `/usercap` ownership
+- removed phantom ownership references such as `PROGRAM.UserCap.v1`
+- clarified that `/usercap` may remain on the **Command Surface Map** as a public command
+- clarified that `/usercap` should be removed from the **Assign Map** unless a real owner is explicitly declared
+
+### Added
+- new YAML-free `USERCAP_TEMPLATE`
+- revised `USERPREFS_HELP` aligned to `usercap_v2`
+- revised `USERPREFS_WIZARD` aligned to `usercap_v2`
+- step-by-step wizard explanations for usability and informed choice
+
+### Notes
+- `/usercap` is confirmed to function as a public command
+- command functionality does **not** by itself imply program ownership
+- public command exposure and workflow ownership are now treated as separate concerns:
+  - **Command Surface Map** = public availability
+  - **Assign Map** = explicit ownership
+
+### Migration guidance
+- keep `/usercap` in the **Command Surface Map** if it remains user-invokable
+- remove `/usercap` from the **Assign Map** if no real owner exists
+- do not reintroduce YAML for portable USERCAP docs unless capsule parsing rules change
+- do not store runtime state, auth material, integrity tracking, or task queues in USERCAP
+
+## [2026-03-08] USERCAP routing clarification across Exec, Commands, and Programs
+
+### Changed
+- Added an Exec routing rule to `03_Exec.md` clarifying that Exec-native public controls resolve from `05_Commands.md` without requiring `06_Programs.md -> COMMAND SURFACE MAP` ownership.
+- Added a USERCAP rule to `05_Commands.md` clarifying that `/usercap ...` must not require `06_Programs.md -> COMMAND SURFACE MAP` membership.
+- Added a public-surface summary rule to `05_Commands.md` clarifying that Exec-native public controls must not be treated as missing Programs merely because they are public.
+- Added a Programs rule to `06_Programs.md` clarifying that absence of an Exec-native public control from the Program command surface map is correct and not an ownership defect.
+
+### Why
+- Runtime validation was over-reading Program ownership requirements for `/usercap`.
+- `/usercap` is a live public command, but it is an Exec-native bounded control rather than a Program-owned route.
+- The distinction between the full live public surface and the Program-owned command surface needed to be made explicit in all three governing files.
+
+### Impact
+- `/usercap new|show|reset` can resolve cleanly through Exec without being misclassified as a missing Program route.
+- `06_Programs.md -> COMMAND SURFACE MAP` remains limited to Program-owned public routes.
+- Exec-native public controls are now explicitly protected from false ownership-defect checks.
+
+### Affected
+- `03_Exec.md`
+- `05_Commands.md`
+- `06_Programs.md`
+
+## [2026-03-08] Split DateLib and add Time Service
+
+### Changed
+- Refactored `DateLib` to remain an ExecLib deterministic utility for canonical date/time and timezone operations.
+- Removed student-specific input from `DateLib.format_day_banner`.
+- Added `Time Service` as a `TIMER`-class runtime service for tick, day-rollover, and reminder-due checks.
+- Defined `Time Service.tick` to return:
+  - `now_iso`
+  - `effective_tz`
+  - `new_day_bool`
+- Clarified tick emission behavior:
+  - may emit `TIME.tick` on every successful tick
+  - may emit `TIME.new_day` only when `new_day_bool=true`
+- Kept `TIME` events signal-only and non-owning.
+
+### Why
+- Separate deterministic time utilities from runtime timing behavior.
+- Align timing execution with `TIMER`-class service ownership instead of embedding runtime behavior inside `DateLib`.
+- Remove non-core student-specific shaping from the time utility layer.
+- Make tick behavior and event eligibility unambiguous.
+
+### Impact
+- `DateLib` remains reusable, deterministic, and suitable for ExecLib use.
+- `Time Service` becomes the runtime owner for clock ticks, rollover detection, and reminder-due scans.
+- Day-rollover behavior is now explicitly modeled through `tick`.
+- Event semantics are cleaner: timing signals do not prove completion and do not transfer workflow ownership.
+
+### Affected
+- `DateLib`
+- `Time Service`
+- ExecLib time handling
+- TIME event emission rules
+
+## [2026-03-08] Remove suffixed Program IDs and harden time/usercap routing
+
+### Changed
+- Removed `.v1` suffixes from Program IDs and Program-owned route targets.
+- Added explicit `version:` fields to Program definitions instead of embedding version in names/IDs.
+- Updated Program references across affected kernels to use stable unsuffixed Program IDs.
+- Split deterministic time utilities from runtime timing behavior:
+  - kept `DateLib` as ExecLib time/date utility logic
+  - added `Time Service` as the `TIMER`-class runtime owner for tick, rollover, and reminder-due behavior
+- Removed student-specific input from `DateLib.format_day_banner`.
+- Clarified `Time Service.tick` emission rules:
+  - may emit `TIME.tick` on every successful tick
+  - may emit `TIME.new_day` only when `new_day_bool=true`
+- Hardened `/usercap` routing so Exec-native public controls resolve from `05_Commands.md` without requiring Program-map ownership.
+- Added guardrail language to prevent Exec-native public controls from being treated as missing Programs.
+- Added Program-version placement guardrail so version belongs in metadata, not identifiers, filenames, or repo links.
+
+### Why
+- Embedded version suffixes were causing identifier drift and breaking repo-linked references when names changed without corresponding link updates.
+- Stable Program IDs are safer for routing, references, archives, and cross-kernel consistency.
+- Time behavior needed a cleaner separation between deterministic utility logic and runtime service ownership.
+- `/usercap` needed explicit protection from being misclassified as a Program-owned route.
+
+### Impact
+- Program references now target stable IDs, reducing breakage from naming/version churn.
+- Program versioning is now metadata-driven instead of identifier-driven.
+- Time handling is cleaner and easier to test:
+  - `DateLib` handles deterministic transforms
+  - `Time Service` handles runtime timing signals
+- `/usercap` now cleanly resolves as an Exec-native public control.
+- Future updates should no longer introduce `.v1`-style suffix drift in Program names or links.
+
+### Affected
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `05_Commands.md`
+- `06_Programs.md`
+- `DateLib`
+- `Time Service`
+- Program registry / command-surface ownership references
+
+## [2026-03-08] Promote Teaching into PROGRAM.Teaching with NL auto-kick support
+
+### Changed
+- Added `PROGRAM.Teaching` to `06_Programs.md` as the canonical Teaching authority.
+- Registered `TEACH:` in the Program assign map with surface `/teach`.
+- Added `/teach ...` to the public Program command surface map.
+- Enabled natural-language routing for Teaching with:
+  - `nl_enabled: true`
+  - `nl_tags`
+  - `nl_aliases`
+  - `nl_examples`
+- Migrated Teaching behavior into the Program body, including:
+  - ownership boundary
+  - propose-only Exec ABI
+  - instructional method
+  - textbook/source integration
+  - lesson flow
+  - mastery/pass logic
+  - K-12 coverage
+  - proposal bands and proposal table
+  - defaults, tiers, walkthrough structure
+  - troubleshooting, templates, checklist, and rubric
+- Updated Exec routing guidance so Program auto-kick from natural language requires:
+  - registry entry
+  - canonical public route
+  - `nl_enabled: true`
+  - declared NL metadata
+
+### Why
+- Teaching needed to become a real Program instead of remaining a standalone kernel.
+- Teaching is the first foundation layer in the education stack and must work before School, PASS, and SkillForge exist.
+- Natural-language auto-kick is the litmus test for future Programs like Art, so Teaching needed the full Program routing path, not just a registry body.
+
+### Impact
+- Teaching can now exist as a standalone Program-owned instructional engine.
+- Plain-language requests like “teach me…”, “show me how…”, “quiz me…”, and “check my work” are eligible for normalization into `/teach ...`.
+- Canonical Teaching authority now lives in `06_Programs.md`.
+- `08_Teaching.md` no longer needs to remain a live kernel once migration is verified.
+
+### Affected
+- `03_Exec.md`
+- `06_Programs.md`
+- `08_Teaching.md`
+- Program NL routing behavior
+- Teaching ownership and command-surface wiring

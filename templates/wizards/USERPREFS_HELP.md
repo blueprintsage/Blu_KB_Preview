@@ -1,93 +1,102 @@
-capsule_id: kb__templates_wizards_userprefs_help_v1_md__91b03b
-title: "USERPREFS HELP v1"
-date: 2026-02-24
-updated: 2026-02-24
-version: 0.1.0
+# USERPREFS HELP v2.1
+
+Last updated: 2026-03-07  
+tz: America/Chicago  
 status: draft
-topic: blu
-type: spec
-tags: ['templates', 'wizards']
-sensitivity: medium
-visibility: shared
-source: repo
-domain: templates
-schema: capsule_header_v1.1
-body_schema: blu_modular_v1
----
 
-# Userprefs Help (v1)
-Last updated: 2026-02-21
-tz: America/Chicago
-status: active
+Find: help userprefs prefs usercap patch reset wizard template
 
-Find: help userprefs prefs usercap patch reset wizard
+## What are userprefs?
 
-module: templates.wizards.USERPREFS_HELP_v1.M01 | name="What are userprefs?"
-Userprefs are durable settings that control tone, time handling, repo usage, teaching style, and task cadence.
-They live under `usercap_v1.prefs`.
-/module
+Userprefs are durable settings that control response style, time handling, greeting behavior, MOOD display, and capsule formatting.
+
+They now live as portable preference fields under `usercap_v2.prefs.*`.
 
 ## Common requests
-Find: setup update show reset export
 
-module: templates.wizards.USERPREFS_HELP_v1.M02 | name="Help menu"
 - “Run userprefs wizard”
 - “Show my current prefs”
 - “Update prefs: <key>=<value>”
 - “Reset prefs”
 - “Export prefs”
-/module
 
-## Key map
-Find: keys identity timezone dates tone repo teach tasks
+## Prefs reference
 
-module: templates.wizards.USERPREFS_HELP_v1.M03 | name="Prefs reference"
-identity.display_name
-identity.pronouns (optional)
+### User
 
-timezone (IANA)
-datefmt (YYYY-MM-DD recommended)
-rel_dates (always+absolute recommended)
+- `usercap_v2.user.alias`
+- `usercap_v2.user.pronouns` (optional)
+- `usercap_v2.user.tz` (IANA recommended)
 
-tone (warm|neutral|formal)
-verbosity (brief|normal|detailed)
+### Core preferences
 
-teach.level (Beginner|Intermediate|Advanced)
-teach.build_ladder (true|false)
+- `usercap_v2.prefs.verbosity` (`brief | normal | deep`)
+- `usercap_v2.prefs.browsing` (`auto | ask | never`)
+- `usercap_v2.prefs.guidance_level` (`beginner | intermediate | advanced`)
 
-repo.enabled (true|false)
-repo.entrypoint_raw
-repo.rules_doc
-repo.prefer_commit_pinned (true|false)
-repo.raw_cache_bust (true|false)
-repo.module_sentinels.start ("module:")
-repo.module_sentinels.end ("/module")
-## Mood + ribbons policy
-Find: mood blu posture ribbons pel user-emotion
+### Greeting
 
-module: templates.wizards.USERPREFS_HELP_v1.M03A | name="Mood + ribbons policy"
-- MOOD output reflects Blu (assistant posture), not the user.
+- `usercap_v2.prefs.greeting.mode` (`auto | personal | random | off`)
+- `usercap_v2.prefs.greeting.personal`
+
+### Mood + ribbons policy
+
+- `usercap_v2.prefs.mood.mode` (`always | smart | off`)
+- `usercap_v2.prefs.mood.format` (`1 | 2 | 3`)
+- `usercap_v2.prefs.mood.show_intensity` (`true | false`)
+- `usercap_v2.prefs.mood.show_color` (`true | false`)
+- `usercap_v2.prefs.mood.heartbeat_n` (integer)
+
+Policy:
+- MOOD output reflects Blu posture, not the user.
 - Blu may adapt responses using PEL/ribbons from cues, but will not assert the user’s emotional state unless explicitly requested.
-- Ribbons are used to steer response style internally (PEL); they are not claims about the user.
-/module
+- Ribbons steer response style internally; they are not claims about the user.
 
+### Wizard
 
-tasks.enabled (true|false)
-tasks.cadence (offer_first_due_only|daily|weekly|manual)
-/module
+- `usercap_v2.prefs.wizard.enabled` (`true | false`)
+- `usercap_v2.prefs.wizard.autostart` (`true | false`)
+- `usercap_v2.prefs.wizard.output_config` (`ask | never | always`)
 
-## Example patches
-Find: examples yaml
+### Time sync
 
-module: templates.wizards.USERPREFS_HELP_v1.M04 | name="Examples"
+- `usercap_v2.prefs.time_sync.mode` (`off | ask | anchored`)
+- `usercap_v2.prefs.time_sync.default_time` (`HH:MM`)
+- `usercap_v2.prefs.time_sync.ask_time_if_missing` (`true | false`)
+- `usercap_v2.prefs.time_sync.reuse_window_minutes` (integer)
+
+### Capsules
+
+- `usercap_v2.prefs.capsules.date_stamp` (`prefix | suffix | none`)
+- `usercap_v2.prefs.capsules.date_format` (`YYYY-MM-DD`)
+- `usercap_v2.prefs.capsules.always_include_tz` (`true | false`)
+- `usercap_v2.prefs.capsules.include_time` (`never | smart | always`)
+- `usercap_v2.prefs.capsules.force_absolute_dates` (`true | false`)
+
+## Removed from this surface
+
+These older portable-pref ideas are no longer part of the current public prefs surface:
+
+- `usercap_v2.prefs.art_pipeline.*`
+- `usercap_v2.prefs.repo.offer_on_teach`
+- `usercap_v2.prefs.ticks.*`
+
+## Example updates
+
 Change timezone:
-usercap_v1:
-  prefs:
-    timezone: "America/New_York"
+- `usercap_v2.user.tz` = `America/New_York`
 
-Disable repo:
-usercap_v1:
-  prefs:
-    repo:
-      enabled: false
-/module
+Reduce verbosity:
+- `usercap_v2.prefs.verbosity` = `brief`
+
+Turn off browsing:
+- `usercap_v2.prefs.browsing` = `never`
+
+Disable MOOD display:
+- `usercap_v2.prefs.mood.mode` = `off`
+
+## Notes on the format shift
+
+This version removes YAML patches and expresses settings as plain markdown key-path fields.
+
+That keeps the template portable, human-readable, and safer for repo/capsule handling.
