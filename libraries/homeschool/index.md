@@ -19,4 +19,8 @@ Homeschooling requirements vary by jurisdiction. **Each U.S. state (and each cou
 
 
 ## Entries
+- courses
+- grades
+- school
 - school/PROGRAM_School_RUNTIME_FLOW.md
+- textbook
