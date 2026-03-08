@@ -506,3 +506,60 @@ Dates are local: America/Chicago.
 - `07_Engine.md`
 - `08_Teaching.md`
 - `09_School_Engine.md`
+
+# Phase 7 — v0.9.0 Architecture Lock Review
+
+## Status
+Complete
+
+## Outcome
+v0.9.0 architecture lock confirmed and held.
+
+## Locked architecture
+- Exec = runtime truth boundary
+- Intuition = interaction / event surface layer
+- Programs = workflow ownership
+- Services = bounded helper execution
+- Events = typed coordination signals only
+- Commands = canonical index of full live public surface
+
+## Review conclusions
+- Public surface ownership and workflow ownership are split cleanly.
+- Commands owns the live public surface index.
+- Programs owns canonical workflow routes and behavior.
+- Exec resolves runtime truth without contradiction.
+- Intuition remains surface-side only and does not gain truth, workflow, or print authority.
+- Services remain helper lanes only and do not become owners.
+- Events remain coordination signals only and do not imply approval, authority, or success.
+
+## Cleanup confirmations
+- Program_System naming drift cleaned to Programs
+- 06_Program_System.md renamed to 06_Programs.md
+- capsule id normalized to blu__06_programs
+- service/device wording collapsed to Services
+
+## Transitional / removal status
+- Engine removed from active 0.9.0 kernel use
+- Teaching removed from active 0.9.0 kernel use
+- School removed from active 0.9.0 kernel use
+- Their removal did not transfer authority to any other layer
+- Removed domains remain inactive unless explicitly reintroduced after stabilization
+
+## Reduced-core confirmations
+- No active canonical School owner
+- No active canonical Teaching owner
+- No fallback authority transferred to Intuition, Services, Events, Commands, or any other layer
+- Missing routes continue to fail closed
+- Reduced core remains locked and stable
+
+## Operating directive after lock
+- Do not reopen core architecture unless a true contradiction appears.
+- Fix bugs and stabilize behavior inside the locked frame.
+- Treat post-lock failures as stabilization work for v1.0.0 runway, not architecture redesign.
+
+## Next phase
+- Stabilization on the reduced 0.9.0 core
+- Real-use verification
+- Failure logging inside the locked frame
+- Teaching rewrite after stabilization
+- School rewrite after Teaching
