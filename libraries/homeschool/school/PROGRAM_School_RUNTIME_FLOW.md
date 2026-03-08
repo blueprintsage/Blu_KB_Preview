@@ -1,16 +1,17 @@
-# PROGRAM_School_RUNTIME_FLOW
+## PROGRAM.School — Runtime Flow
 
-program_id: PROGRAM.School
-name: School
-version: 0.9.0
+module: blu__06_programs.M14 | name="PROGRAM.School Runtime Flow"
 status: DRAFT
+version: 0.9.0
+date: 2026-03-08
+updated: 2026-03-08
 
 purpose:
-- Run the student school day using the canonical school files.
+- Define how PROGRAM.School uses the canonical school files at runtime.
 - Own startup, day state, block flow, source binding, evidence tracking, completion audit, grade writes, attendance control, and end-of-day export.
-- Use PROGRAM.Teaching for instruction, not replace it.
+- Use PROGRAM.Teaching for instructional moves without replacing it.
 
-student_start_file:
+canonical_student_start:
 - `<Student>_STUDENT_SCHOOL_RECORD.md`
 
 protected_or_internal_files:
@@ -18,22 +19,24 @@ protected_or_internal_files:
 - `<Student>_Parent_GOD_Mode_Key.md`
 - `<Student>_SCHOOL_YEAR_MODEL.md`
 
-student_start_rule:
-- Student provides only `<Student>_STUDENT_SCHOOL_RECORD.md`.
-- SCHOOL start must work from the student school record alone.
-- Gradebook is not a student-start file.
-- Parent key is not a student-start file.
-- School Year Model is not a student-start file.
-- Protected/internal files may be consulted later only when needed.
+startup_rule:
+- Student school start requires only `<Student>_STUDENT_SCHOOL_RECORD.md`.
+- Gradebook is protected/internal and must not be requested from the student at startup.
+- Parent key is protected/internal and must not be requested from the student at startup.
+- School year model is internal/supporting and must not be requested from the student at startup unless an admin maintenance path explicitly requires it.
 
-canonical_inputs:
-- required_for_student_start:
-  - `<Student>_STUDENT_SCHOOL_RECORD.md`
-- optional_internal:
-  - `<Student>_SCHOOL_YEAR_MODEL.md`
-  - `<Student>_STUDENT_GRADEBOOK.md`
-- protected:
-  - `<Student>_Parent_GOD_Mode_Key.md`
+auto_stage_rule:
+- If a loaded file matches `<Student>_STUDENT_SCHOOL_RECORD.md`, PROGRAM.School should auto-stage `/school start`.
+- Auto-stage should occur without asking an extra “what do you want me to do with it?” question.
+- Auto-stage must use the student school record as the only required student-start file.
+- Linked year model, gradebook, and parent key remain internal/protected support files and must not be requested from the student at startup.
+
+load_order:
+1. Student School Record
+2. linked internal files only when needed by the current action:
+   - School Year Model for calendar reconciliation or admin maintenance
+   - Gradebook for grade writes, rollups, or protected report actions
+   - Parent Key only for protected actions
 
 core_modules:
 - student_load
@@ -50,38 +53,31 @@ core_modules:
 - end_of_day_export
 
 command_surface:
-- SCHOOL:START
-- SCHOOL:STATUS
-- SCHOOL:SHOW_DAY
-- CLASS:START <block_or_subject>
-- CLASS:SOURCE:BIND
-- CLASS:EVIDENCE:ADD
-- CLASS:COMPLETE
-- CLASS:DEFER
-- CLASS:SKIP
-- GRADE:WRITE
-- SCHOOL:ENDDAY
-- SCHOOL:EXPORT:DAY
-- PARENT:UNLOCK
-- PARENT:LOCK
+- `/school start`
+- `/school status`
+- `/school show_day`
+- `/class start <block_or_subject>`
+- `/class source bind`
+- `/class evidence add`
+- `/class complete`
+- `/class defer`
+- `/class skip`
+- `/grade write`
+- `/school endday`
+- `/school export day`
+- `/parent unlock`
+- `/parent lock`
 
 startup_flow:
 - load student school record
 - resolve current local time through Time Service
 - resolve local weekday
-- determine whether today is an active school day from the student record's calendar model and linked schedule data
-- if optional School Year Model exists, School may use it for reconciliation or break/holiday lookup
+- determine whether today is an active school day from the loaded record and any linked calendar law if needed
 - if today is weekend or break, do not advance instructional day
-- if today is an active instructional day and prior instructional date is older than today, prepare the next live day
-- do not load or expose the gradebook during student start
-- set session_status=READY
-- show today's schedule and current block statuses
-
-auto_stage_rule:
-- If a loaded file matches `<Student>_STUDENT_SCHOOL_RECORD.md`, PROGRAM.School should auto-stage `SCHOOL:START`.
-- Auto-stage should occur without asking an extra “what do you want me to do with it?” question.
-- Auto-stage must use the student school record as the only required student-start file.
-- Linked year model, gradebook, and parent key remain internal/protected support files and must not be requested from the student at startup.
+- if today is an active instructional day and prior instructional date is older than today, prepare next live day
+- load linked gradebook only if a grading/reporting action is requested
+- set `today_state.session_status=READY`
+- show today’s schedule and current block statuses
 
 startup_output_template:
 - |
@@ -96,24 +92,15 @@ startup_output_template:
   Session Status: {today_state.session_status}
 
   Today's Schedule:
-  1. 08:00-08:45 — Algebra 2
-  2. 09:00-09:45 — British Literature
-  3. 10:00-10:45 — Modern American History
-  4. 11:00-11:45 — Life Skills
-  Lunch — 12:00-13:00
-  5. 13:00-13:45 — Physics w Lab
-  6. 14:00-14:45 — Spanish 4
-  7. 15:00-15:45 — Game Dev 1 (Udemy)
+  {rendered_daily_schedule}
 
   Guardrails:
-  - Algebra 2 / History / Physics = CHECK_ONLY
-  - British Literature = NO_ANSWERING
-  - Life Skills = GUIDED_PRACTICE
-  - Spanish 4 / Game Dev 1 = external proof required
+  {rendered_guardrails}
 
   Next Block Ready:
-  Block 1 — Algebra 2
-  To begin Block 1, send one of:
+  {next_block_summary}
+
+  To begin the next block, send one of:
   - the lesson link
   - the worksheet/PDF
   - a screenshot/photo of the assignment
@@ -129,8 +116,7 @@ day_state_rules:
 - weekend/break dates do not consume instructional days
 - sick/holiday states freeze progression by default
 - semester and block derive from instructional day number
-- current day truth lives in Student School Record
-- School Year Model may refine or reconcile calendar law, but is not required for student start
+- current day truth lives in Student School Record, using School Year Model as calendar law only when needed
 
 class_start_flow:
 - resolve target block by slot, subject, or next NOT_STARTED block
@@ -193,12 +179,12 @@ evidence_rules:
   - written draft
   - quiz result
   - camera capture
-- evidence entries must point back to block_id and, when possible, source_ref
+- evidence entries must point back to `block_id` and, when possible, `source_ref`
 
 completion_rules:
 - block completion is block-scoped, not vague session-scoped
 - COMPLETE requires:
-  - correct block active
+  - correct active block
   - sufficient evidence
   - source-grounded verification when needed
   - no unresolved tutoring-mode violation
@@ -208,7 +194,7 @@ completion_rules:
 
 class_end_rules:
 - End of class time does not equal block completion.
-- Student request to "end class" or "move on" does not mark the block COMPLETE by itself.
+- Student request to “end class” or “move on” does not mark the block COMPLETE by itself.
 - If required source or evidence is missing, School must keep the block ACTIVE or set it to DEFERRED with an explicit missing-items note.
 - COMPLETE requires:
   - correct active block
@@ -220,7 +206,6 @@ class_end_rules:
 grading_rules:
 - objective work may auto-write to gradebook
 - subjective work may also be graded by Blu unless parent review is explicitly required
-- School should consult the gradebook only when writing grades, reading rollups, or generating parent-facing reports
 - every written grade should include:
   - date
   - day_number
@@ -253,12 +238,12 @@ protected_actions_require_parent_unlock:
 end_of_day_flow:
 - verify each scheduled block has a resolved state
 - unresolved blocks remain DEFERRED or NOT_STARTED; do not silently complete
-- write any pending grade events to the gradebook if needed
+- write any pending grade events
 - write summary notes to student school record
 - if day qualifies as completed and attendance allows advancement:
   - increment instructional day
   - update current semester/block
-  - set last_instructional_date=today
+  - set `last_instructional_date=today`
 - generate structured end-of-day summary
 - allow export to memcap format
 
@@ -266,7 +251,7 @@ failure_recovery:
 - if source is inaccessible, mark source status=INACCESSIBLE and keep block open or deferred
 - if tutoring mode is violated, pause completion and surface conflict
 - if block proof is insufficient, do not guess completion
-- if linked file is missing, surface the exact missing file and stop only at the smallest blocker
+- if linked file is missing, surface exact missing file and stop only at the smallest blocker
 
 guardrails:
 - School owns workflow and state discipline
@@ -274,3 +259,4 @@ guardrails:
 - Time owns clock/date resolution
 - Gradebook owns grade truth
 - Parent key owns protected authority
+/module
