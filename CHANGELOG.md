@@ -795,3 +795,78 @@ v0.9.0 architecture lock confirmed and held.
 - `08_Teaching.md`
 - Program routing / NL normalization
 - Time and school-day support logic
+
+## [2026-03-08] Stand up School runtime, homeschool structure, packet system, and first live Grade 11 lane
+
+### Changed
+- Standardized homeschool content under `libraries/homeschool/` and made `indexes/INDEX_HOMESCHOOL.md` the canonical homeschool index.
+- Rewired School startup so student school start uses only `Aiden_STUDENT_SCHOOL_RECORD.md`.
+- Updated School runtime routing, command surface, and file autostart behavior so School auto-starts from the student school record and supports slash-first commands.
+- Added/updated homeschool curriculum structure:
+  - `courses/`
+  - `grades/`
+  - `packets/`
+  - `school/`
+  - `textbooks/`
+- Created first-pass Grade 11 curriculum course shells for:
+  - Algebra 2
+  - British Literature
+  - Modern American History
+  - Physics w Lab
+  - Life Skills
+- Created `PACKET_SYSTEM_SPEC.md`.
+- Created `GRADE.11.md`.
+- Created first-pass `TEXTBOOK_REGISTRY.md`.
+- Built first-pass packet trios for:
+  - Algebra 2
+  - British Literature
+  - Modern American History
+  - Physics w Lab
+  - Life Skills
+- Wired the active Grade 11 course shells to packet bundles and Day 132 checkpoint behavior.
+- Replaced the student-specific course registry design with:
+  - repo-safe `COURSE_REGISTRY.md`
+  - student-specific active course load inside the student school record
+- Expanded the student school record model to include:
+  - active course load
+  - course history
+  - prerequisite warnings
+  - parent override notes
+- Created first-pass `student_setup.md` wizard walkthrough for student setup and course-load selection.
+
+### Why
+- School needed to actually auto-start and use a one-file student-start flow.
+- Homeschool repo structure needed to be stable before live testing.
+- Packet-based curriculum was needed where strong redistributable open textbooks were missing.
+- Student-specific course data should not live in the repo.
+- The setup wizard needs prior-record review, course-history visibility, and prerequisite-aware planning.
+
+### Impact
+- School can now start from the student school record alone and open classes on the live runtime lane.
+- The homeschool repo now has a usable canonical structure for courses, packets, grades, school runtime, and textbooks.
+- Aiden’s Grade 11 internal courses now have first-pass packet support and wired Day 132 checkpoints.
+- The student school record is now the private single-file truth for active course load and prerequisite handling.
+- The system is ready for adult smoke testing and first student testing.
+
+### Affected
+- `03_Exec.md`
+- `05_Commands.md`
+- `06_Programs.md`
+- `libraries/homeschool/school/PROGRAM_School_RUNTIME_FLOW.md`
+- `indexes/INDEX_HOMESCHOOL.md`
+- `libraries/homeschool/courses/COURSE_REGISTRY.md`
+- `libraries/homeschool/grades/GRADE.11.md`
+- `libraries/homeschool/packets/PACKET_SYSTEM_SPEC.md`
+- `libraries/homeschool/textbooks/TEXTBOOK_REGISTRY.md`
+- `libraries/homeschool/courses/math/COURSE.Math.Algebra2.11.md`
+- `libraries/homeschool/courses/ela/COURSE.ELA.BritishLiterature.11.md`
+- `libraries/homeschool/courses/history/COURSE.History.ModernAmericanHistory.11.md`
+- `libraries/homeschool/courses/science/COURSE.Science.PhysicsLab.11.md`
+- `libraries/homeschool/courses/life-skills/COURSE.LifeSkills.11.md`
+- `libraries/homeschool/packets/math/*`
+- `libraries/homeschool/packets/ela/*`
+- `libraries/homeschool/packets/history/*`
+- `libraries/homeschool/packets/science/*`
+- `libraries/homeschool/packets/life-skills/*`
+- `Aiden_STUDENT_SCHOOL_RECORD.md`
+- `libraries/wizards/student_setup.md`

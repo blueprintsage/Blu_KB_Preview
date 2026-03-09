@@ -7,6 +7,7 @@ Canonical index view for the homeschool domain. Keep it scannable. Include direc
 ## Entries
 - libraries/homeschool/
 - libraries/homeschool/courses/
+- libraries/homeschool/courses/COURSE_REGISTRY.md
 - libraries/homeschool/grades/
 - libraries/homeschool/grades/GRADE.11.md
 - libraries/homeschool/packets/
