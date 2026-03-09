@@ -17,12 +17,18 @@ Homeschooling requirements vary by jurisdiction. **Each U.S. state (and each cou
 > If this curriculum helps your family, please consider donating. The official About/Donate page lists ways to support Lee and her family and to help with site/curriculum expenses: https://allinonehomeschool.com/about/
 /module
 
-
 ## Entries
 - courses/
+- courses/ela/COURSE.ELA.BritishLiterature.11.md
+- courses/history/COURSE.History.ModernAmericanHistory.11.md
+- courses/life-skills/COURSE.LifeSkills.11.md
+- courses/math/COURSE.Math.Algebra2.11.md
+- courses/science/COURSE.Science.PhysicsLab.11.md
 - grades/
+- grades/GRADE.11.md
 - packets/
 - packets/PACKET_SYSTEM_SPEC.md
 - school/
 - school/PROGRAM_School_RUNTIME_FLOW.md
-- textbook/
+- textbooks/
+- textbooks/TEXTBOOK_REGISTRY.md
