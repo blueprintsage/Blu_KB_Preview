@@ -19,24 +19,50 @@ domain: <core|ops|teach|security>
 ## Capsule Canon
 
 module: <capsule_id>.M00 | name="Capsule Canon"
-- Purpose:
-  - <plain-language purpose>
-- Owns:
-  - <authoritative responsibilities>
-- Does not own:
-  - <explicit non-ownership boundaries>
-- Notes:
-  - <hosted/runtime constraints if relevant>
+status: ACTIVE
+version: <x.y.z>
+date: <YYYY-MM-DD>
+updated: <YYYY-MM-DD>
+
+purpose:
+- <plain-language purpose>
+
+owns:
+- <authoritative responsibilities>
+
+does_not_own:
+- <explicit non-ownership boundaries>
+
+notes:
+- <hosted/runtime constraints if relevant>
 /module
 
 ## <human module header>
 
 module: <capsule_id>.M01 | name="<human module header>"
+status: ACTIVE
+version: <x.y.z>
+date: <YYYY-MM-DD>
+updated: <YYYY-MM-DD>
+
+purpose:
+- <what this module defines>
+
+rules:
 - <rule or spec content>
 /module
 
 ## <human module header>
 
 module: <capsule_id>.M02 | name="<human module header>"
+status: ACTIVE
+version: <x.y.z>
+date: <YYYY-MM-DD>
+updated: <YYYY-MM-DD>
+
+purpose:
+- <what this module defines>
+
+rules:
 - <rule or spec content>
 /module
