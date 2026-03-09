@@ -1,7 +1,7 @@
 # COURSE.ELA.BritishLiterature.11
 
 course_id: COURSE.ELA.BritishLiterature.11
-version: 0.9.0
+version: 0.9.1
 status: DRAFT
 updated: 2026-03-08
 
@@ -12,6 +12,7 @@ credit: 1.0
 course_length_days: 180
 semester_length_days: 90
 block_length_days: 30
+packet_mode: PACKET-SPINED
 
 source_model:
   provider: Easy Peasy
@@ -22,14 +23,17 @@ source_model:
     - pacing anchor
 
 textbook_spine:
-  spine_status: pending_final_selection
-  likely_open_spine_types:
-    - public-domain primary texts
-    - Blu-made reading guides and response packets
-    - open literary criticism or context notes when approved later
-  notes:
-    - This course can run from source texts + teacher-made packets even before a single formal textbook spine is chosen.
-    - Public-domain British literature sources are a likely long-term fit, but the exact canonical spine is still pending.
+  primary:
+    - TX.ELA.BRITLIT.PUBLICDOMAIN.001
+
+packet_support:
+  sourcebook_ref: libraries/homeschool/packets/ela/COURSE.ELA.BritishLiterature.11.SOURCEBOOK.md
+  workbook_ref: libraries/homeschool/packets/ela/COURSE.ELA.BritishLiterature.11.WORKBOOK.md
+  check_key_ref: libraries/homeschool/packets/ela/COURSE.ELA.BritishLiterature.11.CHECK_KEY.md
+  packet_role:
+    - primary instructional support
+    - response structure support
+    - originality-preserving check support
 
 school_runtime_defaults:
   class_mode: INTERNAL
@@ -44,10 +48,19 @@ school_runtime_defaults:
     - student-authored response artifact
     - verification without ghostwriting
 
+day_resolution_priority:
+- First try the Easy Peasy day source for the current instructional day.
+- If the day has a wired packet checkpoint, bind packet materials as the active support bundle.
+- If the daily item relies on outside reading, capture the source text section or prompt before checking.
+- School must preserve NO_ANSWERING and never convert packet support into ghostwriting.
+
 daily_resolution_contract:
 - Resolve `day_number` against the Easy Peasy source model first.
 - Bind the daily reading / prompt page when available.
-- If the day depends on external reading, School should capture the source text or prompt fragment before checking.
+- If the day is packet-wired, bind:
+  - sourcebook_ref
+  - workbook_ref
+  - check_key_ref
 - Because this course often uses open-ended writing, School must preserve `NO_ANSWERING` mode and avoid supplying final response content.
 
 block_plan:
@@ -70,15 +83,28 @@ block_plan:
   days: 151-180
   focus: cumulative reading and writing mastery, final review
 
-grading_artifacts:
-- short-answer responses
-- paragraph / essay responses
-- reading notes
-- revision check artifacts when required
-
-guardrail_note:
-- This course is one of the main reasons `NO_ANSWERING` exists in School.
-- Verification must stay distinct from content-supply.
+wired_day_checkpoints:
+- day_number: 132
+  packetized: true
+  packet_bundle:
+    - libraries/homeschool/packets/ela/COURSE.ELA.BritishLiterature.11.SOURCEBOOK.md
+    - libraries/homeschool/packets/ela/COURSE.ELA.BritishLiterature.11.WORKBOOK.md
+    - libraries/homeschool/packets/ela/COURSE.ELA.BritishLiterature.11.CHECK_KEY.md
+  lesson_title: Mixed Response Practice II — evidence, explanation, revision
+  source_binding_order:
+    1. Easy Peasy day source if available
+    2. visible reading/prompt
+    3. packet workbook
+    4. packet sourcebook
+    5. packet check key for teacher review only
+  evidence_required:
+    - visible prompt or copied prompt text
+    - student-authored response
+    - enough writing to judge claim, evidence, and reasoning
+  completion_gate:
+    - do not mark COMPLETE without a student-authored response artifact
+    - thin or vague responses may be DEFERRED or REVIEW_REQUIRED
+  gradebook_title: British Literature Block 5 — Day 132 Mixed Response Practice II
 
 notes:
-- Open-text and source-text decisions remain pending, but the workflow shell is ready for runtime use.
+- This shell is wired to preserve the literature guardrail that the system previously violated.

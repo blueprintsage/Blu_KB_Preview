@@ -42,7 +42,7 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - templates/tools/FFmpeg_Frame_Export_Setup_Template.md
 - templates/wizards/
 - templates/wizards/PARENT_KEY_WIZARD.md
-- templates/wizards/SCHOOL_SETUP_WIZARD.md
+- templates/wizards/STUDENT_SETUP_WIZARD.md
 - templates/wizards/USERPREFS_HELP.md
 - templates/wizards/USERPREFS_WIZARD.md
 - templates/_meta/
