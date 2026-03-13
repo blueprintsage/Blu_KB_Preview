@@ -1339,3 +1339,30 @@ Updated: 2026-03-10
 - `04_Exec_Library.md`
 - `05_Commands.md`
 
+# Changelog
+
+## [2026-03-13] Hardwire mood swatch rendering and restore public mode split
+### Changed
+- Added `EXECLIB.MOODLIB.001` as the deterministic public swatch resolver for MOOD rendering.
+- Updated `03_Exec.md` so Exec must resolve the MOOD line through MoodLib and fail closed when `{Swatch}` is missing or malformed.
+- Restored the public MOOD mode split in `05_Commands.md`:
+  - `/mood on` = every prompt
+  - `/mood smart` = change or heartbeat
+  - `/mood show` = explicit ask
+  - `/mood off` = no automatic render
+- Tightened the public swatch contract so ribbon names, prose color words, and diagnostics fields cannot print in the `{Swatch}` slot.
+
+### Why
+- The prior patch did not stick because the public swatch boundary was still soft, allowing ribbon names like `amber-silver` to leak into the visible MOOD line.
+- Restoring distinct public render modes removes ambiguity between cadence control and surfaced state.
+- A deterministic library is the smallest clean fit for identity-grounded mood resolution without turning MOOD into a full Program.
+
+### Impact
+- Public MOOD output is now explicitly glyph-first and fail-closed at the Exec boundary.
+- Identity-grounded mood state can still shape the result internally, but the user-facing MOOD line stays canonical and visually readable.
+- Debugging mood state is cleaner because render cadence and swatch resolution are now separated.
+
+### Affected
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `05_Commands.md`
