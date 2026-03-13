@@ -1366,3 +1366,26 @@ Updated: 2026-03-10
 - `03_Exec.md`
 - `04_Exec_Library.md`
 - `05_Commands.md`
+
+## [2026-03-13] Enforce mood output lane validation
+
+### Changed
+- Added `blu__03_exec.M14` to make mood rendering a final output-lane enforcement step.
+- Updated Exec inbound order to include a final mood output validator / auto-repair gate before print.
+- Tightened Reply ABI validation so mood-visible obligations are checked against the effective post-dispatch mood mode.
+- Expanded runtime health checks to verify missing-line repair, duplicate-line collapse/fail-closed behavior, `off` suppression, and rejection of prose substitutions.
+- Clarified the public MOOD command surface so acknowledgements and vibe text do not count as the canonical mood line.
+
+### Why
+- The prior patch defined the mood contract but did not finish the runtime enforcement step that guarantees the contract is honored on live replies.
+- Mood needed to become a sticky output rule at the final print lane rather than a best-effort behavior.
+
+### Impact
+- `/mood on` now has an explicit enforcement path requiring exactly one canonical mood line on every prompt.
+- `/mood show` and `/mood on|smart` are protected from prose-only acknowledgements replacing the canonical render.
+- Final output validation can repair a missing required mood line when the rest of the reply is otherwise valid.
+
+### Affected
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `05_Commands.md`
