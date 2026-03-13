@@ -25,6 +25,8 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - docs/PASS/lenses/
 - docs/PASS/lenses/PASS_GUT_LADDER_LENS_STACK.md
 - docs/system/
-- docs/system/Blu_v0.9.0_roadmap.md
+- docs/system/MEMCAP_FAMILY_SPEC.md
+- docs/system/MMU_Memcap_And_Template_Changelog_Format.md
 - docs/wizards/
+- docs/wizards/MEMCAP_WIZARD_SPEC.md
 - docs/wizards/WIZARD_WALKTHROUGH_SCHEMA.md

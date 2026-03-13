@@ -1,5 +1,4 @@
 [CAPSULE_HEADER_BEGIN]
-schema: capsule_header_v1.1
 capsule_id: blu__memory_vault_template
 title: "Blu Memory Vault Template"
 date: 2026-02-13
@@ -13,7 +12,6 @@ sensitivity: high
 visibility: shared
 source: doc
 domain: ops
-body_schema: blu_modular_v1
 [CAPSULE_HEADER_END]
 
 # Blu Memory Vault Template

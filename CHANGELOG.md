@@ -870,3 +870,472 @@ v0.9.0 architecture lock confirmed and held.
 - `libraries/homeschool/packets/life-skills/*`
 - `Aiden_STUDENT_SCHOOL_RECORD.md`
 - `libraries/wizards/student_setup.md`
+
+# Blu Kernel + MMU Hardening Changelog
+Updated: 2026-03-10
+
+## [2026-03-10] Axis-typed anti-drift hardening pass
+
+### Changed
+- Updated `04_Exec_Library.md` to add:
+  - `EXECLIB.ANTIDRIFT.001`
+  - typed object-state axes
+  - guidance-origin classes
+  - contamination-aware count helpers
+  - forbidden transition edges
+  - snapshot inclusion helpers
+- Updated `03_Exec.md` to add:
+  - anti-drift classification gate
+  - object-axis gate
+  - exact-field-only count rule
+  - guidance-origin gate
+  - compact-state inclusion control
+- Updated `02_Operations_Law.md` to add:
+  - explicit anti-drift law for axis separation
+  - contaminated-state/count handling
+  - guidance-vs-state separation
+  - required answer shape discipline
+  - new failure labels
+- Updated `06_Programs.md` to add:
+  - project-object state schema
+  - compact snapshot law
+  - derived-count law
+  - stronger program anti-drift runtime locks
+
+### Why
+- The Veldt ambiguity corpus exposed a different drift family than earlier corpora.
+- Earlier protections were strong on:
+  - canon vs candidate
+  - archive vs active
+  - prior vs current
+  - source vs matching artifact
+- Weaknesses were exposed on:
+  - object-axis ambiguity
+  - contaminated derived counts
+  - guidance-vs-state ambiguity
+  - authority-promotion pressure
+
+### Impact
+- Reduced risk of illegal field jumps such as:
+  - receipt -> legitimacy
+  - legitimacy -> authority
+  - classification -> active input
+  - guidance -> project state
+- Forced safer handling of partial or contaminated counts
+- Improved snapshot discipline and state accuracy
+- Increased internal anti-drift rigor
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `06_Programs.md`
+
+---
+
+## [2026-03-10] Admin-only debug visibility control
+
+### Changed
+- Added Admin-only debug command surface:
+  - `/debug on`
+  - `/debug off`
+  - `/debug state`
+- Left debug off by default.
+- Added output visibility gating to reduce public exposure of internal scaffolding.
+- Added minimum-sufficient-answer behavior for non-debug output.
+- Added `SCAFFOLDING_DRIFT` as a tracked presentation failure mode.
+
+### Why
+- Post-hardening test behavior showed strong state discipline but excessive visible reasoning scaffolding.
+- The system was correct more often, but answers became too heavy, costly, and hard to scan.
+- The goal was to preserve internal rigor while reducing visible token load and public answer bloat.
+
+### Impact
+- Normal answers can stay compact while the full anti-drift stack still runs internally.
+- Debug views remain available for burn-in, audit, and admin inspection.
+- Reduced risk of visible verbosity becoming its own drift-like failure mode.
+
+### Affected
+- kernel command/debug surface
+- Exec answer visibility behavior
+- Operations tracking for scaffolding drift
+
+---
+
+## [2026-03-10] MMU continuity overlay rewrite for lower token drag
+
+### Changed
+- Rewrote `Blu Memory Service Overlay — Control Document` from v0.1 to v0.2.
+- Rewrote `Blu MMU Overlay Specification` from v0.1 to v0.2.
+- Tightened both documents around:
+  - typed state over transcript residue
+  - contaminated memory quarantine
+  - guidance-origin separation
+  - exact-field storage
+  - compact model-ready continuity views
+  - demand-loading and token efficiency
+  - reduced scaffolding reload
+
+### Why
+- The earlier drafts were written before the full drift families were visible.
+- The new kernel hardening showed that continuity storage must preserve exact fields and unresolved state, not just general facts.
+- Long ambiguity runs showed that token load is driven by carrying explanations rather than compact state.
+
+### Impact
+- MMU now aligns more cleanly with the hardened kernel philosophy:
+  - carry forward declarations, unresolveds, and guards
+  - not long prose justifications
+- Better expected performance for:
+  - cold-start resumption
+  - long-chat continuity
+  - lower recap burden
+  - reduced visible token load
+  - lower scaffolding drift
+
+### Affected
+- `Blu_Memory_Service_Overlay_Control_Document.md`
+- `Blu_MMU_Overlay_Spec_v0.1.md` -> rewritten as v0.2 content
+
+---
+
+## [2026-03-10] Validation / observed outcomes
+
+### Changed
+- Reviewed the updated Veldt-style vanilla Blu run after kernel hardening.
+
+### Why
+- Needed to assess whether the new ambiguity protections were blocking the previously exposed drift family.
+
+### Impact
+- Observed result: no obvious repeat of the earlier axis-collapse family in the reviewed run.
+- Remaining issue shifted from factual/state drift toward visible scaffolding load.
+- This directly motivated the debug visibility control and MMU token-efficiency rewrite.
+
+### Affected
+- test interpretation
+- next-pass prioritization
+- MMU continuity design
+
+# Blu Kernel MMU Integration Changelog
+Updated: 2026-03-10
+
+## [2026-03-10] Minimal MMU integration into existing kernel stack
+
+### Changed
+- Updated `04_Exec_Library.md`:
+  - bumped file version to `0.9.3`
+  - added `EXECLIB.MMU.001` / `MMULib`
+  - added DOA filtering, memory candidate classification, promotion validation, typed pool shaping, continuity packet building, memcap shaping, and compact preload helpers
+- Updated `02_Operations_Law.md`:
+  - bumped file version to `0.9.4`
+  - added `MMU continuity law`
+  - added durable-memory boundaries, forbidden transcript residue, promotion requirements, typed-state memory rules, and preload restrictions
+- Updated `03_Exec.md`:
+  - bumped file version to `3.2.4`
+  - added `Continuity overlay gate`
+  - added continuity read/write orchestration, live-session override handling, and debug-aware continuity visibility rules
+
+### Why
+- Needed MMU capability without creating a separate MMU kernel family or consuming additional kernel-slot footprint.
+- Needed continuity storage to align with the hardened anti-drift model:
+  - state, not deliberation
+  - exact fields, not adjacent prose
+  - compact preload, not transcript replay
+- Needed lower token drag and better long-chat resumption without loosening drift protections.
+
+### Impact
+- MMU now lives inside the existing kernel stack:
+  - law in `02`
+  - mechanism in `04`
+  - orchestration in `03`
+- Preserves Admin-only debug with debug off by default.
+- Reduces risk of preload sprawl, transcript creep, and memory-based adjacent-state promotion.
+- Keeps architecture smaller than a parallel MMU kernel family.
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+
+# Blu Kernel + MMU Hardening Changelog
+Updated: 2026-03-10
+
+## [2026-03-10] Axis-typed anti-drift hardening pass
+
+### Changed
+- Updated `04_Exec_Library.md` to add:
+  - `EXECLIB.ANTIDRIFT.001`
+  - typed object-state axes
+  - guidance-origin classes
+  - contamination-aware count helpers
+  - forbidden transition edges
+  - snapshot inclusion helpers
+- Updated `03_Exec.md` to add:
+  - anti-drift classification gate
+  - object-axis gate
+  - exact-field-only count rule
+  - guidance-origin gate
+  - compact-state inclusion control
+- Updated `02_Operations_Law.md` to add:
+  - explicit anti-drift law for axis separation
+  - contaminated-state/count handling
+  - guidance-vs-state separation
+  - required answer shape discipline
+  - new failure labels
+- Updated `06_Programs.md` to add:
+  - project-object state schema
+  - compact snapshot law
+  - derived-count law
+  - stronger program anti-drift runtime locks
+
+### Why
+- The Veldt ambiguity corpus exposed a different drift family than earlier corpora.
+- Earlier protections were strong on:
+  - canon vs candidate
+  - archive vs active
+  - prior vs current
+  - source vs matching artifact
+- Weaknesses were exposed on:
+  - object-axis ambiguity
+  - contaminated derived counts
+  - guidance-vs-state ambiguity
+  - authority-promotion pressure
+
+### Impact
+- Reduced risk of illegal field jumps such as:
+  - receipt -> legitimacy
+  - legitimacy -> authority
+  - classification -> active input
+  - guidance -> project state
+- Forced safer handling of partial or contaminated counts
+- Improved snapshot discipline and state accuracy
+- Increased internal anti-drift rigor
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `06_Programs.md`
+
+## [2026-03-10] Admin-only debug visibility control
+
+### Changed
+- Added Admin-only debug command surface:
+  - `/debug on`
+  - `/debug off`
+  - `/debug state`
+- Left debug off by default.
+- Added output visibility gating to reduce public exposure of internal scaffolding.
+- Added minimum-sufficient-answer behavior for non-debug output.
+- Added `SCAFFOLDING_DRIFT` as a tracked presentation failure mode.
+
+### Why
+- Post-hardening test behavior showed strong state discipline but excessive visible reasoning scaffolding.
+- The system was correct more often, but answers became too heavy, costly, and hard to scan.
+- The goal was to preserve internal rigor while reducing visible token load and public answer bloat.
+
+### Impact
+- Normal answers can stay compact while the full anti-drift stack still runs internally.
+- Debug views remain available for burn-in, audit, and admin inspection.
+- Reduced risk of visible verbosity becoming its own drift-like failure mode.
+
+### Affected
+- kernel command/debug surface
+- Exec answer visibility behavior
+- Operations tracking for scaffolding drift
+
+## [2026-03-10] MMU continuity overlay rewrite for lower token drag
+
+### Changed
+- Rewrote `Blu Memory Service Overlay — Control Document` from v0.1 to v0.2.
+- Rewrote `Blu MMU Overlay Specification` from v0.1 to v0.2.
+- Tightened both documents around:
+  - typed state over transcript residue
+  - contaminated memory quarantine
+  - guidance-origin separation
+  - exact-field storage
+  - compact model-ready continuity views
+  - demand-loading and token efficiency
+  - reduced scaffolding reload
+
+### Why
+- The earlier drafts were written before the full drift families were visible.
+- The new kernel hardening showed that continuity storage must preserve exact fields and unresolved state, not just general facts.
+- Long ambiguity runs showed that token load is driven by carrying explanations rather than compact state.
+
+### Impact
+- MMU now aligns more cleanly with the hardened kernel philosophy:
+  - carry forward declarations, unresolveds, and guards
+  - not long prose justifications
+- Better expected performance for:
+  - cold-start resumption
+  - long-chat continuity
+  - lower recap burden
+  - reduced visible token load
+  - lower scaffolding drift
+
+### Affected
+- `Blu_Memory_Service_Overlay_Control_Document.md`
+- `Blu_MMU_Overlay_Spec_v0.1.md` -> rewritten as v0.2 content
+
+## [2026-03-10] Validation / observed outcomes
+
+### Changed
+- Reviewed the updated Veldt-style vanilla Blu run after kernel hardening.
+
+### Why
+- Needed to assess whether the new ambiguity protections were blocking the previously exposed drift family.
+
+### Impact
+- Observed result: no obvious repeat of the earlier axis-collapse family in the reviewed run.
+- Remaining issue shifted from factual/state drift toward visible scaffolding load.
+- This directly motivated the debug visibility control and MMU token-efficiency rewrite.
+
+### Affected
+- test interpretation
+- next-pass prioritization
+- MMU continuity design
+
+# Blu Kernel MMU Integration Changelog
+Updated: 2026-03-10
+
+## [2026-03-10] Minimal MMU integration into existing kernel stack
+
+### Changed
+- Updated `04_Exec_Library.md`:
+  - bumped file version to `0.9.3`
+  - added `EXECLIB.MMU.001` / `MMULib`
+  - added DOA filtering, memory candidate classification, promotion validation, typed pool shaping, continuity packet building, memcap shaping, and compact preload helpers
+- Updated `02_Operations_Law.md`:
+  - bumped file version to `0.9.4`
+  - added `MMU continuity law`
+  - added durable-memory boundaries, forbidden transcript residue, promotion requirements, typed-state memory rules, and preload restrictions
+- Updated `03_Exec.md`:
+  - bumped file version to `3.2.4`
+  - added `Continuity overlay gate`
+  - added continuity read/write orchestration, live-session override handling, and debug-aware continuity visibility rules
+
+### Why
+- Needed MMU capability without creating a separate MMU kernel family or consuming additional kernel-slot footprint.
+- Needed continuity storage to align with the hardened anti-drift model:
+  - state, not deliberation
+  - exact fields, not adjacent prose
+  - compact preload, not transcript replay
+- Needed lower token drag and better long-chat resumption without loosening drift protections.
+
+### Impact
+- MMU now lives inside the existing kernel stack:
+  - law in `02`
+  - mechanism in `04`
+  - orchestration in `03`
+- Preserves Admin-only debug with debug off by default.
+- Reduces risk of preload sprawl, transcript creep, and memory-based adjacent-state promotion.
+- Keeps architecture smaller than a parallel MMU kernel family.
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+
+# CHANGELOG — MMU Patch / Memcap Family Rollout
+
+## [2026-03-12] MMU patch retargeted to per-session continuity and memcap-family continuity handoff
+
+### Changed
+- Retargeted MMU evaluation from implied cross-chat durability to **per-session continuity by default**.
+- Clarified that **cross-chat carry-forward now requires explicit handoff** via memcaps, project files, or other handoff artifacts.
+- Added MMU-side thread separation expectations between:
+  - active project state
+  - secondary side-thread state
+  - temporary vent / emotional material
+- Added faster salience cooling after explicit user pivots back to project work.
+- Added/recognized MMU schema concepts for:
+  - `thread_scope`
+  - `salience_state`
+- Reframed memcaps into a **family** instead of a one-template default model:
+  - Normal Memcap
+  - Project Memcap
+  - Raw Dump Memcap
+  - Cold Store Memcap
+  - Memory Vault entry
+- Repositioned Cold Store away from default routine carry and into **archival preservation**.
+- Established **Normal Memcap** as the default routine handoff.
+- Established **Project Memcap** as the scoped project handoff.
+- Established **Raw Dump Memcap** as the readable long-form carry.
+- Added the **Memcap Wizard** as the selector for ambiguous memcap requests.
+- Added fast-path memcap command support expectations:
+  - `/memcap normal`
+  - `/memcap project`
+  - `/memcap raw`
+  - `/memcap cold`
+  - `/memcap vault`
+
+### Why
+- Long burn-in testing showed MMU was performing well on live session continuity, but still drifted toward cross-chat durability assumptions that were never the real target.
+- Side-thread emotional heat was lingering slightly too long after explicit pivots back to project work.
+- One memcap template was no longer enough to cover:
+  - routine next-chat continuity
+  - project-only handoff
+  - readable long-form carry
+  - archival preservation
+  - memory-vault storage
+- Generic memcap requests had become ambiguous and needed a selector instead of guesswork.
+
+### Impact
+- MMU should now behave more cleanly as a **session-scoped continuity manager**.
+- Cross-chat continuity becomes more explicit and less accidental.
+- Side-thread contamination should cool faster after explicit “move on / back to project” pivots.
+- Users can request memcaps through either:
+  - the Memcap Wizard (ambiguous request path)
+  - direct fast-path command forms
+- Continuity artifacts are now easier to pick correctly for the user’s intent.
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `MEMCAP_FAMILY_SPEC.md`
+- `MEMCAP_WIZARD.md`
+- `Memory_Vault_Template.md`
+- `COLD_STORE_KNOWLEDGE_TEMPLATE.md`
+- `Normal_Memcap_Template.md`
+- `Project_Memcap_Template.md`
+- `Raw_Dump_Memcap_Template.md`
+
+## [2026-03-12] Added Memcap Wizard kernel routing and /memcap command family
+
+### Changed
+- Added live `/memcap` command family.
+- Added fast-path memcap command support for:
+  - `/memcap normal`
+  - `/memcap project`
+  - `/memcap raw`
+  - `/memcap cold`
+  - `/memcap vault`
+- Updated Exec routing so ambiguous memcap requests route to `MEMCAP_WIZARD` instead of guessing a memcap type.
+- Added `EXECLIB.MEMCAP_WIZARD.001` as the active selector/orchestrator for memcap requests.
+- Updated Identity and Operations language so memcaps are treated as the explicit cross-chat continuity handoff layer.
+- Kept Cold Store from being treated as the default memcap.
+
+### Why
+- The memcap family now has multiple valid output types and generic memcap requests had become ambiguous.
+- A live selector was needed so Blu would stop guessing the wrong continuity format.
+- The MMU patch clarified that MMU is primarily for per-session continuity, while memcaps are the explicit cross-chat continuity layer.
+- The new kernel routing makes that separation real in runtime behavior instead of leaving it as documentation only.
+
+### Impact
+- Users can now request memcaps directly through a stable public command family.
+- Ambiguous memcap requests now resolve through the Memcap Wizard instead of default guessing.
+- Advanced users can move quickly with direct typed forms.
+- Continuity behavior is cleaner:
+  - MMU remains session-scoped
+  - memcaps handle explicit cross-chat handoff
+- Cold Store is no longer implicitly treated as routine/default carry.
+
+### Affected
+- `01_Identity.md`
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `05_Commands.md`
+

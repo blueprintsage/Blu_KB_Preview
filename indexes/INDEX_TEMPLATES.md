@@ -14,7 +14,11 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - templates/kernels/
 - templates/kernels/Kernel_Capsule_Template.md
 - templates/memory/
+- templates/memory/COLD_STORE_KNOWLEDGE_TEMPLATE.md
 - templates/memory/Memory_Vault_Template.md
+- templates/memory/Normal_Memcap_Template.md
+- templates/memory/Project_Memcap_Template.md
+- templates/memory/Raw_Dump_Memcap_Template.md
 - templates/parent/
 - templates/parent/Parent_GOD_Mode_Key_TEMPLATE.md
 - templates/PASS/
@@ -41,6 +45,7 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - templates/tools/
 - templates/tools/FFmpeg_Frame_Export_Setup_Template.md
 - templates/wizards/
+- templates/wizards/MEMCAP_WIZARD.md
 - templates/wizards/PARENT_KEY_WIZARD.md
 - templates/wizards/STUDENT_SETUP_WIZARD.md
 - templates/wizards/USERPREFS_HELP.md
