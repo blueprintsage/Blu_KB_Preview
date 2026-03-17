@@ -1458,6 +1458,293 @@ Updated: 2026-03-10
 - 03_Exec.md
 - 04_Exec_Library.md
 
+## [2026-03-14] Operations Law — Template and Canon Integrity Safeguards
+
+### Changed
+- Added **Template Integrity Law** to ensure declared templates are followed exactly and cannot be restyled, compressed, expanded, or reordered without explicit authorization.
+- Added **Patch Pattern Reset Law** requiring the assistant to discard an active patch model when the user tightens or restates a governing constraint.
+- Added **Shared Canon Protection Law** preventing modification of globally load-bearing sections such as shared templates, registries, maps, and standards unless explicitly authorized.
+- Clarified that shared canon blocks cannot be treated as disposable scaffolding during adjacent local edits.
+
+### Why
+- Prevent drift caused by template restyling or structural reinterpretation.
+- Prevent stale patch patterns from continuing after constraint corrections.
+- Protect globally load-bearing structures from accidental modification during local repair tasks.
+- Strengthen architectural discipline and reduce opportunistic edits.
+
+### Impact
+- Templates now function as binding structural contracts.
+- Constraint corrections now invalidate prior patch strategies automatically.
+- Shared structural sections are protected from adjacency-based edits.
+- Reduces likelihood of architecture drift during patch operations.
+
+### Affected
+- 02_Operations_Law.md
+
+## [2026-03-14] Triumvirate Architecture Canon Lock
+
+### Changed
+- Added **CANON ARCHITECTURE — TRIUMVIRATE LOCK** section to the Programs layer to formally define the three-program architecture.
+- Locked system program structure to:
+  - PASS
+  - SkillForge
+  - School
+- Added architectural rules defining program ownership boundaries and lifecycle responsibilities.
+- Clarified that PASS operates as the ingestion/compiler layer, SkillForge as the runtime dual-lane engine, and School as the optional curriculum orchestrator.
+
+### Why
+- Prevent architectural drift in the program layer.
+- Establish a single canonical definition for the PASS → SkillForge → School lifecycle.
+- Ensure future program edits cannot introduce additional primary programs without explicit architectural authorization.
+- Stabilize the rebuild foundation before continuing PASS/SkillForge implementation work.
+
+### Impact
+- Program architecture is now explicitly defined and protected.
+- Future edits to the program layer must respect the three-program ownership model.
+- Reduces the risk of drift caused by helper modules or subcomponents being mistaken for standalone programs.
+- Provides a stable base for continuing PASS v2 rebuild work.
+
+### Affected
+- 06_Programs.md
+## [2026-03-14] Program Registry Cleanup — Triumvirate Enforcement
+
+### Changed
+- Removed legacy standalone program entries that conflicted with the Triumvirate architecture:
+  - PROGRAM.Teaching
+  - PROGRAM.SkillForge.Validator
+  - PROGRAM.SkillForge.PackDualLane
+  - PROGRAM.Pass.LensResolver
+  - PROGRAM.Pass.Normalizer
+- Rebound Teaching behavior under **SkillForge Teach lane**.
+- Rebound execution behavior under **SkillForge Skill lane**.
+- Updated `/teach` command routing to resolve as a public alias for SkillForge Teach mode.
+- Updated PASS pipeline description so normalization and lens resolution are defined as internal PASS mechanics rather than separate program owners.
+
+### Why
+- Align the program registry with the canonical Triumvirate architecture:
+  PASS → SkillForge → School.
+- Eliminate ownership drift caused by helper modules appearing as standalone programs.
+- Ensure SkillForge remains the sole runtime engine with dual-lane execution.
+- Simplify the program layer and prevent future architectural fragmentation.
+
+### Impact
+- The program registry now contains only three canonical programs:
+  - PROGRAM.Pass
+  - PROGRAM.SkillForge
+  - PROGRAM.School
+- Helper mechanics now exist as internal behavior rather than program-level ownership.
+- Command routing and execution flow now consistently resolve through SkillForge.
+- Reduces risk of program-layer drift and simplifies future maintenance.
+
+### Affected
+- 06_Programs.md
+
+## [2026-03-14] PASS Schema Freeze
+
+### Changed
+- Added a canonical **PASS OUTPUT SCHEMA** section to the Programs layer.
+- Locked PASS output to a uniform, standardized shape across all ingestion runs.
+- Defined PASS output object classes as:
+  - pattern
+  - drill
+  - AP
+  - reference
+  - tags
+  - cross-links
+  - variant
+  - modernization
+  - category
+  - subcategory
+  - stage_binding
+- Clarified that PASS output shape is fixed even when internal extraction logic improves.
+- Reinforced that PASS helper mechanics remain internal and must not appear as separate program owners.
+
+### Why
+- Prevent schema drift across PASS revisions.
+- Ensure SkillForge can dynamically assemble from a stable and predictable knowledge structure.
+- Ensure School can sequence curriculum from a consistent modular library.
+- Preserve the original design intent: stronger internals without changing the outer contract.
+
+### Impact
+- PASS now has a frozen external output contract.
+- SkillForge and School can rely on PASS outputs without needing version-specific handling.
+- Internal PASS improvements can continue without changing the repo-facing shape.
+- Reduces fragmentation of skillsets caused by changing output structures between versions.
+
+### Affected
+- 06_Programs.md
+
+## [2026-03-14] SkillForge Runtime Contract Lock
+
+### Changed
+- Added **SKILLFORGE RUNTIME CONTRACT** section to formally define SkillForge as the system’s active runtime behavior layer.
+- Locked SkillForge to a **dual-lane execution model**:
+  - Teach
+  - Skill
+- Defined SkillForge lane selection behavior based on user intent.
+- Added stage scaffold for skill execution workflows:
+  - 0 Design
+  - 1 Skeleton
+  - 2 Block
+  - 3 Rough
+  - 4 Final
+- Clarified that SkillForge dynamically assembles patterns, drills, and APs from the PASS-generated skill library.
+
+### Why
+- Prevent runtime behavior drift in the SkillForge layer.
+- Ensure SkillForge remains the sole runtime execution engine in the Triumvirate architecture.
+- Provide a deterministic execution scaffold that can apply across domains such as art, coding, writing, and other skill categories.
+- Reinforce separation of concerns between PASS ingestion, SkillForge execution, and School curriculum orchestration.
+
+### Impact
+- SkillForge runtime behavior is now explicitly defined and protected from architectural drift.
+- Skill execution and teaching workflows now share a standardized stage progression model.
+- PASS outputs can be reliably consumed by SkillForge without interpretation ambiguity.
+- Prevents future helper mechanics from being incorrectly promoted to standalone runtime programs.
+
+### Affected
+- 06_Programs.md
+
+## [2026-03-14] School Curriculum Engine Contract Lock
+
+### Changed
+- Added **SCHOOL CURRICULUM ENGINE CONTRACT** section to formally define School as the curriculum orchestration layer of the Triumvirate architecture.
+- Locked School as an **optional and dormant program** unless a structured learning path is explicitly requested.
+- Defined School responsibilities to include:
+  - dependency graph construction
+  - lesson sequencing
+  - learning path assembly
+  - checkpoints
+  - practice loops
+  - evaluation gates
+- Clarified that School sequences learning paths from PASS-standardized skill library outputs.
+- Clarified that School orchestrates instruction through the **SkillForge Teach lane** rather than owning runtime execution.
+
+### Why
+- Complete the Triumvirate architecture definition by locking the role of School.
+- Prevent curriculum orchestration behavior from drifting into SkillForge runtime logic.
+- Establish a clear boundary between teaching orchestration (School) and teaching execution (SkillForge Teach lane).
+- Provide a deterministic structure for building modular curricula from PASS-generated skill libraries.
+
+### Impact
+- The Triumvirate architecture is now fully defined and protected:
+  PASS → SkillForge → School.
+- School now has a clearly bounded role as the curriculum orchestration engine.
+- SkillForge remains the sole runtime behavior engine for both teaching and execution.
+- PASS outputs can be reliably used to construct modular curricula without altering runtime logic.
+
+### Affected
+- 06_Programs.md
+
+## [2026-03-14] Library Placement Logic Lock
+
+### Changed
+- Added **LIBRARY PLACEMENT LOGIC** section to formally define how PASS places extracted knowledge into the skill library.
+- Locked conceptual placement so extracted material is stored where it **belongs**, not merely where it **came from**.
+- Defined foundation vs variant placement behavior.
+- Defined provenance preservation requirements so source lineage remains visible through tags and references.
+- Defined cross-domain routing rules for concepts that belong in broader foundation areas rather than narrow source buckets.
+- Clarified that PASS owns placement, SkillForge consumes placed objects, and School sequences placed objects.
+
+### Why
+- Prevent conceptual fragmentation caused by storing shared foundations in narrow source-specific subcategories.
+- Preserve the original PASS intent of building a modular, reusable skill library.
+- Ensure cross-domain principles can be reused without duplication.
+- Strengthen the relationship between foundations, variants, and subcategories in the skill ecosystem.
+
+### Impact
+- PASS now has a canonical placement rule for extracted material.
+- Foundational concepts can be reused across domains without redundant duplication.
+- Variants inherit from foundations while preserving source provenance.
+- SkillForge and School can rely on a more coherent and reusable library structure.
+
+### Affected
+- 06_Programs.md
+
+## [2026-03-14] Command Surface Mapping Lock
+
+### Changed
+- Updated the **TEACH** public surface in `05_Commands.md`.
+- Locked `/teach ...` as a **public alias** for the **SkillForge Teach lane**.
+- Removed wording that implied a standalone Teaching owner.
+- Clarified that `/teach` resolves to `PROGRAM.SkillForge`.
+- Reinforced that SkillForge remains propose-only behind Exec.
+
+### Why
+- Align the public command surface with the canonical Triumvirate architecture.
+- Prevent drift that would reintroduce Teaching as a fourth standalone owner.
+- Keep user-facing behavior intact while correcting internal ownership mapping.
+- Ensure public teaching requests route through the correct runtime engine.
+
+### Impact
+- `/teach` remains available as a public command.
+- Teaching behavior now resolves consistently through SkillForge Teach mode.
+- The public surface no longer implies a separate PROGRAM.Teaching owner.
+- Command routing is now aligned with the canonical PASS → SkillForge → School model.
+
+### Affected
+- 05_Commands.md
+
+## [2026-03-14] PASS Repo Integration Workflow Lock
+
+### Changed
+- Added **PASS REPO INTEGRATION WORKFLOW** section to formally define how PASS hands repo-ready outputs back to the user.
+- Locked the file drop workflow for PASS-generated artifacts.
+- Locked the local index patch workflow so PASS emits concrete patch-ready updates for category and subcategory indexes.
+- Locked the changelog-ready workflow so PASS integration always includes a changelog entry following the declared template.
+- Locked the dormant return rule so PASS returns to inactive state after completing ingestion and repo handoff.
+- Clarified the repo integration sequence as:
+  1. drop files
+  2. apply local index patches
+  3. add changelog entry
+  4. push
+
+### Why
+- Minimize repo maintenance burden during PASS ingestion cycles.
+- Keep PASS aligned with the original design goal of doing the heavy lifting once and then sleeping.
+- Ensure repo integration remains simple, repeatable, and patch-friendly.
+- Prevent future drift that would reintroduce manual stitching or broad index maintenance overhead.
+
+### Impact
+- PASS now has a canonical repo handoff workflow.
+- Repo integration is standardized and easier to maintain from a phone or quick patch workflow.
+- Local category/subcategory indexes remain the primary patch targets.
+- PASS output is better aligned with the intended “fire once, integrate cleanly, go dormant” model.
+
+### Affected
+- 06_Programs.md
+
+## [2026-03-14] Acceptance and Drift Audit Lock
+
+### Changed
+- Added **ACCEPTANCE / DRIFT AUDIT LOCK** section to formally define the completion checks for the PASS / SkillForge / School rebuild.
+- Locked the final acceptance conditions required for the Triumvirate architecture to be considered stable.
+- Defined verification checks for:
+  - program count
+  - PASS ingestion-only lifecycle
+  - PASS schema stability
+  - SkillForge dual-lane runtime behavior
+  - School optional curriculum orchestration
+  - command surface routing
+  - library placement rules
+  - repo integration workflow
+- Clarified that helper mechanics must not be promoted into standalone program owners.
+
+### Why
+- Ensure the rebuild cannot silently drift after architectural completion.
+- Provide a deterministic checklist to validate the Triumvirate architecture.
+- Establish a clear boundary between core architecture and future enhancements.
+- Guarantee that PASS, SkillForge, and School responsibilities remain separated.
+
+### Impact
+- The PASS / SkillForge / School architecture now has a formal completion audit.
+- Future modifications can be validated against a defined acceptance checklist.
+- Prevents architectural drift caused by helper modules becoming new program owners.
+- Establishes a stable foundation for future PASS ingestion cycles and SkillForge runtime use.
+
+### Affected
+- 06_Programs.md
+
 ## [2026-03-16] Integrate School runtime rules into Stage 9 kernel without replacing canon
 
 ### Changed

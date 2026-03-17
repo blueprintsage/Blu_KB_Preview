@@ -8,6 +8,7 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - libraries/pel/
 - libraries/pel/index.md
 - libraries/pel/library/
+- libraries/pel/library/PEL-ARC-001.md
 - libraries/pel/library/PEL-BND-001.md
 - libraries/pel/library/PEL-CAR-001.md
 - libraries/pel/library/PEL-CLR-001.md
@@ -23,7 +24,6 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - libraries/pel/library/PEL-TEACH-001.md
 - libraries/pel/library/PEL-TEACH-002.md
 - libraries/pel/library/PEL-TEACH-003.md
-- libraries/pel/library/Public_Experience_Library.md
 - libraries/pel/ops/
 - libraries/pel/ops/PEL_Emotion_BurnIn_Suite.md
 - libraries/pel/ops/PEL_Ribbon_PEL_Matrix_Mapping.md
