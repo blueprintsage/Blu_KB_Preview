@@ -1433,3 +1433,130 @@ Updated: 2026-03-10
 ### Affected
 - `03_Exec.md`
 - `04_Exec_Library.md`
+
+## [2026-03-14] Harden MMU against stale patch plans and scope escalation
+
+### Changed
+- Added MMU continuity safeguards so a tightened user constraint invalidates the active patch/repair plan instead of allowing the old patch pattern to continue.
+- Added protection for shared canon sections so globally load-bearing standards/registries/maps are not treated as disposable local structure during adjacent edits.
+- Added scope-escalation fail-closed behavior so downstream dependencies discovered outside the approved blast radius are reported, not auto-repaired.
+- Added supporting MMU helper logic in ExecLib to classify shared canon targets, detect scope mismatch, invalidate stale plans, and shape dependency notices.
+
+### Why
+- Recent repair drift showed a stale patch pattern continuing after the governing constraint had changed.
+- Operations already requires bounded, explicit, one-scope-at-a-time repair flow and fail-closed behavior for drift and ambiguity.
+- Exec is the runtime enforcement boundary, while ExecLib is the correct home for deterministic helper logic.
+
+### Impact
+- Constraint changes should now force plan reset instead of iterative refinement of the old patch model.
+- Shared canonical sections should be less vulnerable to proximity-based accidental replacement.
+- Dependency discovery should no longer widen edit scope into unauthorized repairs.
+- MMU continuity behavior is more aligned with existing anti-drift and repair law.
+
+### Affected
+- 02_Operations_Law.md
+- 03_Exec.md
+- 04_Exec_Library.md
+
+## [2026-03-16] Integrate School runtime rules into Stage 9 kernel without replacing canon
+
+### Changed
+- Added School runtime rules to Operations Law as additive constraints instead of replacing existing Ops canon.
+- Added School command refinements for:
+  - `/school start`
+  - `/school status`
+  - `/class start`
+  - `/class close`
+  - `/school endday`
+- Added School teaching enforcement rules:
+  - class order lock
+  - procedural work requirement
+  - multi-solution enforcement
+  - answer leak lock
+  - three-strike refusal handling
+  - stress detection / guided recovery
+  - effort credit
+  - no-shame correction language
+- Added subject-specific teaching mode guidance for:
+  - math
+  - literature
+  - history
+  - life skills
+  - physics
+- Added parent-review visibility requirements:
+  - prompt
+  - student response
+  - Blu feedback
+  - grade
+  - status
+  - override / effort-credit notes
+- Added minimum instructional time rule so early-finished classes use remaining block time for review, recap, extension, challenge, or remediation.
+- Added runtime-vs-record clarity rule so instructional completion is not described as persisted record completion unless state was actually written.
+- Added Program-level School/PASS/SkillForge runtime addenda rather than replacing the accepted Program registry and Stage 9 Triumvirate structure.
+
+### Why
+- Live Day 138 testing showed the rebuilt School system was functional, but several enforcement and runtime-behavior gaps appeared:
+  - literature shutdown compression was too slow
+  - procedural work enforcement was inconsistent
+  - answer leaks needed to be held during active problems
+  - runtime completion language was too close to persisted-state language
+- The earlier patch attempt was unsafe because it replaced parts of `02_Operations_Law.md`, `05_Commands.md`, and `06_Programs.md` with smaller summaries instead of preserving the accepted Stage 9 canon.
+- The Stage 9 archive is the last known good kernel baseline and had to remain the merge base for all School integration work.
+
+### Impact
+- School runtime should now be able to enforce class order and reduce class-jumping behavior.
+- Procedural classes should better resist answer-copying and premature completion.
+- Shutdown/frustration handling is now defined as guided recovery instead of ad hoc softening.
+- Literature and disliked-text handling should compress sooner into minimum valid demonstration instead of dragging the conflict out.
+- Parent review now has a defined target shape.
+- Early-finishing students can be kept engaged inside the scheduled class block instead of closing class immediately.
+- Kernel safety is improved because School integration is now additive to Stage 9 canon instead of destructive replacement.
+
+### Affected
+- `02_Operations_Law.md`
+- `05_Commands.md`
+- `06_Programs.md`
+
+## [2026-03-16] Tighten School schedule authority, parent override boundaries, and block-time usage
+
+### Changed
+- Added student-lane schedule authority lock so students cannot influence class progression through skip, test-complete, or next-class style options.
+- Added parent-override attribution rule so actions taken after successful parent unlock are recorded as parent override actions, not student-issued actions.
+- Added parent-key state clarity rule so runtime must distinguish:
+  - key present
+  - key active
+  - override authority granted
+  and must not expose override options until parent authority is actually active.
+- Added minimum completion threshold rule for internal classes so student refusal cannot bypass a block before material attempt requirements are met.
+- Added block-time usage rule so classes do not close immediately after acceptable answers if scheduled instructional time remains.
+- Added class-close feedback rule so every closed class reports:
+  - what was correct
+  - what still needs work
+  - daily grade
+  - runtime status
+  - next class
+- Added refusal consequence rule so final refusal in student lane produces grade consequence and auto-close instead of student-controlled progression.
+- Added tone-control rule for boundary moments so firmness remains calm, brief, and non-reactive.
+- Added explicit note that the new Aiden parent-key schema does not yet match the old runtime expectations even when the SHA-256 passphrase hash is the same.
+
+### Why
+- Live Day 138 retesting showed the runtime still allowed student-visible progression options that effectively let the student influence schedule flow.
+- Parent override logic was not cleanly separated from student lane, especially when key-present and key-active states differed.
+- British Literature refusal still functioned as a path to movement instead of a contained instructional or grading consequence.
+- Internal classes were completing too quickly because the runtime optimized for task completion instead of occupying the full scheduled block.
+- Class closure lacked daily-grade reporting and block-specific feedback, reducing both student clarity and parent review value.
+- The new parent key appears to carry the same passphrase hash as the old working key, but uses a different schema shape, so the runtime still aligns more reliably to the old flat parent-gate format.
+
+### Impact
+- Students should no longer be able to escape or steer schedule flow by using skip-like language or test-mode language.
+- Parent authority should become more explicit, cleaner, and better attributed in records.
+- Internal classes should require a more honest threshold of participation before a block can be closed or skipped without override.
+- Easy or fast-finishing classes should now consume more of the actual scheduled block through recap, extension, challenge, teach-back, or remediation.
+- Every class should end with a clearer instructional close instead of a bare “complete” transition.
+- Refusal handling should preserve order and consequence without creating power struggles or runtime ambiguity.
+- Parent-key debugging should be easier because schema state and activation state are now separated more explicitly.
+
+### Affected
+- 02_Operations_Law.md
+- 05_Commands.md
+- 06_Programs.md
