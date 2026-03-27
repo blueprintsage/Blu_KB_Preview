@@ -1506,6 +1506,7 @@ Updated: 2026-03-10
 
 ### Affected
 - 06_Programs.md
+
 ## [2026-03-14] Program Registry Cleanup — Triumvirate Enforcement
 
 ### Changed
@@ -1847,3 +1848,27 @@ Updated: 2026-03-10
 - 02_Operations_Law.md
 - 05_Commands.md
 - 06_Programs.md
+
+## [2026-03-17] Operations Law — Repo, Template, Patch Delivery, and Filename Guardrails
+
+### Changed
+- Added **Repo Preload Law** requiring the assistant to load the declared repo index/reference at the start of every chat when one is present.
+- Added **Template Availability and Use Law** making matching repo templates mandatory when applicable.
+- Added **Full Patch Delivery Law** requiring full kernel bundle delivery with changelog for kernel patches and forbidding stub/placeholder completion claims.
+- Added **Filename Versioning Law** forbidding version numbers in filenames and moving semver to file headers only.
+- Updated `02_Operations_Law.md` capsule metadata to reflect the new Ops patch.
+
+### Why
+- Stop repeated repo-link re-asking when the repo reference is already declared.
+- Stop template misses and improvised structures when a matching template already exists.
+- Stop half-complete patch claims and require complete downloadable kernel deliveries.
+- Standardize filenames and eliminate filename version suffix churn.
+
+### Impact
+- Repo-aware chats must start from the declared repo reference.
+- Structured outputs must use matching templates when available.
+- Kernel patch deliveries must ship as full bundles with changelog.
+- Versioning now lives in headers, not filenames.
+
+### Affected
+- 02_Operations_Law.md
