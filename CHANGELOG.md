@@ -1872,3 +1872,109 @@ Updated: 2026-03-10
 
 ### Affected
 - 02_Operations_Law.md
+
+## [2026-03-21] Blu v0.9.1 — Stripped rebuild with MMU integration
+
+### Changed
+
+**02_Operations_Law.md** (v0.9.9)
+- Added M03A Template Integrity Law (from patch)
+- Added M03B Patch Pattern Reset Law (from patch)
+- Added M03C Shared Canon Protection Law (from patch)
+- Added M03D Repo Preload Law (from patch)
+- Added M03E Template Availability and Use Law (from patch)
+- Added M03F Full Patch Delivery Law (from patch)
+- Added M03G Filename Versioning Law (from patch)
+- Added M12 MMU Continuity Law (from v3 MMU — Dungeon Forge burn-in version)
+- Removed School runtime addenda (M15–M29) — School is not active
+- All laws organized in sequential module order (M00 → M12)
+
+**03_Exec.md** (v3.2.6)
+- Added M14 Continuity Overlay Gate (from v3 MMU)
+- Added M15 Minimal Public Render Rule (from v3 MMU)
+- Added M16 Normal Mode Output Compression (from v3 MMU)
+
+**04_Exec_Library.md** (v0.9.6)
+- Added EXECLIB.MOODLIB.001 MoodLib (from v3 MMU)
+- Added EXECLIB.MMU.001 MMULib (from v3 MMU — Dungeon Forge burn-in version)
+
+**05_Commands.md** (v0.9.1)
+- Stripped to live working surface only: /help, /edit, /usercap, /mood, /cpm
+- Removed: /pass, /teach, /school, /class, /parent, /tok, /repo
+- Updated live_topics and Public Surface Summary to match stripped surface
+
+**06_Programs.md** (v0.9.1)
+- Registry stripped to ACTIVE programs only: CPM, ErrorMacros
+- Command Surface Map stripped to /cpm only
+- Removed program bodies: Teaching, School, Pass, Pass.LensResolver,
+  Pass.Normalizer, SkillForge, SkillForge.Validator, SkillForge.PackDualLane
+- All removed programs documented in DEPRECATED/PARKED section with reason and rebuild notes
+
+**00_Instructions.md, 01_Identity.md** — unchanged from March 8 base
+
+### Why
+- Kernel had accumulated stub programs, broken commands, disorganized Ops Law,
+  and School addenda in the wrong file
+- MMU was working and needs to be preserved
+- Stripping to what is actually working creates a stable base for future rebuilds
+
+### What is ACTIVE
+- CPM (/cpm)
+- ErrorMacros (ERR:)
+- Exec 3.2.6
+- MMU continuity overlay
+- /help, /edit, /usercap, /mood, /cpm
+
+### What is PARKED (rebuild required, Admin-gated promotion)
+- Teaching → future SkillForge teach lane
+- School → rebuild required
+- PASS → rebuild required
+- SkillForge → rebuild required
+
+### Impact
+- No DRAFT programs in the active kernel
+- No commands listed that don't work
+- Ops Law is organized sequentially with no scattered addenda
+- MMU continuity is live and tested (Dungeon Forge burn-in)
+- Total kernel: 4,368 lines (was 7,537 in patch version)
+
+### Affected
+- 02_Operations_Law.md
+- 03_Exec.md
+- 04_Exec_Library.md
+- 05_Commands.md
+- 06_Programs.md
+
+
+## [2026-03-29] Blu v0.11.0 Rebuild
+
+### Changed
+- Re-centered v0.11.0 architecture around Exec as the enforced final output gate.
+- Reaffirmed separation of authority:
+  - Instructions = highest hard gate
+  - Operations Law = conduct, truth discipline, anti-drift, and failure behavior
+  - Exec = routing, validation, commit, and print authority
+  - Programs/subordinate systems = propose-only unless explicitly authorized otherwise
+- Produced a production-ready draft direction for `02_Operations_Law.md` using the stronger v0.9.9-style structural spine with v0.10.0 truth-discipline clauses merged in.
+- Confirmed current Identity kernel remains the working source base for now and is not being force-migrated during stabilization.
+
+### Why
+- v0.10.0 authority became too advisory/distributed, reducing stability.
+- The rebuild goal for v0.11.0 is stability-first, exactness-first, and enforcement-first.
+- Exec-centered output truth better prevents fake completion, fake verification, and authority drift.
+
+### Impact
+- Hard authority is concentrated higher in the stack instead of diffused across advisory behavior files.
+- Ops is constrained to law/governance behavior and does not execute runtime.
+- Exec remains the only layer that can finalize user-visible completion truth.
+- Identity can remain semantically stable during kernel rebuild without adding unnecessary formatting churn.
+
+### Affected
+- Instructions
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- Identity kernel / `01_Identity.md`
+- overall v0.11.0 kernel authority model
+
+### SemVer
+- `0.11.0` — minor pre-1.0 architectural update
