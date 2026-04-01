@@ -1978,3 +1978,86 @@ Updated: 2026-03-10
 
 ### SemVer
 - `0.11.0` — minor pre-1.0 architectural update
+
+## [2026-03-31] Blu v0.11.0 PASS Rebuild
+
+### Changed
+- Merged the stronger surviving v0.10.0 PASS contract/rebuild work with the stronger v0.9.0 kernel ownership/routing structure to establish Blu v0.11.0 as the current rebuild baseline.
+- Updated `03_Exec.md` to `version: 3.2.7` and `updated: 2026-03-31`.
+- Stripped stale PASS / SkillForge residue from `03_Exec.md -> M09 | Router prehook and kernel enforcement`, leaving only generic Exec fail-closed boundary rules:
+  - call `router.prehook()` first
+  - do not bypass resolution / validation / commit
+  - do not equate understanding with completion
+  - do not print success for blocked / unresolved / uncommitted operations
+- Registered PASS as a real Program owner in `06_Programs.md`:
+  - `PASS:` → `PROGRAM.PASS` | status=`DRAFT` | surface=`/pass`
+- Added `/pass ...` to `06_Programs.md -> COMMAND SURFACE MAP`.
+- Added `PROGRAM.PASS` as a DRAFT Program body with:
+  - `logical_name: PASS`
+  - `surface: /pass`
+  - `nl_enabled: true`
+  - file autostart metadata
+  - entrypoints:
+    - `preflight`
+    - `gut_ladder`
+    - `modernize_overlay`
+  - implementation spine:
+    - PREFLIGHT
+    - RAW_EXTRACTION
+    - SYNTHESIS
+    - DEDUPE_REJECT_COMPARE
+    - VARIANT_CROSSLINK_GRAPH
+    - NORMALIZATION
+    - REPO_DROP_AND_LANE_PACK
+- Updated `05_Commands.md` to acknowledge PASS as live public surface:
+  - added `PASS` to `live_topics`
+  - added `## PASS`
+  - added `PASS` to `live_public_areas`
+  - updated file header to `version: 0.11.0` and `updated: 2026-03-31`
+- Locked current PASS rebuild direction around:
+  - PASS as compiler, not runtime/router
+  - one normalized core object set
+  - two downstream SkillForge lane packs:
+    - Skill lane
+    - Teach lane
+  - Teach lane may consume Skill lane outputs
+  - Skill lane must never consume Teach lane outputs
+- Preserved the current truth boundary:
+  - PASS is now legally real in kernel ownership/routing
+  - PASS compiler implementation remains `DRAFT`
+  - no claim of full rebuild or release-candidate completion is made
+
+### Why
+- Previous PASS rebuild claims were not backed by durable program bodies and surviving artifacts showed contract/spec/roadmap truth more clearly than implementation truth.
+- Old PASS / SkillForge residue inside Exec had to be removed before any honest PASS rebuild work could continue.
+- PASS could not be treated as executable under Program-first law until it had:
+  - a registered Program owner
+  - a wired public route
+  - a real Program body
+- `05_Commands.md` was lagging `06_Programs.md`, which created public-surface drift even after PASS was wired in Programs.
+- v0.11.0 is the first clean baseline where Exec, Commands, and Programs agree that `/pass` exists, is Program-owned, and is still draft truthfully.
+
+### Impact
+- PASS is no longer ghost architecture or floating contract text.
+- `/pass` now has a legitimate kernel owner and routable public surface.
+- Exec, Commands, and Programs are aligned enough to begin proof testing without pretending the compiler is complete.
+- PASS remains fail-closed and artifact-first:
+  - no source → no run
+  - blocked preflight → no gut run
+  - partial packaging does not equal success
+- v0.11.0 should be treated as:
+  - structurally integrated
+  - routing-clean
+  - truthfully draft
+  - ready for first real proof run
+- Next validation target is one real PASS test:
+  - `/pass preflight`
+  - `/pass gut`
+  - inspect emitted artifacts instead of relying on summaries or assumptions
+
+### Affected
+- `03_Exec.md`
+- `05_Commands.md`
+- `06_Programs.md`
+- PASS routing / ownership surface
+- PASS rebuild baseline for Blu v0.11.0
