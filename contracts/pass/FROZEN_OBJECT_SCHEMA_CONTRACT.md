@@ -1,4 +1,4 @@
-# PASS Object Schema Contract
+# FROZEN OBJECT SCHEMA CONTRACT
 updated: 2026-04-03
 tz: America/Chicago
 status: canon

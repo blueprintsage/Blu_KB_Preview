@@ -15,6 +15,6 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - contracts/engine_patches/
 - contracts/engine_patches/SCHOOL_Cap_AutoPatch_Contract.md
 - contracts/pass/
-- contracts/pass/PASS_OBJECT_SCHEMA_CONTRACT.md
+- contracts/pass/FROZEN_OBJECT_SCHEMA_CONTRACT.md
 - contracts/pass/PASS_RETRIEVAL_PROFILE_CONTRACT.md
 - contracts/pass/PASS_EXPORT_REWRITE_CONTRACT.md
