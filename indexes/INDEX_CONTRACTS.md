@@ -1,5 +1,5 @@
 # INDEX_CONTRACTS
-updated: 2026-03-07
+updated: 2026-04-03
 
 Purpose:
 Index view. Keep it scannable. Include direct file links for active execution.
