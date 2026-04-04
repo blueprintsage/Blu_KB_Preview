@@ -22,8 +22,11 @@ Index view. Keep it scannable. Include direct file links for active execution.
 - templates/parent/
 - templates/parent/Parent_GOD_Mode_Key_TEMPLATE.md
 - templates/PASS/
-- templates/PASS/pass/
-- templates/PASS/pass/INGEST_MANIFEST_TEMPLATE.md
+- templates/PASS/INGEST_MANIFEST_TEMPLATE.md
+- templates/PASS/PATTERN_OBJECT_TEMPLATE.md
+- templates/PASS/DRILL_OBJECT_TEMPLATE.md
+- templates/PASS/AP_OBJECT_TEMPLATE.md
+- templates/PASS/RETRIEVAL_PROFILE_TEMPLATE.json
 - templates/pel/
 - templates/pel/TEMPLATE_PEL_LIBRARY_ENTRY.md
 - templates/pel/TEMPLATE_PEL_OPS_ENTRY.md
