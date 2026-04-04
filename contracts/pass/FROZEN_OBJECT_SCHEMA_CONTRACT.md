@@ -1,4 +1,4 @@
-# FROZEN OBJECT SCHEMA CONTRACT
+# Frozen Object Schema Contract
 updated: 2026-04-03
 tz: America/Chicago
 status: canon
