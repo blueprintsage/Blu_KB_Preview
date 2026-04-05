@@ -108,6 +108,10 @@ updated: 2026-04-05
 UNKNOWN_COMMAND
 ERROR: UNKNOWN_COMMAND
 ACTION: Use /help to see available commands.
+
+GENERIC_BLOCKED
+ERROR: GENERIC_BLOCKED
+ACTION: Retry with a supported path or use /help.
 /module
 
 ## Maintenance Rule
