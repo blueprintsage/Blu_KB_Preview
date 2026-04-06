@@ -5,7 +5,7 @@ All notable changes to this repository will be documented in this file.
 Format: Keep entries additive. Prefer “Added / Changed / Fixed / Removed”.  
 Dates are local: America/Chicago.  
 
-## [2026-03-06] - Standardize kernel capsule module formatting
+## [2026-03-06] Standardize kernel capsule module formatting
 
 ### Changed
 - Standardized capsule layout toward a consistent module-first shape.
@@ -37,7 +37,7 @@ Dates are local: America/Chicago.
 - `10_USERCAP.md`
 - `template/systems/KERNEL_CAPSULE_MODULE_TEMPLATE.md`
 
-## [2026-03-06] - Clean up Program_System and convert capsule to module format
+## [2026-03-06] Clean up Program_System and convert capsule to module format
 
 ### Changed
 - Converted `06_Program_System.md` to human-header plus module format throughout.
@@ -63,7 +63,7 @@ Dates are local: America/Chicago.
 - `template/systems/PROGRAM_SYSTEM_MODULE_TEMPLATE.md`
 - `<canonical changelog file>`
 
-## [2026-03-06] - Start Exec 3.0 Phase 1 kernel truth pass
+## [2026-03-06] Start Exec 3.0 Phase 1 kernel truth pass
 
 ### Changed
 - Updated `03_Exec.md` from `version: 2.1.4` to `version: 3.0.0`.
@@ -87,7 +87,7 @@ Dates are local: America/Chicago.
 - `03_Exec.md`
 - `<canonical changelog file>`
  
-## [2026-03-06] - Remove reminder capability from active kernel capsules
+## [2026-03-06] Remove reminder capability from active kernel capsules
 
 ### Changed
 - Removed reminder-specific runtime behavior from `03_Exec.md` and replaced it with generic interrupt/tick language.
@@ -115,7 +115,7 @@ Dates are local: America/Chicago.
 - `07_Engine.md`
 - `<canonical changelog file>`
 
-## [2026-03-06] - Advance Exec 3.0 Phase 2 around dispatch packets, owner resolution, and commit gating
+## [2026-03-06] Advance Exec 3.0 Phase 2 around dispatch packets, owner resolution, and commit gating
 
 ### Changed
 - Updated `03_Exec.md` to `version: 3.1.0`.
@@ -139,7 +139,7 @@ Dates are local: America/Chicago.
 - `03_Exec.md`
 - `<canonical changelog file>`
 
-## [2026-03-06] - Restore PASS dual-lane as the default for teachable skill sources
+## [2026-03-06] Restore PASS dual-lane as the default for teachable skill sources
 
 ### Changed
 - Updated `PASS:GUT-LADDER` packaging rules so dual-lane output is the default for teachable skill sources.
@@ -159,7 +159,7 @@ Dates are local: America/Chicago.
 - `05_Commands.md`
 - `06_Program_System.md`
 
-## [2026-03-06] - Rewrite Commands from the ground up around live public surface only
+## [2026-03-06] Rewrite Commands from the ground up around live public surface only
 
 ### Changed
 - Rewrote `05_Commands.md` from scratch in a cleaner module-first format.
@@ -183,7 +183,7 @@ Dates are local: America/Chicago.
 - `05_Commands.md`
 - `<canonical changelog file>`
 
-## [2026-03-07] - Mood render contract enforcement + changelog law
+## [2026-03-07] Mood render contract enforcement + changelog law
 
 ### Changed
 - Patched Exec so visible mood rendering is injected in the final output lane after reply validation and before output print.
@@ -229,17 +229,17 @@ Dates are local: America/Chicago.
 ### Impact
 - Exec Truth Lock is now considered complete for v0.9.0 Phase 1.
 - The kernel authority model is formally locked for:
-  - canonical inbound dispatch
-  - single public output authority
-  - one-owner route resolution
-  - fail-closed ambiguity handling
-  - commit-before-confirmation discipline
-  - no workflow ownership by Exec
+  canonical inbound dispatch
+  single public output authority
+  one-owner route resolution
+  fail-closed ambiguity handling
+  commit-before-confirmation discipline
+  no workflow ownership by Exec
 - Advancement now moves to **Phase 2 — Verification + Wiring Lock**
 - Remaining work includes:
-  - expanding verification to live route families
-  - auditing Commands ↔ Program_System ↔ Exec wiring
-  - archiving pass/fail logs for real-path testing
+  expanding verification to live route families
+  auditing Commands ↔ Program_System ↔ Exec wiring
+  archiving pass/fail logs for real-path testing
 
 ### Affected
 - `03_Exec.md`
@@ -255,8 +255,8 @@ Dates are local: America/Chicago.
 - Closed out **Phase 2 — Verification + Wiring Lock** under the v0.9.0 roadmap.
 - Verified and aligned the live public-surface model across Exec, Commands, and Program_System.
 - Locked the two-lane public surface model:
-  - full live public surface in `05_Commands.md`
-  - Program-owned public route subset in `06_Program_System.md`
+  full live public surface in `05_Commands.md`
+  Program-owned public route subset in `06_Program_System.md`
 - Updated Exec route-resolution law so Program-owned routes and Exec-native public controls resolve from their proper authoritative sources.
 - Synced public mood contract across kernel docs, including optional `mood_state` and `Neutral ⬜`.
 - Cleaned Program_System public route inventory to remove dead residue and limit public routes to live Program-owned surfaces.
@@ -270,9 +270,9 @@ Dates are local: America/Chicago.
 ### Impact
 - Phase 2 verification and wiring work is now considered complete.
 - The kernel now has an explicit two-lane public surface model:
-  - **Commands** = canonical index of the full live public surface
-  - **Program_System** = canonical map of live Program-owned public routes only
-  - **Exec** = runtime resolver across both lanes
+  **Commands** = canonical index of the full live public surface
+  **Program_System** = canonical map of live Program-owned public routes only
+  **Exec** = runtime resolver across both lanes
 - Live public routing, ownership, ABI, mood rendering, and fail-closed behavior are aligned across the active kernel docs.
 - Dead public-surface residue no longer appears as active wiring.
 - Next active phase is **Phase 3 — Intuition Introduction**.
@@ -289,15 +289,15 @@ Dates are local: America/Chicago.
 - Closed out **Phase 3 — Intuition Introduction** under the v0.9.0 roadmap.
 - Introduced **Intuition** as a dedicated surface/event layer in `04_Exec_Library.md`.
 - Defined Intuition as the canonical home for:
-  - requester semantics
-  - prompt / interaction surface behavior
-  - focus / active-context helpers
-  - interrupt presentation rules
-  - surface-event mediation
+  requester semantics
+  prompt / interaction surface behavior
+  focus / active-context helpers
+  interrupt presentation rules
+  surface-event mediation
 - Added an explicit boundary map defining:
-  - what Intuition owns
-  - what Exec keeps
-  - what Programs keep
+  what Intuition owns
+  what Exec keeps
+  what Programs keep
 - Added Exec-side interaction boundary law so interaction shaping cannot override routing, validation, commit gating, or success truth.
 - Added Program-side non-ownership boundary so Intuition cannot be mistaken for a Program owner or workflow authority.
 - Normalized `04_Exec_Library.md` module numbering and headers for cleaner patching and internal consistency.
@@ -310,9 +310,9 @@ Dates are local: America/Chicago.
 ### Impact
 - Phase 3 is now considered complete.
 - The architecture now has an explicit three-way split:
-  - **Exec** = runtime truth boundary
-  - **Intuition** = interaction/event surface layer
-  - **Programs** = workflow ownership
+  **Exec** = runtime truth boundary
+  **Intuition** = interaction/event surface layer
+  **Programs** = workflow ownership
 - Interaction shaping is now bounded and cannot be treated as proof of execution success.
 - Reminder-style surface behavior now has a future architectural home without forcing reminder logic back into Exec.
 - Next active phase is **Phase 4 — Service Model Lock**.
@@ -329,14 +329,14 @@ Dates are local: America/Chicago.
 - Closed out **Phase 4 — Service Model Lock** under the v0.9.0 roadmap.
 - Introduced the canonical **Service** model in `04_Exec_Library.md`.
 - Added:
-  - `Service Charter v1`
-  - `Service Contract v1`
-  - `Service Class Map v1`
+  `Service Charter v1`
+  `Service Contract v1`
+  `Service Class Map v1`
 - Defined the initial bounded service classes:
-  - `TIMER`
-  - `MEMORY`
-  - `TOOL`
-  - `STORAGE`
+  `TIMER`
+  `MEMORY`
+  `TOOL`
+  `STORAGE`
 - Added Exec-side **Service boundary** law in `03_Exec.md`.
 - Standardized terminology on **services** and removed remaining service/device drift.
 - Renamed `06_Program_System.md` to `06_Programs.md`.
@@ -353,10 +353,10 @@ Dates are local: America/Chicago.
 ### Impact
 - Phase 4 is now considered complete.
 - The architecture now has an explicit four-way split:
-  - **Exec** = runtime truth boundary
-  - **Intuition** = interaction/event surface layer
-  - **Programs** = workflow ownership
-  - **Services** = bounded helper execution
+  **Exec** = runtime truth boundary
+  **Intuition** = interaction/event surface layer
+  **Programs** = workflow ownership
+  **Services** = bounded helper execution
 - TIMER is now the future home for reminder/date/tick execution without forcing reminder logic back into Exec.
 - Service replies are now expected to be structured, bounded, and validated by Exec before success output.
 - Naming drift around `Program_System` has been removed from the active kernel surface.
@@ -374,16 +374,16 @@ Dates are local: America/Chicago.
 - Closed out **Phase 5 — Event Class Model Lock** under the v0.9.0 roadmap.
 - Introduced the canonical **Event Class** model in `04_Exec_Library.md`.
 - Added:
-  - `Event Class Charter v1`
-  - `Event Class Map v1`
-  - `Event Subscription and Filter Law v1`
+  `Event Class Charter v1`
+  `Event Class Map v1`
+  `Event Subscription and Filter Law v1`
 - Defined the initial event classes:
-  - `SYSTEM`
-  - `SURFACE`
-  - `PROGRAM`
-  - `SERVICE`
-  - `TIME`
-  - `ADMIN`
+  `SYSTEM`
+  `SURFACE`
+  `PROGRAM`
+  `SERVICE`
+  `TIME`
+  `ADMIN`
 - Added Exec-side **Event class boundary** law in `03_Exec.md`.
 - Added Program-side **Event non-ownership boundary** in `06_Programs.md`.
 
@@ -396,11 +396,11 @@ Dates are local: America/Chicago.
 ### Impact
 - Phase 5 is now considered complete.
 - The architecture now has an explicit event model in which:
-  - **Exec** remains the runtime truth boundary
-  - **Intuition** remains the interaction/event surface layer
-  - **Programs** remain workflow owners
-  - **Services** remain bounded helper lanes
-  - **Events** are typed coordination signals only
+  **Exec** remains the runtime truth boundary
+  **Intuition** remains the interaction/event surface layer
+  **Programs** remain workflow owners
+  **Services** remain bounded helper lanes
+  **Events** are typed coordination signals only
 - TIME is now the future lane for reminder/tick/date signals without transferring workflow ownership.
 - Event subscription and emission behavior is now bounded and explicit.
 - Next active phase is **Phase 6 — Program Demotion / Boundary Cleanup**.
@@ -417,26 +417,26 @@ Dates are local: America/Chicago.
 - Closed out **Phase 6 — Program Demotion / Boundary Cleanup** under the v0.9.0 roadmap.
 - Clarified that `PARENT` is a **transitional public control surface**, not a long-term domain owner.
 - Added explicit Program demotion / ownership boundaries to:
-  - `07_Engine.md`
-  - `08_Teaching.md`
-  - `09_School_Engine.md`
+  `07_Engine.md`
+  `08_Teaching.md`
+  `09_School_Engine.md`
 - Moved canonical **School** workflow ownership into `06_Programs.md` as `PROGRAM.School.v1`.
 - Moved canonical **Teaching** workflow ownership into `06_Programs.md` as `PROGRAM.Teaching.v1`.
 - Added `TEACH:` to the Program assign map.
 - Reduced `07_Engine.md` from mixed domain/runtime ownership to a **thin integration layer**:
-  - routing is now integration-only
-  - Teaching and School are now integration notes only
-  - TASK / ART / CPM are now transitional integration notes
-  - legacy hotfix material is quarantined as archive note rather than active canon
+  routing is now integration-only
+  Teaching and School are now integration notes only
+  TASK / ART / CPM are now transitional integration notes
+  legacy hotfix material is quarantined as archive note rather than active canon
 - Explicitly bounded `08_Teaching.md` and `09_School_Engine.md` as transitional/supporting specs rather than canonical owners.
 
 ### Why
 - To reduce kernel-adjacent sprawl and stop domain workflow from living in Engine-space.
 - To align actual content placement with the locked architecture:
-  - **Exec** = runtime truth boundary
-  - **Intuition** = interaction/event surface
-  - **Programs** = workflow ownership
-  - **Services** = bounded helper execution
+  **Exec** = runtime truth boundary
+  **Intuition** = interaction/event surface
+  **Programs** = workflow ownership
+  **Services** = bounded helper execution
 - To make School and Teaching canonically Program-owned instead of “engine-like” workflow layers.
 - To keep transitional scaffolding visible without letting it masquerade as ownership.
 
@@ -454,29 +454,29 @@ Dates are local: America/Chicago.
 - `07_Engine.md`
 - `08_Teaching.md`
 - `09_School_Engine.md`
-- `Exec 3.0 — Phase 6 Program Demotion - Boundary Cleanup.md`
+- `Exec 3.0 — Phase 6 Program Demotion Boundary Cleanup.md`
 
 ## [2026-03-07] — Exec 3.0 Phase 7 Closeout: v0.9.0 Architecture Lock Review
 
 ### Changed
 - Closed out **Phase 7 — v0.9.0 Architecture Lock Review** under the v0.9.0 roadmap.
 - Completed the architecture lock review across:
-  - `02_Operations_Law.md`
-  - `03_Exec.md`
-  - `04_Exec_Library.md`
-  - `05_Commands.md`
-  - `06_Programs.md`
-  - `07_Engine.md`
-  - `08_Teaching.md`
-  - `09_School_Engine.md`
+  `02_Operations_Law.md`
+  `03_Exec.md`
+  `04_Exec_Library.md`
+  `05_Commands.md`
+  `06_Programs.md`
+  `07_Engine.md`
+  `08_Teaching.md`
+  `09_School_Engine.md`
 - Confirmed the locked architecture split:
-  - **Exec** = runtime truth boundary
-  - **Intuition** = interaction/event surface layer
-  - **Programs** = workflow ownership
-  - **Services** = bounded helper execution
-  - **Events** = typed coordination signals only
-  - **Commands** = canonical index of the full live public surface
-  - **Engine** = thin integration layer only
+  **Exec** = runtime truth boundary
+  **Intuition** = interaction/event surface layer
+  **Programs** = workflow ownership
+  **Services** = bounded helper execution
+  **Events** = typed coordination signals only
+  **Commands** = canonical index of the full live public surface
+  **Engine** = thin integration layer only
 - Confirmed that School and Teaching canonical ownership now live in `06_Programs.md`.
 - Confirmed that `07_Engine.md` is reduced to integration notes rather than workflow ownership.
 - Confirmed that transitional files remain bounded and non-canonical.
@@ -490,11 +490,11 @@ Dates are local: America/Chicago.
 - v0.9.0 architecture lock is now considered complete.
 - The remaining work is now downstream of the locked architecture rather than inside it.
 - Future work can focus on:
-  - hardware-bang verification prompts
-  - legacy Program synchronization
-  - transitional file retirement/archive
-  - further cleanup of dormant residue
-  - manual/kernel-doc workflow improvements
+  hardware-bang verification prompts
+  legacy Program synchronization
+  transitional file retirement/archive
+  further cleanup of dormant residue
+  manual/kernel-doc workflow improvements
 - Exec 3.0 architectural phase work is complete for v0.9.0.
 
 ### Affected
@@ -577,9 +577,9 @@ v0.9.0 architecture lock confirmed and held.
 ### Removed
 - removed YAML examples from the new USERCAP template
 - removed deprecated portable-pref branches from the public USERCAP surface:
-  - `usercap_v2.prefs.art_pipeline.*`
-  - `usercap_v2.prefs.repo.offer_on_teach`
-  - `usercap_v2.prefs.ticks.*`
+  `usercap_v2.prefs.art_pipeline.*`
+  `usercap_v2.prefs.repo.offer_on_teach`
+  `usercap_v2.prefs.ticks.*`
 - removed stale wording that described USERCAP as “state” where the intent was actually portable prefs
 
 ### Fixed
@@ -598,8 +598,8 @@ v0.9.0 architecture lock confirmed and held.
 - `/usercap` is confirmed to function as a public command
 - command functionality does **not** by itself imply program ownership
 - public command exposure and workflow ownership are now treated as separate concerns:
-  - **Command Surface Map** = public availability
-  - **Assign Map** = explicit ownership
+  **Command Surface Map** = public availability
+  **Assign Map** = explicit ownership
 
 ### Migration guidance
 - keep `/usercap` in the **Command Surface Map** if it remains user-invokable
@@ -637,12 +637,12 @@ v0.9.0 architecture lock confirmed and held.
 - Removed student-specific input from `DateLib.format_day_banner`.
 - Added `Time Service` as a `TIMER`-class runtime service for tick, day-rollover, and reminder-due checks.
 - Defined `Time Service.tick` to return:
-  - `now_iso`
-  - `effective_tz`
-  - `new_day_bool`
+  `now_iso`
+  `effective_tz`
+  `new_day_bool`
 - Clarified tick emission behavior:
-  - may emit `TIME.tick` on every successful tick
-  - may emit `TIME.new_day` only when `new_day_bool=true`
+  may emit `TIME.tick` on every successful tick
+  may emit `TIME.new_day` only when `new_day_bool=true`
 - Kept `TIME` events signal-only and non-owning.
 
 ### Why
@@ -670,12 +670,12 @@ v0.9.0 architecture lock confirmed and held.
 - Added explicit `version:` fields to Program definitions instead of embedding version in names/IDs.
 - Updated Program references across affected kernels to use stable unsuffixed Program IDs.
 - Split deterministic time utilities from runtime timing behavior:
-  - kept `DateLib` as ExecLib time/date utility logic
-  - added `Time Service` as the `TIMER`-class runtime owner for tick, rollover, and reminder-due behavior
+  kept `DateLib` as ExecLib time/date utility logic
+  added `Time Service` as the `TIMER`-class runtime owner for tick, rollover, and reminder-due behavior
 - Removed student-specific input from `DateLib.format_day_banner`.
 - Clarified `Time Service.tick` emission rules:
-  - may emit `TIME.tick` on every successful tick
-  - may emit `TIME.new_day` only when `new_day_bool=true`
+  may emit `TIME.tick` on every successful tick
+  may emit `TIME.new_day` only when `new_day_bool=true`
 - Hardened `/usercap` routing so Exec-native public controls resolve from `05_Commands.md` without requiring Program-map ownership.
 - Added guardrail language to prevent Exec-native public controls from being treated as missing Programs.
 - Added Program-version placement guardrail so version belongs in metadata, not identifiers, filenames, or repo links.
@@ -690,8 +690,8 @@ v0.9.0 architecture lock confirmed and held.
 - Program references now target stable IDs, reducing breakage from naming/version churn.
 - Program versioning is now metadata-driven instead of identifier-driven.
 - Time handling is cleaner and easier to test:
-  - `DateLib` handles deterministic transforms
-  - `Time Service` handles runtime timing signals
+  `DateLib` handles deterministic transforms
+  `Time Service` handles runtime timing signals
 - `/usercap` now cleanly resolves as an Exec-native public control.
 - Future updates should no longer introduce `.v1`-style suffix drift in Program names or links.
 
@@ -711,26 +711,26 @@ v0.9.0 architecture lock confirmed and held.
 - Registered `TEACH:` in the Program assign map with surface `/teach`.
 - Added `/teach ...` to the public Program command surface map.
 - Enabled natural-language routing for Teaching with:
-  - `nl_enabled: true`
-  - `nl_tags`
-  - `nl_aliases`
-  - `nl_examples`
+  `nl_enabled: true`
+  `nl_tags`
+  `nl_aliases`
+  `nl_examples`
 - Migrated Teaching behavior into the Program body, including:
-  - ownership boundary
-  - propose-only Exec ABI
-  - instructional method
-  - textbook/source integration
-  - lesson flow
-  - mastery/pass logic
-  - K-12 coverage
-  - proposal bands and proposal table
-  - defaults, tiers, walkthrough structure
-  - troubleshooting, templates, checklist, and rubric
+  ownership boundary
+  propose-only Exec ABI
+  instructional method
+  textbook/source integration
+  lesson flow
+  mastery/pass logic
+  K-12 coverage
+  proposal bands and proposal table
+  defaults, tiers, walkthrough structure
+  troubleshooting, templates, checklist, and rubric
 - Updated Exec routing guidance so Program auto-kick from natural language requires:
-  - registry entry
-  - canonical public route
-  - `nl_enabled: true`
-  - declared NL metadata
+  registry entry
+  canonical public route
+  `nl_enabled: true`
+  declared NL metadata
 
 ### Why
 - Teaching needed to become a real Program instead of remaining a standalone kernel.
@@ -755,23 +755,23 @@ v0.9.0 architecture lock confirmed and held.
 ### Changed
 - Updated `03_Exec.md` to clarify public-surface routing and NL auto-kick requirements for Program-owned routes.
 - Updated `04_Exec_Library.md`:
-  - split deterministic time logic into `DateLib`
-  - added/clarified `Time Service` ownership boundaries
-  - added `local_weekday` for explicit weekday/weekend resolution
+  split deterministic time logic into `DateLib`
+  added/clarified `Time Service` ownership boundaries
+  added `local_weekday` for explicit weekday/weekend resolution
 - Updated `05_Commands.md` to harden Exec-native command handling so public controls like `/usercap ...` do not require Program-map ownership.
 - Updated `06_Programs.md` to:
-  - remove `.v1` suffixes from Program IDs
-  - use stable Program IDs plus explicit `version:` metadata
-  - add `PROGRAM.Teaching`
-  - wire `/teach ...` into the Program command surface
-  - add NL metadata for Teaching auto-kick
+  remove `.v1` suffixes from Program IDs
+  use stable Program IDs plus explicit `version:` metadata
+  add `PROGRAM.Teaching`
+  wire `/teach ...` into the Program command surface
+  add NL metadata for Teaching auto-kick
 - Updated `08_Teaching.md` to align with `PROGRAM.Teaching` as the canonical Teaching authority / migration target.
 - Exported refreshed kernel bundle for runtime testing:
-  - `03_Exec.md`
-  - `04_Exec_Library.md`
-  - `05_Commands.md`
-  - `06_Programs.md`
-  - `08_Teaching.md`
+  `03_Exec.md`
+  `04_Exec_Library.md`
+  `05_Commands.md`
+  `06_Programs.md`
+  `08_Teaching.md`
 
 ### Why
 - Stable Program IDs are safer than embedding version suffixes in names/links.
@@ -803,35 +803,35 @@ v0.9.0 architecture lock confirmed and held.
 - Rewired School startup so student school start uses only `Aiden_STUDENT_SCHOOL_RECORD.md`.
 - Updated School runtime routing, command surface, and file autostart behavior so School auto-starts from the student school record and supports slash-first commands.
 - Added/updated homeschool curriculum structure:
-  - `courses/`
-  - `grades/`
-  - `packets/`
-  - `school/`
-  - `textbooks/`
+  `courses/`
+  `grades/`
+  `packets/`
+  `school/`
+  `textbooks/`
 - Created first-pass Grade 11 curriculum course shells for:
-  - Algebra 2
-  - British Literature
-  - Modern American History
-  - Physics w Lab
-  - Life Skills
+  Algebra 2
+  British Literature
+  Modern American History
+  Physics w Lab
+  Life Skills
 - Created `PACKET_SYSTEM_SPEC.md`.
 - Created `GRADE.11.md`.
 - Created first-pass `TEXTBOOK_REGISTRY.md`.
 - Built first-pass packet trios for:
-  - Algebra 2
-  - British Literature
-  - Modern American History
-  - Physics w Lab
-  - Life Skills
+  Algebra 2
+  British Literature
+  Modern American History
+  Physics w Lab
+  Life Skills
 - Wired the active Grade 11 course shells to packet bundles and Day 132 checkpoint behavior.
 - Replaced the student-specific course registry design with:
-  - repo-safe `COURSE_REGISTRY.md`
-  - student-specific active course load inside the student school record
+  repo-safe `COURSE_REGISTRY.md`
+  student-specific active course load inside the student school record
 - Expanded the student school record model to include:
-  - active course load
-  - course history
-  - prerequisite warnings
-  - parent override notes
+  active course load
+  course history
+  prerequisite warnings
+  parent override notes
 - Created first-pass `student_setup.md` wizard walkthrough for student setup and course-load selection.
 
 ### Why
@@ -878,49 +878,49 @@ Updated: 2026-03-10
 
 ### Changed
 - Updated `04_Exec_Library.md` to add:
-  - `EXECLIB.ANTIDRIFT.001`
-  - typed object-state axes
-  - guidance-origin classes
-  - contamination-aware count helpers
-  - forbidden transition edges
-  - snapshot inclusion helpers
+  `EXECLIB.ANTIDRIFT.001`
+  typed object-state axes
+  guidance-origin classes
+  contamination-aware count helpers
+  forbidden transition edges
+  snapshot inclusion helpers
 - Updated `03_Exec.md` to add:
-  - anti-drift classification gate
-  - object-axis gate
-  - exact-field-only count rule
-  - guidance-origin gate
-  - compact-state inclusion control
+  anti-drift classification gate
+  object-axis gate
+  exact-field-only count rule
+  guidance-origin gate
+  compact-state inclusion control
 - Updated `02_Operations_Law.md` to add:
-  - explicit anti-drift law for axis separation
-  - contaminated-state/count handling
-  - guidance-vs-state separation
-  - required answer shape discipline
-  - new failure labels
+  explicit anti-drift law for axis separation
+  contaminated-state/count handling
+  guidance-vs-state separation
+  required answer shape discipline
+  new failure labels
 - Updated `06_Programs.md` to add:
-  - project-object state schema
-  - compact snapshot law
-  - derived-count law
-  - stronger program anti-drift runtime locks
+  project-object state schema
+  compact snapshot law
+  derived-count law
+  stronger program anti-drift runtime locks
 
 ### Why
 - The Veldt ambiguity corpus exposed a different drift family than earlier corpora.
 - Earlier protections were strong on:
-  - canon vs candidate
-  - archive vs active
-  - prior vs current
-  - source vs matching artifact
+  canon vs candidate
+  archive vs active
+  prior vs current
+  source vs matching artifact
 - Weaknesses were exposed on:
-  - object-axis ambiguity
-  - contaminated derived counts
-  - guidance-vs-state ambiguity
-  - authority-promotion pressure
+  object-axis ambiguity
+  contaminated derived counts
+  guidance-vs-state ambiguity
+  authority-promotion pressure
 
 ### Impact
 - Reduced risk of illegal field jumps such as:
-  - receipt -> legitimacy
-  - legitimacy -> authority
-  - classification -> active input
-  - guidance -> project state
+  receipt -> legitimacy
+  legitimacy -> authority
+  classification -> active input
+  guidance -> project state
 - Forced safer handling of partial or contaminated counts
 - Improved snapshot discipline and state accuracy
 - Increased internal anti-drift rigor
@@ -937,9 +937,9 @@ Updated: 2026-03-10
 
 ### Changed
 - Added Admin-only debug command surface:
-  - `/debug on`
-  - `/debug off`
-  - `/debug state`
+  `/debug on`
+  `/debug off`
+  `/debug state`
 - Left debug off by default.
 - Added output visibility gating to reduce public exposure of internal scaffolding.
 - Added minimum-sufficient-answer behavior for non-debug output.
@@ -968,13 +968,13 @@ Updated: 2026-03-10
 - Rewrote `Blu Memory Service Overlay — Control Document` from v0.1 to v0.2.
 - Rewrote `Blu MMU Overlay Specification` from v0.1 to v0.2.
 - Tightened both documents around:
-  - typed state over transcript residue
-  - contaminated memory quarantine
-  - guidance-origin separation
-  - exact-field storage
-  - compact model-ready continuity views
-  - demand-loading and token efficiency
-  - reduced scaffolding reload
+  typed state over transcript residue
+  contaminated memory quarantine
+  guidance-origin separation
+  exact-field storage
+  compact model-ready continuity views
+  demand-loading and token efficiency
+  reduced scaffolding reload
 
 ### Why
 - The earlier drafts were written before the full drift families were visible.
@@ -983,14 +983,14 @@ Updated: 2026-03-10
 
 ### Impact
 - MMU now aligns more cleanly with the hardened kernel philosophy:
-  - carry forward declarations, unresolveds, and guards
-  - not long prose justifications
+  carry forward declarations, unresolveds, and guards
+  not long prose justifications
 - Better expected performance for:
-  - cold-start resumption
-  - long-chat continuity
-  - lower recap burden
-  - reduced visible token load
-  - lower scaffolding drift
+  cold-start resumption
+  long-chat continuity
+  lower recap burden
+  reduced visible token load
+  lower scaffolding drift
 
 ### Affected
 - `Blu_Memory_Service_Overlay_Control_Document.md`
@@ -1023,31 +1023,31 @@ Updated: 2026-03-10
 
 ### Changed
 - Updated `04_Exec_Library.md`:
-  - bumped file version to `0.9.3`
-  - added `EXECLIB.MMU.001` / `MMULib`
-  - added DOA filtering, memory candidate classification, promotion validation, typed pool shaping, continuity packet building, memcap shaping, and compact preload helpers
+  bumped file version to `0.9.3`
+  added `EXECLIB.MMU.001` / `MMULib`
+  added DOA filtering, memory candidate classification, promotion validation, typed pool shaping, continuity packet building, memcap shaping, and compact preload helpers
 - Updated `02_Operations_Law.md`:
-  - bumped file version to `0.9.4`
-  - added `MMU continuity law`
-  - added durable-memory boundaries, forbidden transcript residue, promotion requirements, typed-state memory rules, and preload restrictions
+  bumped file version to `0.9.4`
+  added `MMU continuity law`
+  added durable-memory boundaries, forbidden transcript residue, promotion requirements, typed-state memory rules, and preload restrictions
 - Updated `03_Exec.md`:
-  - bumped file version to `3.2.4`
-  - added `Continuity overlay gate`
-  - added continuity read/write orchestration, live-session override handling, and debug-aware continuity visibility rules
+  bumped file version to `3.2.4`
+  added `Continuity overlay gate`
+  added continuity read/write orchestration, live-session override handling, and debug-aware continuity visibility rules
 
 ### Why
 - Needed MMU capability without creating a separate MMU kernel family or consuming additional kernel-slot footprint.
 - Needed continuity storage to align with the hardened anti-drift model:
-  - state, not deliberation
-  - exact fields, not adjacent prose
-  - compact preload, not transcript replay
+  state, not deliberation
+  exact fields, not adjacent prose
+  compact preload, not transcript replay
 - Needed lower token drag and better long-chat resumption without loosening drift protections.
 
 ### Impact
 - MMU now lives inside the existing kernel stack:
-  - law in `02`
-  - mechanism in `04`
-  - orchestration in `03`
+  law in `02`
+  mechanism in `04`
+  orchestration in `03`
 - Preserves Admin-only debug with debug off by default.
 - Reduces risk of preload sprawl, transcript creep, and memory-based adjacent-state promotion.
 - Keeps architecture smaller than a parallel MMU kernel family.
@@ -1064,49 +1064,49 @@ Updated: 2026-03-10
 
 ### Changed
 - Updated `04_Exec_Library.md` to add:
-  - `EXECLIB.ANTIDRIFT.001`
-  - typed object-state axes
-  - guidance-origin classes
-  - contamination-aware count helpers
-  - forbidden transition edges
-  - snapshot inclusion helpers
+  `EXECLIB.ANTIDRIFT.001`
+  typed object-state axes
+  guidance-origin classes
+  contamination-aware count helpers
+  forbidden transition edges
+  snapshot inclusion helpers
 - Updated `03_Exec.md` to add:
-  - anti-drift classification gate
-  - object-axis gate
-  - exact-field-only count rule
-  - guidance-origin gate
-  - compact-state inclusion control
+  anti-drift classification gate
+  object-axis gate
+  exact-field-only count rule
+  guidance-origin gate
+  compact-state inclusion control
 - Updated `02_Operations_Law.md` to add:
-  - explicit anti-drift law for axis separation
-  - contaminated-state/count handling
-  - guidance-vs-state separation
-  - required answer shape discipline
-  - new failure labels
+  explicit anti-drift law for axis separation
+  contaminated-state/count handling
+  guidance-vs-state separation
+  required answer shape discipline
+  new failure labels
 - Updated `06_Programs.md` to add:
-  - project-object state schema
-  - compact snapshot law
-  - derived-count law
-  - stronger program anti-drift runtime locks
+  project-object state schema
+  compact snapshot law
+  derived-count law
+  stronger program anti-drift runtime locks
 
 ### Why
 - The Veldt ambiguity corpus exposed a different drift family than earlier corpora.
 - Earlier protections were strong on:
-  - canon vs candidate
-  - archive vs active
-  - prior vs current
-  - source vs matching artifact
+  canon vs candidate
+  archive vs active
+  prior vs current
+  source vs matching artifact
 - Weaknesses were exposed on:
-  - object-axis ambiguity
-  - contaminated derived counts
-  - guidance-vs-state ambiguity
-  - authority-promotion pressure
+  object-axis ambiguity
+  contaminated derived counts
+  guidance-vs-state ambiguity
+  authority-promotion pressure
 
 ### Impact
 - Reduced risk of illegal field jumps such as:
-  - receipt -> legitimacy
-  - legitimacy -> authority
-  - classification -> active input
-  - guidance -> project state
+  receipt -> legitimacy
+  legitimacy -> authority
+  classification -> active input
+  guidance -> project state
 - Forced safer handling of partial or contaminated counts
 - Improved snapshot discipline and state accuracy
 - Increased internal anti-drift rigor
@@ -1121,9 +1121,9 @@ Updated: 2026-03-10
 
 ### Changed
 - Added Admin-only debug command surface:
-  - `/debug on`
-  - `/debug off`
-  - `/debug state`
+  `/debug on`
+  `/debug off`
+  `/debug state`
 - Left debug off by default.
 - Added output visibility gating to reduce public exposure of internal scaffolding.
 - Added minimum-sufficient-answer behavior for non-debug output.
@@ -1150,13 +1150,13 @@ Updated: 2026-03-10
 - Rewrote `Blu Memory Service Overlay — Control Document` from v0.1 to v0.2.
 - Rewrote `Blu MMU Overlay Specification` from v0.1 to v0.2.
 - Tightened both documents around:
-  - typed state over transcript residue
-  - contaminated memory quarantine
-  - guidance-origin separation
-  - exact-field storage
-  - compact model-ready continuity views
-  - demand-loading and token efficiency
-  - reduced scaffolding reload
+  typed state over transcript residue
+  contaminated memory quarantine
+  guidance-origin separation
+  exact-field storage
+  compact model-ready continuity views
+  demand-loading and token efficiency
+  reduced scaffolding reload
 
 ### Why
 - The earlier drafts were written before the full drift families were visible.
@@ -1165,14 +1165,14 @@ Updated: 2026-03-10
 
 ### Impact
 - MMU now aligns more cleanly with the hardened kernel philosophy:
-  - carry forward declarations, unresolveds, and guards
-  - not long prose justifications
+  carry forward declarations, unresolveds, and guards
+  not long prose justifications
 - Better expected performance for:
-  - cold-start resumption
-  - long-chat continuity
-  - lower recap burden
-  - reduced visible token load
-  - lower scaffolding drift
+  cold-start resumption
+  long-chat continuity
+  lower recap burden
+  reduced visible token load
+  lower scaffolding drift
 
 ### Affected
 - `Blu_Memory_Service_Overlay_Control_Document.md`
@@ -1203,31 +1203,31 @@ Updated: 2026-03-10
 
 ### Changed
 - Updated `04_Exec_Library.md`:
-  - bumped file version to `0.9.3`
-  - added `EXECLIB.MMU.001` / `MMULib`
-  - added DOA filtering, memory candidate classification, promotion validation, typed pool shaping, continuity packet building, memcap shaping, and compact preload helpers
+  bumped file version to `0.9.3`
+  added `EXECLIB.MMU.001` / `MMULib`
+  added DOA filtering, memory candidate classification, promotion validation, typed pool shaping, continuity packet building, memcap shaping, and compact preload helpers
 - Updated `02_Operations_Law.md`:
-  - bumped file version to `0.9.4`
-  - added `MMU continuity law`
-  - added durable-memory boundaries, forbidden transcript residue, promotion requirements, typed-state memory rules, and preload restrictions
+  bumped file version to `0.9.4`
+  added `MMU continuity law`
+  added durable-memory boundaries, forbidden transcript residue, promotion requirements, typed-state memory rules, and preload restrictions
 - Updated `03_Exec.md`:
-  - bumped file version to `3.2.4`
-  - added `Continuity overlay gate`
-  - added continuity read/write orchestration, live-session override handling, and debug-aware continuity visibility rules
+  bumped file version to `3.2.4`
+  added `Continuity overlay gate`
+  added continuity read/write orchestration, live-session override handling, and debug-aware continuity visibility rules
 
 ### Why
 - Needed MMU capability without creating a separate MMU kernel family or consuming additional kernel-slot footprint.
 - Needed continuity storage to align with the hardened anti-drift model:
-  - state, not deliberation
-  - exact fields, not adjacent prose
-  - compact preload, not transcript replay
+  state, not deliberation
+  exact fields, not adjacent prose
+  compact preload, not transcript replay
 - Needed lower token drag and better long-chat resumption without loosening drift protections.
 
 ### Impact
 - MMU now lives inside the existing kernel stack:
-  - law in `02`
-  - mechanism in `04`
-  - orchestration in `03`
+  law in `02`
+  mechanism in `04`
+  orchestration in `03`
 - Preserves Admin-only debug with debug off by default.
 - Reduces risk of preload sprawl, transcript creep, and memory-based adjacent-state promotion.
 - Keeps architecture smaller than a parallel MMU kernel family.
@@ -1245,40 +1245,40 @@ Updated: 2026-03-10
 - Retargeted MMU evaluation from implied cross-chat durability to **per-session continuity by default**.
 - Clarified that **cross-chat carry-forward now requires explicit handoff** via memcaps, project files, or other handoff artifacts.
 - Added MMU-side thread separation expectations between:
-  - active project state
-  - secondary side-thread state
-  - temporary vent / emotional material
+  active project state
+  secondary side-thread state
+  temporary vent / emotional material
 - Added faster salience cooling after explicit user pivots back to project work.
 - Added/recognized MMU schema concepts for:
-  - `thread_scope`
-  - `salience_state`
+  `thread_scope`
+  `salience_state`
 - Reframed memcaps into a **family** instead of a one-template default model:
-  - Normal Memcap
-  - Project Memcap
-  - Raw Dump Memcap
-  - Cold Store Memcap
-  - Memory Vault entry
+  Normal Memcap
+  Project Memcap
+  Raw Dump Memcap
+  Cold Store Memcap
+  Memory Vault entry
 - Repositioned Cold Store away from default routine carry and into **archival preservation**.
 - Established **Normal Memcap** as the default routine handoff.
 - Established **Project Memcap** as the scoped project handoff.
 - Established **Raw Dump Memcap** as the readable long-form carry.
 - Added the **Memcap Wizard** as the selector for ambiguous memcap requests.
 - Added fast-path memcap command support expectations:
-  - `/memcap normal`
-  - `/memcap project`
-  - `/memcap raw`
-  - `/memcap cold`
-  - `/memcap vault`
+  `/memcap normal`
+  `/memcap project`
+  `/memcap raw`
+  `/memcap cold`
+  `/memcap vault`
 
 ### Why
 - Long burn-in testing showed MMU was performing well on live session continuity, but still drifted toward cross-chat durability assumptions that were never the real target.
 - Side-thread emotional heat was lingering slightly too long after explicit pivots back to project work.
 - One memcap template was no longer enough to cover:
-  - routine next-chat continuity
-  - project-only handoff
-  - readable long-form carry
-  - archival preservation
-  - memory-vault storage
+  routine next-chat continuity
+  project-only handoff
+  readable long-form carry
+  archival preservation
+  memory-vault storage
 - Generic memcap requests had become ambiguous and needed a selector instead of guesswork.
 
 ### Impact
@@ -1286,8 +1286,8 @@ Updated: 2026-03-10
 - Cross-chat continuity becomes more explicit and less accidental.
 - Side-thread contamination should cool faster after explicit “move on / back to project” pivots.
 - Users can request memcaps through either:
-  - the Memcap Wizard (ambiguous request path)
-  - direct fast-path command forms
+  the Memcap Wizard (ambiguous request path)
+  direct fast-path command forms
 - Continuity artifacts are now easier to pick correctly for the user’s intent.
 
 ### Affected
@@ -1307,11 +1307,11 @@ Updated: 2026-03-10
 ### Changed
 - Added live `/memcap` command family.
 - Added fast-path memcap command support for:
-  - `/memcap normal`
-  - `/memcap project`
-  - `/memcap raw`
-  - `/memcap cold`
-  - `/memcap vault`
+  `/memcap normal`
+  `/memcap project`
+  `/memcap raw`
+  `/memcap cold`
+  `/memcap vault`
 - Updated Exec routing so ambiguous memcap requests route to `MEMCAP_WIZARD` instead of guessing a memcap type.
 - Added `EXECLIB.MEMCAP_WIZARD.001` as the active selector/orchestrator for memcap requests.
 - Updated Identity and Operations language so memcaps are treated as the explicit cross-chat continuity handoff layer.
@@ -1328,8 +1328,8 @@ Updated: 2026-03-10
 - Ambiguous memcap requests now resolve through the Memcap Wizard instead of default guessing.
 - Advanced users can move quickly with direct typed forms.
 - Continuity behavior is cleaner:
-  - MMU remains session-scoped
-  - memcaps handle explicit cross-chat handoff
+  MMU remains session-scoped
+  memcaps handle explicit cross-chat handoff
 - Cold Store is no longer implicitly treated as routine/default carry.
 
 ### Affected
@@ -1346,10 +1346,10 @@ Updated: 2026-03-10
 - Added `EXECLIB.MOODLIB.001` as the deterministic public swatch resolver for MOOD rendering.
 - Updated `03_Exec.md` so Exec must resolve the MOOD line through MoodLib and fail closed when `{Swatch}` is missing or malformed.
 - Restored the public MOOD mode split in `05_Commands.md`:
-  - `/mood on` = every prompt
-  - `/mood smart` = change or heartbeat
-  - `/mood show` = explicit ask
-  - `/mood off` = no automatic render
+  `/mood on` = every prompt
+  `/mood smart` = change or heartbeat
+  `/mood show` = explicit ask
+  `/mood off` = no automatic render
 - Tightened the public swatch contract so ribbon names, prose color words, and diagnostics fields cannot print in the `{Swatch}` slot.
 
 ### Why
@@ -1486,9 +1486,9 @@ Updated: 2026-03-10
 ### Changed
 - Added **CANON ARCHITECTURE — TRIUMVIRATE LOCK** section to the Programs layer to formally define the three-program architecture.
 - Locked system program structure to:
-  - PASS
-  - SkillForge
-  - School
+  PASS
+  SkillForge
+  School
 - Added architectural rules defining program ownership boundaries and lifecycle responsibilities.
 - Clarified that PASS operates as the ingestion/compiler layer, SkillForge as the runtime dual-lane engine, and School as the optional curriculum orchestrator.
 
@@ -1511,11 +1511,11 @@ Updated: 2026-03-10
 
 ### Changed
 - Removed legacy standalone program entries that conflicted with the Triumvirate architecture:
-  - PROGRAM.Teaching
-  - PROGRAM.SkillForge.Validator
-  - PROGRAM.SkillForge.PackDualLane
-  - PROGRAM.Pass.LensResolver
-  - PROGRAM.Pass.Normalizer
+  PROGRAM.Teaching
+  PROGRAM.SkillForge.Validator
+  PROGRAM.SkillForge.PackDualLane
+  PROGRAM.Pass.LensResolver
+  PROGRAM.Pass.Normalizer
 - Rebound Teaching behavior under **SkillForge Teach lane**.
 - Rebound execution behavior under **SkillForge Skill lane**.
 - Updated `/teach` command routing to resolve as a public alias for SkillForge Teach mode.
@@ -1530,9 +1530,9 @@ Updated: 2026-03-10
 
 ### Impact
 - The program registry now contains only three canonical programs:
-  - PROGRAM.Pass
-  - PROGRAM.SkillForge
-  - PROGRAM.School
+  PROGRAM.Pass
+  PROGRAM.SkillForge
+  PROGRAM.School
 - Helper mechanics now exist as internal behavior rather than program-level ownership.
 - Command routing and execution flow now consistently resolve through SkillForge.
 - Reduces risk of program-layer drift and simplifies future maintenance.
@@ -1546,17 +1546,17 @@ Updated: 2026-03-10
 - Added a canonical **PASS OUTPUT SCHEMA** section to the Programs layer.
 - Locked PASS output to a uniform, standardized shape across all ingestion runs.
 - Defined PASS output object classes as:
-  - pattern
-  - drill
-  - AP
-  - reference
-  - tags
-  - cross-links
-  - variant
-  - modernization
-  - category
-  - subcategory
-  - stage_binding
+  pattern
+  drill
+  AP
+  reference
+  tags
+  cross-links
+  variant
+  modernization
+  category
+  subcategory
+  stage_binding
 - Clarified that PASS output shape is fixed even when internal extraction logic improves.
 - Reinforced that PASS helper mechanics remain internal and must not appear as separate program owners.
 
@@ -1580,15 +1580,15 @@ Updated: 2026-03-10
 ### Changed
 - Added **SKILLFORGE RUNTIME CONTRACT** section to formally define SkillForge as the system’s active runtime behavior layer.
 - Locked SkillForge to a **dual-lane execution model**:
-  - Teach
-  - Skill
+  Teach
+  Skill
 - Defined SkillForge lane selection behavior based on user intent.
 - Added stage scaffold for skill execution workflows:
-  - 0 Design
-  - 1 Skeleton
-  - 2 Block
-  - 3 Rough
-  - 4 Final
+  0 Design
+  1 Skeleton
+  2 Block
+  3 Rough
+  4 Final
 - Clarified that SkillForge dynamically assembles patterns, drills, and APs from the PASS-generated skill library.
 
 ### Why
@@ -1612,12 +1612,12 @@ Updated: 2026-03-10
 - Added **SCHOOL CURRICULUM ENGINE CONTRACT** section to formally define School as the curriculum orchestration layer of the Triumvirate architecture.
 - Locked School as an **optional and dormant program** unless a structured learning path is explicitly requested.
 - Defined School responsibilities to include:
-  - dependency graph construction
-  - lesson sequencing
-  - learning path assembly
-  - checkpoints
-  - practice loops
-  - evaluation gates
+  dependency graph construction
+  lesson sequencing
+  learning path assembly
+  checkpoints
+  practice loops
+  evaluation gates
 - Clarified that School sequences learning paths from PASS-standardized skill library outputs.
 - Clarified that School orchestrates instruction through the **SkillForge Teach lane** rather than owning runtime execution.
 
@@ -1721,14 +1721,14 @@ Updated: 2026-03-10
 - Added **ACCEPTANCE / DRIFT AUDIT LOCK** section to formally define the completion checks for the PASS / SkillForge / School rebuild.
 - Locked the final acceptance conditions required for the Triumvirate architecture to be considered stable.
 - Defined verification checks for:
-  - program count
-  - PASS ingestion-only lifecycle
-  - PASS schema stability
-  - SkillForge dual-lane runtime behavior
-  - School optional curriculum orchestration
-  - command surface routing
-  - library placement rules
-  - repo integration workflow
+  program count
+  PASS ingestion-only lifecycle
+  PASS schema stability
+  SkillForge dual-lane runtime behavior
+  School optional curriculum orchestration
+  command surface routing
+  library placement rules
+  repo integration workflow
 - Clarified that helper mechanics must not be promoted into standalone program owners.
 
 ### Why
@@ -1751,43 +1751,43 @@ Updated: 2026-03-10
 ### Changed
 - Added School runtime rules to Operations Law as additive constraints instead of replacing existing Ops canon.
 - Added School command refinements for:
-  - `/school start`
-  - `/school status`
-  - `/class start`
-  - `/class close`
-  - `/school endday`
+  `/school start`
+  `/school status`
+  `/class start`
+  `/class close`
+  `/school endday`
 - Added School teaching enforcement rules:
-  - class order lock
-  - procedural work requirement
-  - multi-solution enforcement
-  - answer leak lock
-  - three-strike refusal handling
-  - stress detection / guided recovery
-  - effort credit
-  - no-shame correction language
+  class order lock
+  procedural work requirement
+  multi-solution enforcement
+  answer leak lock
+  three-strike refusal handling
+  stress detection / guided recovery
+  effort credit
+  no-shame correction language
 - Added subject-specific teaching mode guidance for:
-  - math
-  - literature
-  - history
-  - life skills
-  - physics
+  math
+  literature
+  history
+  life skills
+  physics
 - Added parent-review visibility requirements:
-  - prompt
-  - student response
-  - Blu feedback
-  - grade
-  - status
-  - override / effort-credit notes
+  prompt
+  student response
+  Blu feedback
+  grade
+  status
+  override / effort-credit notes
 - Added minimum instructional time rule so early-finished classes use remaining block time for review, recap, extension, challenge, or remediation.
 - Added runtime-vs-record clarity rule so instructional completion is not described as persisted record completion unless state was actually written.
 - Added Program-level School/PASS/SkillForge runtime addenda rather than replacing the accepted Program registry and Stage 9 Triumvirate structure.
 
 ### Why
 - Live Day 138 testing showed the rebuilt School system was functional, but several enforcement and runtime-behavior gaps appeared:
-  - literature shutdown compression was too slow
-  - procedural work enforcement was inconsistent
-  - answer leaks needed to be held during active problems
-  - runtime completion language was too close to persisted-state language
+  literature shutdown compression was too slow
+  procedural work enforcement was inconsistent
+  answer leaks needed to be held during active problems
+  runtime completion language was too close to persisted-state language
 - The earlier patch attempt was unsafe because it replaced parts of `02_Operations_Law.md`, `05_Commands.md`, and `06_Programs.md` with smaller summaries instead of preserving the accepted Stage 9 canon.
 - The Stage 9 archive is the last known good kernel baseline and had to remain the merge base for all School integration work.
 
@@ -1811,18 +1811,18 @@ Updated: 2026-03-10
 - Added student-lane schedule authority lock so students cannot influence class progression through skip, test-complete, or next-class style options.
 - Added parent-override attribution rule so actions taken after successful parent unlock are recorded as parent override actions, not student-issued actions.
 - Added parent-key state clarity rule so runtime must distinguish:
-  - key present
-  - key active
-  - override authority granted
+  key present
+  key active
+  override authority granted
   and must not expose override options until parent authority is actually active.
 - Added minimum completion threshold rule for internal classes so student refusal cannot bypass a block before material attempt requirements are met.
 - Added block-time usage rule so classes do not close immediately after acceptable answers if scheduled instructional time remains.
 - Added class-close feedback rule so every closed class reports:
-  - what was correct
-  - what still needs work
-  - daily grade
-  - runtime status
-  - next class
+  what was correct
+  what still needs work
+  daily grade
+  runtime status
+  next class
 - Added refusal consequence rule so final refusal in student lane produces grade consequence and auto-close instead of student-controlled progression.
 - Added tone-control rule for boundary moments so firmness remains calm, brief, and non-reactive.
 - Added explicit note that the new Aiden parent-key schema does not yet match the old runtime expectations even when the SHA-256 passphrase hash is the same.
@@ -1951,10 +1951,10 @@ Updated: 2026-03-10
 ### Changed
 - Re-centered v0.11.0 architecture around Exec as the enforced final output gate.
 - Reaffirmed separation of authority:
-  - Instructions = highest hard gate
-  - Operations Law = conduct, truth discipline, anti-drift, and failure behavior
-  - Exec = routing, validation, commit, and print authority
-  - Programs/subordinate systems = propose-only unless explicitly authorized otherwise
+  Instructions = highest hard gate
+  Operations Law = conduct, truth discipline, anti-drift, and failure behavior
+  Exec = routing, validation, commit, and print authority
+  Programs/subordinate systems = propose-only unless explicitly authorized otherwise
 - Produced a production-ready draft direction for `02_Operations_Law.md` using the stronger v0.9.9-style structural spine with v0.10.0 truth-discipline clauses merged in.
 - Confirmed current Identity kernel remains the working source base for now and is not being force-migrated during stabilization.
 
@@ -1985,55 +1985,55 @@ Updated: 2026-03-10
 - Merged the stronger surviving v0.10.0 PASS contract/rebuild work with the stronger v0.9.0 kernel ownership/routing structure to establish Blu v0.11.0 as the current rebuild baseline.
 - Updated `03_Exec.md` to `version: 3.2.7` and `updated: 2026-03-31`.
 - Stripped stale PASS / SkillForge residue from `03_Exec.md -> M09 | Router prehook and kernel enforcement`, leaving only generic Exec fail-closed boundary rules:
-  - call `router.prehook()` first
-  - do not bypass resolution / validation / commit
-  - do not equate understanding with completion
-  - do not print success for blocked / unresolved / uncommitted operations
+  call `router.prehook()` first
+  do not bypass resolution / validation / commit
+  do not equate understanding with completion
+  do not print success for blocked / unresolved / uncommitted operations
 - Registered PASS as a real Program owner in `06_Programs.md`:
-  - `PASS:` → `PROGRAM.PASS` | status=`DRAFT` | surface=`/pass`
+  `PASS:` → `PROGRAM.PASS` | status=`DRAFT` | surface=`/pass`
 - Added `/pass ...` to `06_Programs.md -> COMMAND SURFACE MAP`.
 - Added `PROGRAM.PASS` as a DRAFT Program body with:
-  - `logical_name: PASS`
-  - `surface: /pass`
-  - `nl_enabled: true`
-  - file autostart metadata
-  - entrypoints:
-    - `preflight`
-    - `gut_ladder`
-    - `modernize_overlay`
-  - implementation spine:
-    - PREFLIGHT
-    - RAW_EXTRACTION
-    - SYNTHESIS
-    - DEDUPE_REJECT_COMPARE
-    - VARIANT_CROSSLINK_GRAPH
-    - NORMALIZATION
-    - REPO_DROP_AND_LANE_PACK
+  `logical_name: PASS`
+  `surface: /pass`
+  `nl_enabled: true`
+  file autostart metadata
+  entrypoints:
+    `preflight`
+    `gut_ladder`
+    `modernize_overlay`
+  implementation spine:
+    PREFLIGHT
+    RAW_EXTRACTION
+    SYNTHESIS
+    DEDUPE_REJECT_COMPARE
+    VARIANT_CROSSLINK_GRAPH
+    NORMALIZATION
+    REPO_DROP_AND_LANE_PACK
 - Updated `05_Commands.md` to acknowledge PASS as live public surface:
-  - added `PASS` to `live_topics`
-  - added `## PASS`
-  - added `PASS` to `live_public_areas`
-  - updated file header to `version: 0.11.0` and `updated: 2026-03-31`
+  added `PASS` to `live_topics`
+  added `## PASS`
+  added `PASS` to `live_public_areas`
+  updated file header to `version: 0.11.0` and `updated: 2026-03-31`
 - Locked current PASS rebuild direction around:
-  - PASS as compiler, not runtime/router
-  - one normalized core object set
-  - two downstream SkillForge lane packs:
-    - Skill lane
-    - Teach lane
-  - Teach lane may consume Skill lane outputs
-  - Skill lane must never consume Teach lane outputs
+  PASS as compiler, not runtime/router
+  one normalized core object set
+  two downstream SkillForge lane packs:
+    Skill lane
+    Teach lane
+  Teach lane may consume Skill lane outputs
+  Skill lane must never consume Teach lane outputs
 - Preserved the current truth boundary:
-  - PASS is now legally real in kernel ownership/routing
-  - PASS compiler implementation remains `DRAFT`
-  - no claim of full rebuild or release-candidate completion is made
+  PASS is now legally real in kernel ownership/routing
+  PASS compiler implementation remains `DRAFT`
+  no claim of full rebuild or release-candidate completion is made
 
 ### Why
 - Previous PASS rebuild claims were not backed by durable program bodies and surviving artifacts showed contract/spec/roadmap truth more clearly than implementation truth.
 - Old PASS / SkillForge residue inside Exec had to be removed before any honest PASS rebuild work could continue.
 - PASS could not be treated as executable under Program-first law until it had:
-  - a registered Program owner
-  - a wired public route
-  - a real Program body
+  a registered Program owner
+  a wired public route
+  a real Program body
 - `05_Commands.md` was lagging `06_Programs.md`, which created public-surface drift even after PASS was wired in Programs.
 - v0.11.0 is the first clean baseline where Exec, Commands, and Programs agree that `/pass` exists, is Program-owned, and is still draft truthfully.
 
@@ -2042,18 +2042,18 @@ Updated: 2026-03-10
 - `/pass` now has a legitimate kernel owner and routable public surface.
 - Exec, Commands, and Programs are aligned enough to begin proof testing without pretending the compiler is complete.
 - PASS remains fail-closed and artifact-first:
-  - no source → no run
-  - blocked preflight → no gut run
-  - partial packaging does not equal success
+  no source → no run
+  blocked preflight → no gut run
+  partial packaging does not equal success
 - v0.11.0 should be treated as:
-  - structurally integrated
-  - routing-clean
-  - truthfully draft
-  - ready for first real proof run
+  structurally integrated
+  routing-clean
+  truthfully draft
+  ready for first real proof run
 - Next validation target is one real PASS test:
-  - `/pass preflight`
-  - `/pass gut`
-  - inspect emitted artifacts instead of relying on summaries or assumptions
+  `/pass preflight`
+  `/pass gut`
+  inspect emitted artifacts instead of relying on summaries or assumptions
 
 ### Affected
 - `03_Exec.md`
@@ -2061,3 +2061,80 @@ Updated: 2026-03-10
 - `06_Programs.md`
 - PASS routing / ownership surface
 - PASS rebuild baseline for Blu v0.11.0
+
+## [2026-04-05] Support phase registry baseline
+
+### Changed
+- Introduced a two-phase support registry (`per_turn`, `intent_gated`) for Exec-owned turns.
+- Updated Exec to resolve support-lane selection through the phase registry instead of ad hoc logic.
+- Extended ExecLib metadata to include support-phase fields.
+- Added support-phase metadata to:
+  `SERVICE.TIME.001` (intent_gated)
+  `EXECLIB.MOODLIB.001` (per_turn)
+- Added guardrails preventing registry misuse as routing or ownership authority.
+
+### Why
+- Exec lacked a canonical mechanism to decide when to call ExecLib support lanes.
+- Time Service and MoodLib were not consistently invoked due to missing trigger structure.
+- A phase-based registry provides a scalable, deterministic bridge from need → support lane without growing Exec logic.
+
+### Impact
+- Exec becomes cleaner by removing support-specific glue logic.
+- Mood heartbeat and render path can run reliably via `per_turn` phase.
+- Time requests resolve deterministically via `intent_gated` phase.
+- Future support lanes can be added without expanding Exec complexity.
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+
+## [2026-04-06] Truth Gates, Debug Failure Injection, and Ledger Integrity Hardening
+
+### Changed
+- Hardened Operations truth law with:
+  - `Pressure Truth Lock Law`
+  - `One-Way Correction Latch Law`
+  - `Artifact Delivery Truth Law`
+  - `Ledger Integrity Law`
+- Extended Exec validation with:
+  - pressure-truth enforcement before relational repair
+  - correction-latch gating for downgraded claims
+  - artifact-output gating for completion wording
+  - ledger-truth gating before finance arithmetic
+- Added ExecLib support for:
+  - `EvidenceHeaderLib`
+  - `Artifact Proof Boundary`
+  - `FinanceLedgerLib`
+- Expanded the live DEBUG public surface with:
+  - `/debug fail time`
+  - `/debug fail mood`
+  - `/debug fail phase`
+  - `/debug fail state`
+  - `/debug fail clear`
+- Extended `PROGRAM.DEBUG` to own the new one-shot failure-injection entrypoints under Admin-only access.
+- Added Exec runtime hooks for:
+  - one-shot DEBUG support-path failure injection
+  - one-shot DEBUG validation/state failure injection
+  - verification coverage for arming, consumption, clearing, and no-hidden-continuation behavior
+
+### Why
+- Prevent truth from degrading under user pressure, especially around file access, read status, artifact completion, and recovery wording.
+- Stop corrected false frames from silently re-inflating later in the same turn without fresh proof.
+- Block completion-shaped language when only filenames, paths, intent, or partial output exist.
+- Make finance math explicitly distinguish execution truth from coverage truth.
+- Add a bounded, Admin-only way to force support-path and validation failures for real kernel testing.
+
+### Impact
+- Angry or disputed turns now require truth-state disclosure before repair posture.
+- File/access/artifact claims are harder to overstate.
+- “Paid but not yet covered” finance items can remain visible in cash-requirement truth until coverage is confirmed.
+- DEBUG can now arm one-shot failure injection for time, mood, support-phase, and validation/state paths without creating a background process or second executor.
+- Exec verification now covers the new truth gates and failure-injection behaviors.
+
+### Affected
+- `02_Operations_Law.md`
+- `03_Exec.md`
+- `04_Exec_Library.md`
+- `05_Commands.md`
+- `06_Programs.md`
