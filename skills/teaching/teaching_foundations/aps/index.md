@@ -1,0 +1,9 @@
+# skills/teaching/teaching_foundations/aps
+
+## Entries
+- skills/teaching/teaching_foundations/aps/compare_abstraction_levels_across_languages.md
+- skills/teaching/teaching_foundations/aps/extract_pass_objects_from_a_programming_lecture_deck.md
+- skills/teaching/teaching_foundations/aps/teach_build_stages_without_tool_worship.md
+- skills/teaching/teaching_foundations/aps/teach_cpp_through_executable_example_dissection.md
+- skills/teaching/teaching_foundations/aps/teach_dated_technical_material_safely.md
+- skills/teaching/teaching_foundations/aps/unordered_for_hash_lookup_workflow.md

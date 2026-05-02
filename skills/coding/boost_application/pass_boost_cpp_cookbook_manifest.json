@@ -1,0 +1,143 @@
+{
+  "source": "Antony Polukhin - Boost C++ Application Development Cookbook.pdf",
+  "coverage_pages": "348/348",
+  "text_pages": 343,
+  "baseline": "2026-05-01_21-57_Skills_Modern_CPP_Design_Merged.zip",
+  "new_skill_files_added": 39,
+  "patterns_added": 27,
+  "drills_added": 7,
+  "aps_added": 5,
+  "existing_files_modified_with_absorbed_variants": 17,
+  "variants_absorbed": 17,
+  "duplicates_rejected": 41,
+  "inferior_rejected": 9,
+  "superior_replacements": 0,
+  "new_files": [
+    "skills/coding/boost_application/patterns/layered_command_line_configuration.md",
+    "skills/coding/boost_application/patterns/boost_to_standard_migration_map.md",
+    "skills/coding/boost_application/patterns/closed_type_set_variant_over_any.md",
+    "skills/coding/boost_application/patterns/open_type_erasure_boundary.md",
+    "skills/coding/boost_application/patterns/optional_result_without_sentinel_pointer.md",
+    "skills/coding/boost_application/patterns/fixed_size_array_as_value_object.md",
+    "skills/coding/boost_application/patterns/tuple_for_local_structural_grouping.md",
+    "skills/coding/boost_application/patterns/bind_to_lambda_refactor.md",
+    "skills/coding/boost_application/patterns/move_emulation_as_legacy_bridge.md",
+    "skills/coding/boost_application/patterns/lexical_conversion_with_failure_boundary.md",
+    "skills/coding/boost_application/patterns/embedded_parser_for_small_languages.md",
+    "skills/coding/boost_application/patterns/scoped_resource_ownership_ladder.md",
+    "skills/coding/boost_application/patterns/scope_exit_cleanup_guard.md",
+    "skills/coding/boost_application/patterns/base_from_member_initialization_order_guard.md",
+    "skills/coding/boost_application/patterns/type_trait_gate_for_template_apis.md",
+    "skills/coding/boost_application/patterns/work_queue_as_concurrency_boundary.md",
+    "skills/coding/boost_application/patterns/asio_task_event_loop.md",
+    "skills/coding/boost_application/patterns/exception_to_task_handoff.md",
+    "skills/coding/boost_application/patterns/string_algorithm_pipeline.md",
+    "skills/coding/boost_application/patterns/mpl_type_vector_as_type_pack_ancestor.md",
+    "skills/coding/boost_application/patterns/multi_index_for_multiple_lookup_keys.md",
+    "skills/coding/boost_application/patterns/flat_container_for_cache_friendly_lookup.md",
+    "skills/coding/boost_application/patterns/portable_feature_probe_gate.md",
+    "skills/coding/boost_application/patterns/interprocess_boundary_with_shared_memory.md",
+    "skills/coding/boost_application/patterns/memory_mapped_file_read_path.md",
+    "skills/coding/boost_application/patterns/graph_algorithm_workflow.md",
+    "skills/coding/boost_application/patterns/boost_test_module_shape.md",
+    "skills/coding/boost_application/drills/boost_or_standard_choice_drill.md",
+    "skills/coding/boost_application/drills/variant_visitor_exhaustiveness_drill.md",
+    "skills/coding/boost_application/drills/program_options_matrix_drill.md",
+    "skills/coding/boost_application/drills/scope_exit_failure_path_drill.md",
+    "skills/coding/boost_application/drills/bind_to_lambda_refactor_drill.md",
+    "skills/coding/boost_application/drills/work_queue_shutdown_drill.md",
+    "skills/coding/boost_application/drills/multi_index_key_selection_drill.md",
+    "skills/coding/boost_application/aps/build_layered_cli_tool_workflow.md",
+    "skills/coding/boost_application/aps/modernize_boost_utility_layer_workflow.md",
+    "skills/coding/boost_application/aps/build_asio_task_service_workflow.md",
+    "skills/coding/boost_application/aps/build_multi_index_repository_workflow.md",
+    "skills/coding/boost_application/aps/build_cross_platform_system_utility_workflow.md"
+  ],
+  "absorptions": [
+    {
+      "candidate": "Boost.Any as open type-erasure boundary",
+      "existing_skill": "skills/coding/advanced_cpp/patterns/generalized_functor_command_bridge.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Variant visitor exhaustiveness",
+      "existing_skill": "skills/coding/architecture_design/patterns/small_public_interface.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Optional absence contract",
+      "existing_skill": "skills/coding/core_mechanics/patterns/pointer_for_optional_reseatable_access.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Array to std::array modernization",
+      "existing_skill": "skills/coding/structures/patterns/memory_and_resources_selection_rule.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Tuple to structured binding migration",
+      "existing_skill": "skills/coding/architecture_design/aps/design_function_signatures_for_data_flow.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Bind to lambda migration",
+      "existing_skill": "skills/coding/language_contexts/cpp/cpp_core/patterns/function_object_for_reusable_behavior.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost lexical conversion boundary",
+      "existing_skill": "skills/coding/language_contexts/cpp/cpp_numerics/patterns/numeric_type_generality.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost smart pointer compatibility layer",
+      "existing_skill": "skills/coding/memory_performance/patterns/modern_smart_pointer_replacement.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost scope-exit cleanup as RAII variant",
+      "existing_skill": "skills/coding/memory_performance/patterns/raii_resource_handle.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.TypeTraits/MPL to concepts migration",
+      "existing_skill": "skills/coding/methods/patterns/template_for_compile_time_variation.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Thread to standard thread mapping",
+      "existing_skill": "skills/coding/language_contexts/cpp/cpp_core/patterns/threads_and_tasks_selection_rule.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Asio task loop as async workflow",
+      "existing_skill": "skills/coding/methods/patterns/threads_and_tasks_validation_rule.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost string algorithms vs std regex/string_view",
+      "existing_skill": "skills/coding/input_output/patterns/regex_for_pattern_matching.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.MultiIndex as multi-key repository",
+      "existing_skill": "skills/coding/language_contexts/cpp/cpp_stl/patterns/container_choice_by_access_pattern.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Config feature detection boundary",
+      "existing_skill": "skills/coding/testing_validation/patterns/compile_with_warnings.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Filesystem/system portability",
+      "existing_skill": "skills/coding/input_output/patterns/file_state_gate.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Boost.Test module shape",
+      "existing_skill": "skills/coding/testing_validation/aps/build_programming_challenge_acceptance_tests.md",
+      "absorbed_as": "variant/refinement note"
+    }
+  ]
+}

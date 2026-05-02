@@ -1,0 +1,30 @@
+# Patterns Index
+
+## Entries
+- array_argument_pointer_effect.md
+- classes_selection_rule.md
+- compile_time_checking.md
+- concurrency_selection_rule.md
+- const_correctness.md
+- exception_handling_selection_rule.md
+- explicit_cast_boundary.md
+- explicit_conversion_boundary.md
+- header_declaration_visibility.md
+- include_what_you_use.md
+- initialization_before_assignment.md
+- low_level_detail_awareness.md
+- menu_dispatch_loop.md
+- modern_conversion_safety.md
+- namespace_qualification_discipline.md
+- numerical_type_precision.md
+- pointer_for_optional_reseatable_access.md
+- pointer_mental_model.md
+- range_based_loop_for_whole_collection_walk.md
+- reference_for_inout_parameters.md
+- reference_for_non_null_alias.md
+- running_total_counter_accumulator.md
+- sentinel_loop_for_unknown_count_input.md
+- standard_library_summary_selection_rule.md
+- strings_selection_rule.md
+- templates_selection_rule.md
+- use_enum_class_for_scoped_choices.md

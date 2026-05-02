@@ -1,8 +1,5 @@
 # INDEX_SKILLS
-updated: 2026-03-07
-
-Purpose:
-Index view. Keep it scannable.
 
 ## Entries
-- skills/
+- skills/coding/index.md
+- skills/teaching/index.md

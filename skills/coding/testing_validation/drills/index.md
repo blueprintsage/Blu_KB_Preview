@@ -1,0 +1,19 @@
+# skills/coding/testing_validation/drills
+
+## Entries
+- skills/coding/testing_validation/drills/cli_usage_test_drill.md
+- skills/coding/testing_validation/drills/explicit_conversion_boundary_drill.md
+- skills/coding/testing_validation/drills/header_failure_drill.md
+- skills/coding/testing_validation/drills/header_interface_discipline_drill.md
+- skills/coding/testing_validation/drills/macro_last_resort_drill.md
+- skills/coding/testing_validation/drills/metaprogramming_only_when_payoff_exists_drill.md
+- skills/coding/testing_validation/drills/move_instead_of_copy_drill.md
+- skills/coding/testing_validation/drills/numeric_type_generality_drill.md
+- skills/coding/testing_validation/drills/operator_semantics_drill.md
+- skills/coding/testing_validation/drills/random_engine_distribution_split_drill.md
+- skills/coding/testing_validation/drills/small_numerical_smoke_test.md
+- skills/coding/testing_validation/drills/small_public_interface_drill.md
+- skills/coding/testing_validation/drills/source_file_locality_drill.md
+- skills/coding/testing_validation/drills/stream_state_checking_drill.md
+- skills/coding/testing_validation/drills/string_over_char_buffer_drill.md
+- skills/coding/testing_validation/drills/warnings_triage_drill.md

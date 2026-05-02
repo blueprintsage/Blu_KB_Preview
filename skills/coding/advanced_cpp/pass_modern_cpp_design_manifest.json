@@ -1,0 +1,130 @@
+{
+  "source": {
+    "title": "Modern C++ Design: Generic Programming and Design Patterns Applied",
+    "author": "Andrei Alexandrescu",
+    "publish_date": "2001-02-01",
+    "source_file": "Andrei Alexandrescu - Modern C++ Design.pdf",
+    "evidence_type": "text-layer pdf"
+  },
+  "baseline_repo": "2026-05-01_21-14_Skills_Gaddis_Merged.zip",
+  "new_skill_files": [
+    "skills/coding/advanced_cpp/patterns/policy_based_class_design.md",
+    "skills/coding/advanced_cpp/patterns/policy_class_host_split.md",
+    "skills/coding/advanced_cpp/patterns/enriched_policy_interface.md",
+    "skills/coding/advanced_cpp/patterns/optional_functionality_by_incomplete_instantiation.md",
+    "skills/coding/advanced_cpp/patterns/policy_composition_matrix.md",
+    "skills/coding/advanced_cpp/patterns/type_to_type_mapping.md",
+    "skills/coding/advanced_cpp/patterns/compile_time_convertibility_gate.md",
+    "skills/coding/advanced_cpp/patterns/typelist_as_static_type_sequence.md",
+    "skills/coding/advanced_cpp/patterns/generated_hierarchy_from_type_sequence.md",
+    "skills/coding/advanced_cpp/patterns/small_object_allocator_pooling.md",
+    "skills/coding/advanced_cpp/patterns/generalized_functor_command_bridge.md",
+    "skills/coding/advanced_cpp/patterns/singleton_lifetime_policy.md",
+    "skills/coding/advanced_cpp/patterns/smart_pointer_policy_matrix.md",
+    "skills/coding/advanced_cpp/patterns/object_factory_registration_map.md",
+    "skills/coding/advanced_cpp/patterns/abstract_factory_from_type_families.md",
+    "skills/coding/advanced_cpp/patterns/acyclic_visitor_for_open_hierarchies.md",
+    "skills/coding/advanced_cpp/patterns/multimethod_dispatch_strategy.md",
+    "skills/coding/advanced_cpp/aps/design_policy_based_component_workflow.md",
+    "skills/coding/advanced_cpp/aps/modernize_loki_era_template_code_workflow.md",
+    "skills/coding/advanced_cpp/aps/build_type_level_selection_workflow.md",
+    "skills/coding/advanced_cpp/aps/choose_dispatch_strategy_workflow.md",
+    "skills/coding/advanced_cpp/aps/build_factory_registration_workflow.md",
+    "skills/coding/advanced_cpp/aps/migrate_custom_smart_pointer_policy_matrix_workflow.md",
+    "skills/coding/advanced_cpp/drills/policy_decomposition_drill.md",
+    "skills/coding/advanced_cpp/drills/typelist_to_variadic_pack_drill.md",
+    "skills/coding/advanced_cpp/drills/static_assert_type_traits_drill.md",
+    "skills/coding/advanced_cpp/drills/singleton_lifetime_smell_drill.md",
+    "skills/coding/advanced_cpp/drills/visitor_dispatch_tradeoff_drill.md",
+    "skills/coding/advanced_cpp/drills/functor_wrapper_to_std_function_drill.md"
+  ],
+  "new_index_files": [
+    "skills/coding/advanced_cpp/patterns/index.md",
+    "skills/coding/advanced_cpp/aps/index.md",
+    "skills/coding/advanced_cpp/drills/index.md",
+    "skills/coding/advanced_cpp/index.md"
+  ],
+  "modified_existing_files": [
+    "skills/coding/architecture_design/patterns/separate_policy_from_mechanism.md",
+    "skills/coding/methods/patterns/template_for_compile_time_variation.md",
+    "skills/coding/core_mechanics/patterns/compile_time_checking.md",
+    "skills/coding/core_mechanics/drills/compile_time_checking_drill.md",
+    "skills/coding/memory_performance/patterns/modern_smart_pointer_replacement.md",
+    "skills/coding/memory_performance/patterns/hand_rolled_smart_pointer_legacy.md",
+    "skills/coding/architecture_design/patterns/factory_for_runtime_choice.md",
+    "skills/coding/architecture_design/patterns/small_public_interface.md",
+    "skills/coding/architecture_design/patterns/exception_handling_validation_rule.md",
+    "skills/coding/architecture_design/patterns/concurrency_validation_rule.md",
+    "skills/coding/architecture_design/aps/smart_pointer_ownership_workflow.md",
+    "skills/coding/testing_validation/patterns/templates_validation_rule.md"
+  ],
+  "variants_absorbed": [
+    {
+      "candidate": "Policy-based class design",
+      "existing_repo_skill": "skills/coding/architecture_design/patterns/separate_policy_from_mechanism.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Policy and type-list metaprogramming",
+      "existing_repo_skill": "skills/coding/methods/patterns/template_for_compile_time_variation.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Compile-time assertion modernization",
+      "existing_repo_skill": "skills/coding/core_mechanics/patterns/compile_time_checking.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Type-requirement audit",
+      "existing_repo_skill": "skills/coding/core_mechanics/drills/compile_time_checking_drill.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Policy-axis smart pointer audit",
+      "existing_repo_skill": "skills/coding/memory_performance/patterns/modern_smart_pointer_replacement.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Loki-era smart pointer as design map",
+      "existing_repo_skill": "skills/coding/memory_performance/patterns/hand_rolled_smart_pointer_legacy.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Generic factory registration",
+      "existing_repo_skill": "skills/coding/architecture_design/patterns/factory_for_runtime_choice.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Do-it-all interface failure",
+      "existing_repo_skill": "skills/coding/architecture_design/patterns/small_public_interface.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Exception boundaries in generic components",
+      "existing_repo_skill": "skills/coding/architecture_design/patterns/exception_handling_validation_rule.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Threading as explicit policy",
+      "existing_repo_skill": "skills/coding/architecture_design/patterns/concurrency_validation_rule.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Ownership policy matrix",
+      "existing_repo_skill": "skills/coding/architecture_design/aps/smart_pointer_ownership_workflow.md",
+      "absorbed_as": "variant/refinement note"
+    },
+    {
+      "candidate": "Template validation through constraints",
+      "existing_repo_skill": "skills/coding/testing_validation/patterns/templates_validation_rule.md",
+      "absorbed_as": "variant/refinement note"
+    }
+  ],
+  "duplicates_rejected_count": 52,
+  "inferior_rejected_count": 11,
+  "superior_replacements_count": 0,
+  "coverage": {
+    "pdf_pages_parsed": 285,
+    "pdf_pages_total": 285
+  }
+}

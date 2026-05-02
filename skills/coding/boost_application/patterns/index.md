@@ -1,0 +1,30 @@
+# Boost Application Patterns
+
+## Entries
+- layered_command_line_configuration.md
+- boost_to_standard_migration_map.md
+- closed_type_set_variant_over_any.md
+- open_type_erasure_boundary.md
+- optional_result_without_sentinel_pointer.md
+- fixed_size_array_as_value_object.md
+- tuple_for_local_structural_grouping.md
+- bind_to_lambda_refactor.md
+- move_emulation_as_legacy_bridge.md
+- lexical_conversion_with_failure_boundary.md
+- embedded_parser_for_small_languages.md
+- scoped_resource_ownership_ladder.md
+- scope_exit_cleanup_guard.md
+- base_from_member_initialization_order_guard.md
+- type_trait_gate_for_template_apis.md
+- work_queue_as_concurrency_boundary.md
+- asio_task_event_loop.md
+- exception_to_task_handoff.md
+- string_algorithm_pipeline.md
+- mpl_type_vector_as_type_pack_ancestor.md
+- multi_index_for_multiple_lookup_keys.md
+- flat_container_for_cache_friendly_lookup.md
+- portable_feature_probe_gate.md
+- interprocess_boundary_with_shared_memory.md
+- memory_mapped_file_read_path.md
+- graph_algorithm_workflow.md
+- boost_test_module_shape.md

@@ -1,0 +1,27 @@
+# skills/coding/language_contexts/cpp/cpp_stl/patterns
+
+## Entries
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/algorithm_before_loop.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/algorithm_container_separation.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/container_choice_by_access_pattern.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/expressions_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/functions_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/iterator_range_thinking.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/iterator_traversal.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/map_for_ordered_lookup.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/pointers_arrays_references_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/pointers_arrays_references_selection_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/runtime_type_information_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/smart_pointer_ownership.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/stl_algorithms_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/stl_container_before_custom_container.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/stl_container_fit.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/stl_containers_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/stl_iterators_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/structures_unions_enumerations_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/template_generalization.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/templates_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/threads_and_tasks_modern_c_rule.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/unordered_for_hash_lookup.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/use_standard_library_first.md
+- skills/coding/language_contexts/cpp/cpp_stl/patterns/vector_default_sequence.md
