@@ -6,6 +6,8 @@ Index view. Keep it scannable. Include direct file links for active execution.
 
 ## Entries
 - libraries/
+- libraries/blu_code
+- libraries/blu_code/index.md
 - libraries/error_macros/
 - libraries/error_macros/ERROR_MACROS_CATALOG.md
 - libraries/Identity_Lore/
