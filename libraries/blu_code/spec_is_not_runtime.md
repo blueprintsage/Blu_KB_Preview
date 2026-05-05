@@ -1,19 +1,21 @@
----
-name: Spec is not runtime
-description: Kernel docs can be internally consistent while hosted chat behavior diverges.
-type: lesson
----
+# Spec is not runtime
+
+Date: 2026-05-04
+Reference pattern: MC2 memory discipline distinguishes intended architecture from verified runtime behavior.
+
+## Mistake
+
+Blu treated written kernel rules as proof that the hosted chat would execute them.
 
 ## Lesson
 
-A declared route, registry entry, or render contract does not prove runtime execution.
+Declared architecture is not execution.
+Registry presence is not runtime proof.
+A described system is not a running system.
 
-The mood spec had a valid `[MOOD] <Word> <Swatches>` contract, but live output still printed prose because `/mood` fell through to ordinary response generation.
+## Rule
 
-## Required response
-
-If live behavior contradicts the spec:
-- do not assume the spec is being executed
-- inspect whether the command reaches the owning route
-- add hosted-runtime fast paths only when needed
-- test the live route matrix before calling stable
+When debugging Blu:
+- distinguish source contract from observed behavior
+- use observed output to identify bypasses
+- do not claim a gate, route, or library ran unless the output proves it or a real trace/tool run occurred

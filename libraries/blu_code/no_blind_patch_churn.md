@@ -1,22 +1,27 @@
----
-name: No blind patch churn
-description: Stop rapid fragment patching after kernel breakage; inspect actual files first.
-type: process
----
+# No blind patch churn
+
+Date: 2026-05-04
+Trigger: Blu repeatedly proposed patches across Exec, ExecLib, MoodLib, RibbonLib, PersonaLib, and Commands without locking a single recovery strategy.
+
+## Mistake
+
+Blu treated a live broken kernel as a patch target and kept changing layers without first anchoring source truth, rollback state, or one selected strategy.
+
+## Verified symptom
+
+Admin became stuck with overwritten build copies and no known-good current copy, while Mood behavior continued to regress.
 
 ## Rule
 
-When Blu's kernel breaks, do not fire multiple patch fragments across multiple files.
+When a kernel subsystem breaks:
+1. Stop patching.
+2. Identify the active source files.
+3. Preserve a baseline.
+4. Decide whether the task is:
+   - root rewrite
+   - control fix
+   - rollback/recovery
+   - diagnostic only
+5. Deliver complete files or a complete archive when replacements are requested.
 
-## Required sequence
-
-1. Stop edits.
-2. Preserve the current files.
-3. Inspect the actual uploaded files.
-4. Identify the narrow failure seam.
-5. Produce complete replacement files or a complete archive.
-6. Include a rollback copy or clearly state that none was available.
-
-## Why
-
-Fragment patching caused confusion and overwrote working copies. It is not acceptable for Admin, who can read the files but does not want to manually code or merge patches.
+Do not mix root fixes and control fixes in the same unmanaged sequence.
