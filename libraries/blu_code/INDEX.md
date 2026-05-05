@@ -1,29 +1,84 @@
-<!--
-Index rules:
-- Every BluCode memory file MUST be linked here. Unlinked = invisible to future sessions.
-- Keep entries short: `- [Title](file.md) — one-line hook`
-- Supersede rather than append when a lesson replaces an older lesson.
-- These entries are coding-memory discipline for Blu's own kernel work, not user-facing command docs.
-- BluCode does not replace reading the actual active source files before editing them.
--->
-
 # BluCode Memory Index
 
-## ⭐ Load-bearing — read before any Blu kernel coding
+## Purpose
+BluCode is Blu's kernel-coding memory and skillset. Use it before modifying Blu's own code. It records reusable prevention rules, not user memory and not runtime proof.
 
-- [Coding memory protocol](coding_memory_protocol.md) — consult BluCode before kernel work; record regressions after breakage.
-- [No blind patch churn](no_blind_patch_churn.md) — do not rapid-fire patches across layers without source reading and rollback.
-- [Complete replacements for Admin](complete_replacements_for_admin.md) — when Admin asks for replacements, provide full files/archives, not fragments.
-- [Actual source before architecture claims](actual_source_before_architecture_claims.md) — inspect active files before naming insertion points or owners.
-- [Spec is not runtime](spec_is_not_runtime.md) — declared architecture does not prove live execution.
-- [Baseline before destructive replacement](baseline_before_destructive_replacement.md) — preserve a recoverable source before overwrite/rebuild work.
+## Load-bearing — read before any Blu kernel coding
+- [Coding memory protocol](coding_memory_protocol.md)
+- [No blind patch churn](no_blind_patch_churn.md)
+- [Complete replacements for Admin](complete_replacements_for_admin.md)
+- [Actual source before architecture claims](actual_source_before_architecture_claims.md)
+- [Spec is not runtime](spec_is_not_runtime.md)
+- [Baseline before destructive replacement](baseline_before_destructive_replacement.md)
 
-## Mood regression lessons
+## Skill Categories
+- [Artifact Generation](artifact_generation/index.md)
+- [Commands](commands/index.md)
+- [Deterministic Lanes](deterministic_lanes/index.md)
+- [Devmode](devmode/index.md)
+- [Kernel Architecture](kernel_architecture/index.md)
+- [Programs](programs/index.md)
+- [Protocol](protocol/index.md)
+- [Routing](routing/index.md)
+- [Scope](scope/index.md)
+- [Skillforge](skillforge/index.md)
+- [Source Truth](source_truth/index.md)
+- [State](state/index.md)
+- [Support Libraries](support_libraries/index.md)
+- [Testing](testing/index.md)
 
-- [Mood command fallthrough regression](mood_command_fallthrough_regression.md) — prose output means `/mood` bypassed command routing.
-- [Mood ownership lesson](mood_ownership_lesson.md) — Persona/Ribbon/Mood may propose state; Exec owns public render.
-- [Do not fix render before route](do_not_fix_render_before_route.md) — verify command path before swatch/render rewrites.
+## Current Regression Lessons
+- [Command fallthrough regression](mood_command_fallthrough_regression.md)
+- [Single printer ownership lesson](mood_ownership_lesson.md)
+- [Do not fix render before route](do_not_fix_render_before_route.md)
+- [Generated artifact truth](generated_artifact_truth.md)
 
-## Artifact/release behavior
-
-- [Generated artifact truth](generated_artifact_truth.md) — never claim an archive/replacement exists unless the file was actually generated and linked.
+## Complete Entry List
+- [Actual source before architecture claims](actual_source_before_architecture_claims.md)
+- [Archive Truth And Scope](artifact_generation/archive_truth_and_scope.md)
+- [Artifact Generation Index](artifact_generation/index.md)
+- [Baseline before destructive replacement](baseline_before_destructive_replacement.md)
+- [Coding memory protocol](coding_memory_protocol.md)
+- [Commands Index](commands/index.md)
+- [Static Command Surface Exactness](commands/static_surface_exactness.md)
+- [Complete replacements for Admin](complete_replacements_for_admin.md)
+- [Freeze Output After Validation](deterministic_lanes/freeze_output_after_validation.md)
+- [Deterministic Lanes Index](deterministic_lanes/index.md)
+- [Terminal Packet Before Print](deterministic_lanes/terminal_packet_before_print.md)
+- [Devmode Index](devmode/index.md)
+- [Traces Are Diagnostics Not Full Live Proof](devmode/traces_are_diagnostics_not_proof_of_live_command.md)
+- [Do not fix render before route](do_not_fix_render_before_route.md)
+- [Generated artifact truth](generated_artifact_truth.md)
+- [Control Fix vs Root Rewrite](kernel_architecture/control_fix_vs_root_rewrite.md)
+- [Hosted Runtime Boundary](kernel_architecture/hosted_runtime_boundary.md)
+- [Kernel Architecture Index](kernel_architecture/index.md)
+- [Single Printer Rule](kernel_architecture/single_printer_rule.md)
+- [Command fallthrough regression](mood_command_fallthrough_regression.md)
+- [Single printer ownership lesson](mood_ownership_lesson.md)
+- [No blind patch churn](no_blind_patch_churn.md)
+- [Programs Index](programs/index.md)
+- [Program Registry Is Not Execution](programs/program_registry_not_execution.md)
+- [Baseline Before Destructive Work](protocol/baseline_before_destructive_work.md)
+- [Complete Files When Requested](protocol/complete_files_when_requested.md)
+- [Protocol Index](protocol/index.md)
+- [Read BluCode Before Kernel Work](protocol/read_blucode_before_kernel_work.md)
+- [Routing Index](routing/index.md)
+- [Owner Before Renderer](routing/owner_before_renderer.md)
+- [Slash Command Intercept First](routing/slash_command_intercept_first.md)
+- [Scope Index](scope/index.md)
+- [No Instructions For Subsystem Fix](scope/no_instructions_for_subsystem_fix.md)
+- [Code-Agnostic Lessons First](skillforge/code_agnostic_lessons_first.md)
+- [Skillforge Index](skillforge/index.md)
+- [Turn Mistake Into Reusable Skill](skillforge/turn_mistake_into_reusable_skill.md)
+- [Actual Source Before Owner Claims](source_truth/actual_source_before_owner_claims.md)
+- [Source Truth Index](source_truth/index.md)
+- [Spec Is Not Runtime Debug Order](source_truth/spec_not_runtime_debug_order.md)
+- [Spec is not runtime](spec_is_not_runtime.md)
+- [State Index](state/index.md)
+- [State Commit Before Success](state/state_commit_before_success.md)
+- [Support Libraries Index](support_libraries/index.md)
+- [Mood State Is Not Mood Render](support_libraries/mood_state_not_mood_render.md)
+- [Propose-Only Library Boundary](support_libraries/propose_only_library_boundary.md)
+- [Failure Sample Drives Fix](testing/failure_sample_drives_fix.md)
+- [Testing Index](testing/index.md)
+- [Route-First Acceptance Tests](testing/route_first_acceptance_tests.md)

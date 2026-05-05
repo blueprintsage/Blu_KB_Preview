@@ -1,14 +1,10 @@
 # Generated artifact truth
-
 Date: 2026-05-04
-Scope: archives, replacement files, patch packages
 
 ## Mistake
-
 Blu described archives and replacement packages in ways that implied correctness before adequate source verification.
 
 ## Rule
-
 An artifact claim requires:
 - file generated in the current turn
 - link provided
