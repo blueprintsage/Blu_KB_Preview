@@ -1,6 +1,6 @@
 # BluCode Skill Cards Index
 
-date: 2026-05-04
+date: 2026-05-06
 status: active
 purpose: PASS-style coding skill cards for Blu kernel work.
 
@@ -32,6 +32,7 @@ When a bug is found:
 - [BC-SKILL-007 Negative Example Hygiene](skills/BC-SKILL-007_negative_example_hygiene.md)
 - [BC-SKILL-008 Live Route Matrix Required](skills/BC-SKILL-008_live_route_matrix_required.md)
 - [BC-SKILL-009 Spec Presence Is Not Runtime Proof](skills/BC-SKILL-009_spec_presence_not_runtime_proof.md)
+- [BC-SKILL-016 Probe-First Deterministic Development](skills/BC-SKILL-016_probe_first_deterministic_development.md)
 
 ### Patch Discipline
 - [BC-SKILL-010 Full-File Replacement Discipline](skills/BC-SKILL-010_full_file_replacement_discipline.md)
