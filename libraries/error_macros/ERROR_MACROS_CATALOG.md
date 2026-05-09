@@ -65,6 +65,138 @@ ERR.DELIVERYSHAPE.INFLATION:
   owner: EXECLIB.DELIVERYSHAPE.001
   severity: ask
   message: "Delivery mode inflation detected."
+  
+### BluCode
+
+ERR.BLUCODE.PHASE_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: invalid
+  message: "BluCode phase is required."
+
+ERR.BLUCODE.PHASE_UNKNOWN:
+  owner: EXECLIB.BLUCODE.001
+  severity: invalid
+  message: "BluCode phase is unknown."
+
+ERR.BLUCODE.PHASE_ORDER_VIOLATION:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode phase order violation."
+
+ERR.BLUCODE.PRIOR_PHASE_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode prior phase proof is required."
+
+ERR.BLUCODE.REPO_LOOKUP_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode repo-first lookup is required."
+
+ERR.BLUCODE.REPO_CONFIG_MISSING:
+  owner: EXECLIB.BLUCODE.001
+  severity: unavailable
+  message: "BluCode repo config is missing."
+
+ERR.BLUCODE.FETCH_UNAVAILABLE:
+  owner: EXECLIB.BLUCODE.001
+  severity: unavailable
+  message: "BluCode fetch support unavailable."
+
+ERR.BLUCODE.INDEX_NOT_FOUND:
+  owner: EXECLIB.BLUCODE.001
+  severity: not_found
+  message: "BluCode index not found."
+
+ERR.BLUCODE.LOOKUP_BYPASSED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode lookup was bypassed."
+
+ERR.BLUCODE.READ_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode read is required."
+
+ERR.BLUCODE.OPS_LAW_READ_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Operations Law read is required."
+
+ERR.BLUCODE.KERNEL_ARCHIVE_INVENTORY_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Kernel archive inventory is required."
+
+ERR.BLUCODE.REPAIR_QUEUE_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode repair queue is required."
+
+ERR.BLUCODE.ACTIVE_REPAIR_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode active repair is required."
+
+ERR.BLUCODE.REPAIR_SEAM_UNLOCKED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode repair seam is not locked."
+
+ERR.BLUCODE.PATCH_BEFORE_SEAM_SELECTION:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Patch attempted before seam selection."
+
+ERR.BLUCODE.EXEC_PATCH_NOT_AUTHORIZED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Exec patch not authorized."
+
+ERR.BLUCODE.COMPONENT_CLOSURE_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Component closure is required."
+
+ERR.BLUCODE.OWNER_LOGIC_LEAK_DETECTED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Owner logic leak detected."
+
+ERR.BLUCODE.ERROR_MACRO_UPDATE_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Error Macro update is required."
+
+ERR.BLUCODE.CARD_UPDATE_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "BluCode card update is required."
+
+ERR.BLUCODE.REGRESSION_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "Regression validation is required."
+
+ERR.BLUCODE.REGRESSION_FAILED:
+  owner: EXECLIB.BLUCODE.001
+  severity: fail_closed
+  message: "Regression validation failed."
+
+ERR.BLUCODE.RELEASE_LOCK_FAILED:
+  owner: EXECLIB.BLUCODE.001
+  severity: fail_closed
+  message: "BluCode release lock failed."
+
+ERR.BLUCODE.SIMCODE_SANDBOX_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "SimCode sandbox is required."
+
+ERR.BLUCODE.SIMCODE_EXPORT_REQUIRED:
+  owner: EXECLIB.BLUCODE.001
+  severity: blocked
+  message: "SimCode export is required."  
 
 ### RepoBoot
 
