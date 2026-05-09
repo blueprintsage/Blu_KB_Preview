@@ -69,4 +69,5 @@ Every deterministic boundary must terminate as success, failure, or BLOCKED. No 
 - [BC-SKILL-022 Program Wiring Completeness](skills/BC-SKILL-022_program_wiring_completeness.md)
 - [BC-SKILL-023 Alias Locality Discipline](skills/BC-SKILL-023_alias_locality_discipline.md)
 - [BC-SKILL-024 Exec Compensation Is Drift](skills/BC-SKILL-024_exec_compensation_is_drift.md)
-- [BC-SKILL-025 Kernel Session Overheat Checkpoint](skills/BC-SKILL-025_kernel_session_overheat_xheckpoint.md)
+- [BC-SKILL-025 Kernel Session Overheat Checkpoint](skills/BC-SKILL-025_kernel_session_overheat_checkpoint.md)
+- [BC-SKILL-026 Changelog Required for Archives](skills/BC-SKILL-026_changelog_required_for_archives.md)
