@@ -61,3 +61,6 @@ Every deterministic boundary must terminate as success, failure, or BLOCKED. No 
 - [BC-SKILL-013 Full-File Replacement Discipline](skills/BC-SKILL-013_full_file_replacement_discipline.md)
 - [BC-SKILL-015 Error Macro Fail-Closed](skills/BC-SKILL-015_error_macro_fail_closed.md)
 - [BC-SKILL-016 Artifact Claim Proof](skills/BC-SKILL-016_artifact_claim_proof.md)
+- [BC-SKILL-017 ComponentGate Discipline](skills/BC-SKILL-017_componentgate_discipline.md)
+- [BC-SKILL-018 Alias Locality Law](skills/BC-SKILL-018_alias_locality_law.md)
+- [BC-SKILL-019 Source Schema Preservation](skills/BC-SKILL-019_source_schema_preservation.md)
