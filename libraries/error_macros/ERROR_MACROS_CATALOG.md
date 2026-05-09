@@ -198,6 +198,93 @@ ERR.BLUCODE.SIMCODE_EXPORT_REQUIRED:
   severity: blocked
   message: "SimCode export is required."  
 
+### SimCode
+
+ERR.SIMCODE.COMMAND_UNKNOWN:
+  owner: PROGRAM.SIMCODE.001
+  severity: invalid
+  message: "SimCode command is unknown."
+
+ERR.SIMCODE.SANDBOX_DISABLED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode sandbox is disabled."
+
+ERR.SIMCODE.SANDBOX_ALREADY_ENABLED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode sandbox is already enabled."
+
+ERR.SIMCODE.SANDBOX_NOT_LOADED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode sandbox is not loaded."
+
+ERR.SIMCODE.ARCHIVE_REQUIRED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode archive is required."
+
+ERR.SIMCODE.ARCHIVE_LOAD_FAILED:
+  owner: PROGRAM.SIMCODE.001
+  severity: fail_closed
+  message: "SimCode archive load failed."
+
+ERR.SIMCODE.ARCHIVE_INVENTORY_FAILED:
+  owner: PROGRAM.SIMCODE.001
+  severity: fail_closed
+  message: "SimCode archive inventory failed."
+
+ERR.SIMCODE.RUNTIME_INVALID:
+  owner: PROGRAM.SIMCODE.001
+  severity: fail_closed
+  message: "SimCode sandbox runtime is invalid."
+
+ERR.SIMCODE.BLUCODE_AUTH_REQUIRED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "BluCode authorization is required for this SimCode action."
+
+ERR.SIMCODE.PATCH_BLOCKED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode patch was blocked."
+
+ERR.SIMCODE.LIVE_MUTATION_BLOCKED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode cannot mutate live kernel files."
+
+ERR.SIMCODE.SIMULATION_FAILED:
+  owner: PROGRAM.SIMCODE.001
+  severity: fail_closed
+  message: "SimCode simulation failed."
+
+ERR.SIMCODE.REGRESSION_REQUIRED:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode regression is required."
+
+ERR.SIMCODE.REGRESSION_FAILED:
+  owner: PROGRAM.SIMCODE.001
+  severity: fail_closed
+  message: "SimCode regression failed."
+
+ERR.SIMCODE.DIFF_UNAVAILABLE:
+  owner: PROGRAM.SIMCODE.001
+  severity: blocked
+  message: "SimCode diff is unavailable."
+
+ERR.SIMCODE.EXPORT_FAILED:
+  owner: PROGRAM.SIMCODE.001
+  severity: fail_closed
+  message: "SimCode export failed."
+
+ERR.SIMCODE.EXPORT_ARTIFACT_MISSING:
+  owner: PROGRAM.SIMCODE.001
+  severity: fail_closed
+  message: "SimCode export artifact is missing."
+  
 ### RepoBoot
 
 ERR.REPOBOOT.SOURCE_BINDING_FAILED:
