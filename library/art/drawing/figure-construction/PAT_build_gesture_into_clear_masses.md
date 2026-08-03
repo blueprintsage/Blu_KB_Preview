@@ -62,7 +62,7 @@ variants:
 ## Pattern Rule
 **IF** the Step 1 framework preserves the Step 0 idea but the figure's volume, viewpoint, and attachments are not yet unambiguous
 **THEN** build the major landmarks into the simplest connected masses that establish orientation, depth, balance, overlap, and attachment while preserving the framework's centerlines and joint locations
-**ELSE** return to Step 0 when the idea or view is unclear, or return to Step 1 when the framework, landmark placement, or action is unclear
+**ELSE** return to Step 0 when the rough picture idea is unclear, or return to Step 1 when the simple skeleton, landmark placement, prop path, support, or action is unclear
 
 ## Do
 - Make every major mass declare its facing direction with a centerline, cross-contour, or visible plane change.
@@ -85,13 +85,13 @@ variants:
 - Each major mass has an identifiable view before anatomy or finished contour is added.
 - Centerlines and cross-contours agree with the intended turn, tilt, and near-to-far order.
 - Every appendage attaches once to a clear parent and follows a mechanically believable chain.
-- Reducing the block to lines and landmark shapes recreates the Step 1 framework without changing the pose.
+- Reducing the block to a head oval and axis, torso and pelvis symbols, shoulder and hip axes, single-line limbs, joint circles, hand and foot markers, and critical prop paths recreates the Step 1 skeleton without changing the pose.
 - No guide line implies a part or attachment that the final figure cannot support.
 - The intended specific form can be developed over the block without relocating the accepted masses or silently redesigning the composition.
 - The block remains fully readable after all anatomy, identity, costume detail, surface modeling, lighting, and polish are mentally removed.
 - No visible information exists only to make Stage 2 look like an attractive grayscale illustration.
 
 ## Notes
-The block is the proof stage between a readable framework and a specific rough figure. It must preserve the chosen idea while making volume and spatial logic testable. Its job is to solve the body, not describe or present it. A polished surface cannot repair a view, attachment, or balance decision that was never solved in the masses, and attractive anatomy or lighting can make an unresolved block harder to diagnose. Guided Chapter 4 review establishes Stage 2 as the principal lock point: major problems first become visible here, so careful work now is cheaper than anatomy or finish built on a failing composition. A local rollback is preferred when it can preserve the whole; a full Stage 1 restart is required when it cannot.
+The block is the proof stage between a readable simple skeleton and a specific rough figure. Stage 1 must not pre-solve the block: when limb thickness, cross-contours, modeled torso masses, anatomy, costume, or polished silhouette are already present, simplify back to location symbols before building Stage 2. It must preserve the chosen idea while making volume and spatial logic testable. Its job is to solve the body, not describe or present it. A polished surface cannot repair a view, attachment, or balance decision that was never solved in the masses, and attractive anatomy or lighting can make an unresolved block harder to diagnose. Guided Chapter 4 review establishes Stage 2 as the principal lock point: major problems first become visible here, so careful work now is cheaper than anatomy or finish built on a failing composition. A local rollback is preferred when it can preserve the whole; a full Stage 1 restart is required when it cannot.
 
 `VAR_ch01_ovoid_column_spatulate_mass_selection` adds Hogarth's organic mass vocabulary: ovoids for ball, egg, and barrel forms; columns for tapered limbs; and spatulate blocks for wedges such as pelvis, hand, and foot. Use it to compare width, length, thickness, bulk, and volume while building an organic figure. Do not treat the families as rigid anatomy or force them onto a subject whose actual structure calls for another primitive system.

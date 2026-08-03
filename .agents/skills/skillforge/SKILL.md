@@ -81,6 +81,15 @@ pass. Image registration is a separate artifact criterion and must be checked di
      what is required to pass the current stage's exit gate; attractive information
      that belongs to a later stage is still a stage error.
 
+   For visual work, Stage 0 is a quick-and-dirty marker-like rough idea: broad
+   strokes, flat shapes, rough camera, crop, gesture, silhouette, and major value
+   or spatial groups. Stage 1 is only a simple skeleton: head oval and facing axis,
+   action and torso lines, shoulder and hip axes, single-line limbs, joint circles,
+   simple torso and pelvis symbols, hand and foot markers, and critical prop or
+   appendage paths. Stage 1 forbids limb thickness, cross-contours, modeled masses,
+   anatomy, facial features, hair, costume, texture, shading, environment detail,
+   and polished contour.
+
    For figure work, Stage 2 must remain a plain articulated construction: simple
    head, torso, pelvis, limb, joint, hand, and foot masses; centerlines,
    cross-contours, overlap, support, width, projected length, and depth. Use no tone

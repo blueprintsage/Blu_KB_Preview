@@ -8,6 +8,30 @@ Dated, newest first. A decision belongs here once it would be expensive to
 re-litigate. Record the REASON, not just the choice - the reason is what tells a
 future reader whether the decision still holds.
 
+## 2026-08-03 — Stage 0 is a rough picture idea; Stage 1 is only a simple skeleton
+
+**Stage 0.** Stage 0 shows a rough idea of the picture. For visual work it is a
+quick-and-dirty marker-like thumbnail using broad strokes and flat shapes to
+suggest camera, crop, gesture, silhouette, major props, shadow/value grouping,
+and near-to-far arrangement. It is exploratory, disposable, and not a registered
+construction layer. It does not solve anatomy, volume, costume, or finish.
+
+**Stage 1.** Stage 1 translates the selected idea into the minimum structural
+skeleton: action line and torso centerline; head oval and facing axis; shoulder
+and hip axes; single-line limbs; joint circles; simple flat rib-cage and pelvis
+symbols; hand and foot markers; and plain paths or silhouettes for critical
+weapons, shields, wings, tails, and contact points. Stage 1 does not contain limb
+thickness, cross-contours, modeled masses, anatomy, facial features, hair,
+clothing, armor, texture, shading, environment detail, or polished silhouette.
+If an enlarged Stage 1 could be mistaken for a character sketch or finished
+illustration, it is overworked.
+
+**Boundary.** Stage 0 shows a rough idea. Stage 1 locates everything. Stage 2
+constructs and locks the volumes. Stage 3 develops the specific subject. Stage 4
+presents the finished image. The dragon marker thumbnail is the accepted density
+target for Stage 0; no current generated Stage 1 panel is promoted as canonical
+until it meets the simple-skeleton budget.
+
 ## 2026-08-03 - Drawing stages have enforceable information ceilings
 
 - Stage order is not permission to add everything known so far. Each pass may add

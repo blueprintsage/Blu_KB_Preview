@@ -4,11 +4,12 @@ status: review-needed
 owner: docs/worklogs/active
 last_reviewed: 2026-08-03
 superseded_by:
-notes: Textual contract complete; Stage 2 visual precedents and omitted-source re-verification deferred.
+notes: Stage 0 and Stage 1 density locked; visual precedents and omitted-source re-verification deferred.
 
 ## What changed
 
-- Added a stage information-ceiling gate to both SkillForge runtime entrypoints.
+- Locked Stage 0 to a quick marker-like rough picture idea and Stage 1 to a simple skeleton only.
+- Added explicit Stage 0 and Stage 1 information ceilings to both SkillForge runtime entrypoints.
 - Hardened the universal construction foundation so block and rough passes stop
   before later-stage detail and polish.
 - Rewrote the figure Stage 2 gate as a plain articulated maquette budget.
@@ -27,7 +28,10 @@ notes: Textual contract complete; Stage 2 visual precedents and omitted-source r
 
 ## What worked
 
-Stage 2 now has a positive allowed vocabulary and an explicit forbidden list.
+Stages 0, 1, and 2 now have positive allowed vocabularies and explicit
+forbidden lists. Stage 0 remains a disposable visual idea; Stage 1 cannot
+borrow volume or character drawing from later passes; Stage 2 remains the first
+dimensional construction.
 The rule is available before image generation through the runtime skill, not
 only inside a card that may or may not be retrieved.
 
@@ -43,8 +47,10 @@ shape or tooling-test failure.
 
 ## Known risks
 
-A generator may still render past the stop rule. Text alone cannot prove visual
-density. The user-provided example pass must test and refine the visual boundary.
+A generator may still beautify Stage 0 or Stage 1 despite the stop rules. Text
+alone cannot prove visual density. Future tests must reject any Stage 1 that
+reads as a character sketch rather than a sparse skeleton, and any Stage 2 that
+reads as specific anatomy or presentation art.
 
 ## Next safe step
 

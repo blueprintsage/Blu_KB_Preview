@@ -9,7 +9,7 @@ The next safe step, not a wishlist. Anything speculative belongs in
 
 ## Next
 
-**Art lane:** install the figure-stage hardening overlay in both synchronized SkillForge copies. Stage 2 now stops at a plain articulated maquette; later user-supplied examples should be reviewed and attached as visual precedents without weakening that information ceiling. Then begin the guided Chapter 5 sequence. Chapter 4 remains firmed; reopen it only where Chapter 5 length controls must integrate with its width controls.
+**Art lane:** install the Stage 0/Stage 1 lock overlay after the figure-stage hardening overlay in both synchronized SkillForge copies. Stage 0 now stops at a quick marker-like rough idea; Stage 1 stops at a simple skeleton; Stage 2 remains a plain articulated maquette. Review later examples against all three information ceilings before attaching visual precedents. Then begin the guided Chapter 5 sequence. Chapter 4 remains firmed; reopen it only where Chapter 5 length controls must integrate with its width controls.
 
 **`programmers_brain` u01-u02 are reviewed and merged.** Ten new
 `foundations/code-comprehension` objects and four variants absorbed into gcbc
