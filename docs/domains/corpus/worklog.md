@@ -2,9 +2,62 @@
 
 status: active
 owner: docs/domains/corpus
-last_reviewed: 2026-08-01
+last_reviewed: 2026-08-03
 
 Newest entry first.
+
+## 2026-08-03 - Figure stage boundaries hardened
+
+### What changed
+
+Revised the SkillForge entrypoints, universal iterative-construction foundation,
+figure onion-skin AP, Stage 2 mass pattern, structural-notation AP, and Chapter 4
+foreshortening AP so every stage acts as an information ceiling. Stage 2 is now
+explicitly limited to a plain articulated maquette; Stage 3 describes the body;
+Stage 4 presents it. Updated the active decision, assignment, next-step, and
+cross-cutting worklog records.
+
+### What was tested or reviewed
+
+Ran the SkillForge resolver for “harden drawing stage boundaries and stop Stage 2
+at a structural lock,” reviewed the returned foundation and figure cards, then
+ran schema validation, deterministic index generation, the tooling test suite,
+Hogarth grounding verification, reference verification, and whitespace checks
+after editing.
+
+### What worked
+
+The new wording makes the recurring failure mechanically diagnosable: an
+attractive grayscale anatomy study cannot pass as Stage 2. Allowed Stage 2
+information and prohibited Stage 3/4 information are now named at the runtime
+entrypoint and at every relevant figure-construction gate.
+
+### What failed
+
+No new visual reference was added. The user will supply stronger Stage 2 examples
+later; this pass hardens the textual contract without pretending the current
+reference demonstrates the final desired density. Hogarth grounding passed for
+all four processed units, but the recovered full-repo archive omits the original
+`gen1_art_fundamentals_4step` source bundle and direct source images. Therefore
+that first-party source's grounding and reference-review gates could not be
+re-run from this archive, although schema validation and all tooling tests pass.
+
+### Known risks
+
+Image generators may still over-render despite the rule. The later example pass
+should add reviewed visual precedents and may tighten the allowed amount of flat
+tone, but should not reopen the stage ownership decision.
+
+### Next safe step
+
+Install this overlay in both synchronized SkillForge copies. When the user
+returns with examples, review them against the new information budget and attach
+only the precedents that clearly stop at structural lock. Then begin Chapter 5.
+
+### Files changed
+
+SkillForge entrypoints; universal and figure construction APs; Stage 2 mass
+pattern; corpus decisions, worklog, next steps, assignment ledger; and the active stage-boundary worklog.
 
 ## 2026-08-01 - Dynamic Figure Drawing run scrapped
 

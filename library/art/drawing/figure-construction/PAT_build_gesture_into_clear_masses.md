@@ -69,6 +69,7 @@ variants:
 - Preserve fixed attachment regions: each neck, limb, wing, tail, tread assembly, or mechanical appendage begins once from one clear parent mass and continues through a readable chain.
 - Use guide lines only when they explain the same construction; keep them through the block when useful, then let specific form replace them during the rough stage.
 - Choose primitives that suit the subject instead of forcing one mannequin vocabulary onto every organic or inorganic design.
+- Keep the visible vocabulary at maquette level: simple masses, joint blocks, wedges, centerlines, cross-contours, and overlap. Use no tone, or one flat separation value only when depth order would otherwise be ambiguous.
 - Check the block at thumbnail scale and mentally reduce it back to its framework; the action, silhouette, view, and intent should survive.
 - Treat the accepted block as the controlling reference for later stages. When one region fails, erase that region, restate a quick local framework, and rebuild it without moving unaffected figures, objects, spacing, or camera relationships.
 
@@ -77,6 +78,7 @@ variants:
 - Add construction geometry that implies duplicate members, competing sockets, broken joints, split masses, or disconnected body sections.
 - Let blocking silently replace an uncertain framework; correct the earlier stage when a mass cannot attach or orient cleanly.
 - Use anatomy, rendering, line weight, shading, or color to disguise an unresolved block.
+- Add modeled muscles, facial identity, styled hair, costume folds, texture, dramatic lighting, polished contour, or atmosphere merely because the construction already looks good.
 - Carry a local repair forward when it cannot integrate with the rest of the composition; return to the complete framework instead.
 
 ## Checklist
@@ -86,8 +88,10 @@ variants:
 - Reducing the block to lines and landmark shapes recreates the Step 1 framework without changing the pose.
 - No guide line implies a part or attachment that the final figure cannot support.
 - The intended specific form can be developed over the block without relocating the accepted masses or silently redesigning the composition.
+- The block remains fully readable after all anatomy, identity, costume detail, surface modeling, lighting, and polish are mentally removed.
+- No visible information exists only to make Stage 2 look like an attractive grayscale illustration.
 
 ## Notes
-The block is the proof stage between a readable framework and a specific rough figure. It must preserve the chosen idea while making volume and spatial logic testable. A polished surface cannot repair a view, attachment, or balance decision that was never solved in the masses. Guided Chapter 4 review establishes Stage 2 as the principal lock point: major problems first become visible here, so careful work now is cheaper than anatomy or finish built on a failing composition. A local rollback is preferred when it can preserve the whole; a full Stage 1 restart is required when it cannot.
+The block is the proof stage between a readable framework and a specific rough figure. It must preserve the chosen idea while making volume and spatial logic testable. Its job is to solve the body, not describe or present it. A polished surface cannot repair a view, attachment, or balance decision that was never solved in the masses, and attractive anatomy or lighting can make an unresolved block harder to diagnose. Guided Chapter 4 review establishes Stage 2 as the principal lock point: major problems first become visible here, so careful work now is cheaper than anatomy or finish built on a failing composition. A local rollback is preferred when it can preserve the whole; a full Stage 1 restart is required when it cannot.
 
 `VAR_ch01_ovoid_column_spatulate_mass_selection` adds Hogarth's organic mass vocabulary: ovoids for ball, egg, and barrel forms; columns for tapered limbs; and spatulate blocks for wedges such as pelvis, hand, and foot. Use it to compare width, length, thickness, bulk, and volume while building an organic figure. Do not treat the families as rigid anatomy or force them onto a subject whose actual structure calls for another primitive system.

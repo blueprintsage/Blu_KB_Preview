@@ -2,14 +2,14 @@
 
 status: active
 owner: docs/domains/corpus
-last_reviewed: 2026-08-02
+last_reviewed: 2026-08-03
 
 The next safe step, not a wishlist. Anything speculative belongs in
 `assignments.md` as `spec-needed` or in a design doc PARKED section.
 
 ## Next
 
-**Art lane:** review the guided *Dynamic Figure Drawing* Chapter 2 object set, then begin the same first-read → expert questions → second-read → expert questions sequence for Chapter 3. Chapter 2 now contributes one subordinate AP, five Patterns, and three Drills. Its chapter-specific references remain deferred until all six foundational chapters have been learned, practised, and consolidated; the rejected Chapter 1 generated plates are not part of the golden repo.
+**Art lane:** install the figure-stage hardening overlay in both synchronized SkillForge copies. Stage 2 now stops at a plain articulated maquette; later user-supplied examples should be reviewed and attached as visual precedents without weakening that information ceiling. Then begin the guided Chapter 5 sequence. Chapter 4 remains firmed; reopen it only where Chapter 5 length controls must integrate with its width controls.
 
 **`programmers_brain` u01-u02 are reviewed and merged.** Ten new
 `foundations/code-comprehension` objects and four variants absorbed into gcbc

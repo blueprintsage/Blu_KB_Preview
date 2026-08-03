@@ -2,11 +2,30 @@
 
 status: active
 owner: docs/domains/corpus
-last_reviewed: 2026-08-01
+last_reviewed: 2026-08-03
 
 Dated, newest first. A decision belongs here once it would be expensive to
 re-litigate. Record the REASON, not just the choice - the reason is what tells a
 future reader whether the decision still holds.
+
+## 2026-08-03 - Drawing stages have enforceable information ceilings
+
+- Stage order is not permission to add everything known so far. Each pass may add
+  only the class of information needed to answer that stage's question; material
+  belonging to a later pass is a stage error even when it improves appearance.
+- Stage 2 is a plain articulated maquette: simple masses, joints, wedges,
+  centerlines, cross-contours, width, projected length, overlap, attachment,
+  support, and depth. Tone is absent or limited to one flat separation value.
+  Modeled musculature, facial identity, styled hair, costume folds, texture,
+  dramatic lighting, polished contour, and atmosphere are forbidden there.
+- Stage 3 describes the accepted body through anatomy, identity, expression,
+  organic transitions, hair masses, and costume. Stage 4 presents it through
+  final light, material, texture, edge, atmosphere, and polish.
+- Reason: a successful final couple image exposed a recurring process failure:
+  Stage 2 was visually attractive but functionally a grayscale Stage 3. That
+  reduced diagnostic value and blurred the lock between construction and
+  specific form. User-supplied Stage 2 examples may later refine the visual
+  density, but they do not weaken this boundary.
 
 ## 2026-08-01 - Artistic drawing requests route through a runtime skill
 
