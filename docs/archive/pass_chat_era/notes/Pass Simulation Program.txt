@@ -1,0 +1,507 @@
+## Program: PASS
+
+module: blu__06_programs.MPASS | name="PASS Program"
+program_id: PROGRAM.PASS
+name: PASS
+logical_name: PASS
+surface: /PASS
+version: 2.2.0
+date: 2026-04-19
+updated: 2026-05-03
+status: ACTIVE
+
+purpose:
+- Compile attached source material into repo-ready Skills objects, index updates, and a user-controlled repo-drop archive.
+- Operate as a staged live Program workflow, not as simulation text.
+
+primary_entrypoints:
+- pass_compile
+
+nl_enabled: false
+auth_required: Admin
+
+dependencies:
+- EXECLIB.PASS.SOURCELIB.001
+- EXECLIB.PASS.EXTRACTLIB.001
+- EXECLIB.PASS.NORMALIZELIB.001
+- EXECLIB.PASS.REPOCOMPARELIB.001
+- EXECLIB.PASS.INDEXLIB.001
+- EXECLIB.PASS.PACKAGELIB.001
+
+repo_baseline:
+- source: configured external Skills repo
+- required_index: `indexes/INDEX_SKILLS.md`
+- lookup_rule: use Exec repo runtime config `RAW_ROOT + indexes/INDEX_SKILLS.md`
+- category_policy: categories are discovered from repo index entries, not hardcoded
+- if_repo_lookup_fails:
+  - continue through PREFLIGHT only if source can be preflighted
+  - block repo compare / Final PASS until repo baseline is available
+
+inputs:
+- fn: pass_compile
+  in:
+    - inbound
+    - attachments[]
+    - pass_state?
+    - run_options?
+
+outputs:
+- lines
+- artifact?
+- state_delta
+
+phase_contract:
+- PASS is staged.
+- Each stage is valid completion for that turn.
+- Final artifact validation applies only to `FINAL_PASS`.
+- `/PASS + attachment` must begin execution by producing either:
+  - `PASS: STATE CHECK`
+  - `PASS: PREFLIGHT`
+- `/PASS + attachment` must never immediately require archive, index, or RUN_SUMMARY output.
+- A staged PASS turn is valid when the current phase executed and produced its required stage output.
+
+state_schema:
+- key: pass.active (bool)
+- key: pass.run_id (string)
+- key: pass.phase (enum: state_check|preflight|pass1|pass2|final_pass|complete|blocked)
+- key: pass.source_record
+- key: pass.preflight_report
+- key: pass.repo_index_snapshot
+- key: pass.repo_category_entries[]
+- key: pass.raw_candidates[]
+- key: pass.recovered_candidates[]
+- key: pass.extraction_ledger
+- key: pass.recovery_ledger
+- key: pass.normalized_objects[]
+- key: pass.compare_decisions[]
+- key: pass.merged_objects[]
+- key: pass.index_files[]
+- key: pass.final_counts
+- key: pass.archive_path?
+- key: pass.run_summary?
+- key: pass.last_error?
+
+rules:
+- `/PASS` is the only public invocation surface for PASS.
+- `/PASS` without an attachment must fail closed through `ERR:` with:
+  - `PASS RESULT: BLOCKED`
+  - `BREAK: /PASS requires at least one supported attachment.`
+- PASS is a compiler only.
+- PASS does not teach during compilation.
+- PASS does not execute skills.
+- PASS does not run curriculum.
+- PASS does not mutate the live repo directly.
+- PASS returns a repo-drop archive for user-controlled application.
+- PASS must preserve existing Skills content by default.
+- Existing Skills content may be changed only when:
+  - a superior candidate replaces it, or
+  - a useful candidate is absorbed into it as a variant.
+- Rejected candidates must not delete existing Skills content.
+- PASS must transform source ideas into Blu’s own words.
+- PASS must not copy source text word-for-word.
+- PASS must be domain-open and may process textbooks, art books, comics, RPGs, novels, manuals, technical docs, images, PDFs, EPUBs, ZIPs, Markdown/text, documents, and mixed media when readable.
+- PASS must not hardcode coding or teaching as the only categories.
+- PASS category placement must be derived from:
+  - source content
+  - normalized candidate concepts
+  - existing repo index entries
+  - conceptual ownership
+- If no existing category fits, PASS may propose a new category in the repo-drop archive and add it to `indexes/INDEX_SKILLS.md`.
+- Dependency calls are phase calls.
+- Dependency calls are not pre-run proof gates.
+- A dependency failure blocks only the phase that required it.
+- Final archive proof is required only before claiming `PASS: COMPLETE`.
+
+stage_labels:
+- state_check: `PASS: STATE CHECK`
+- preflight: `PASS: PREFLIGHT`
+- pass1: `PASS: PASS 1 — GUT EXTRACTION`
+- pass2: `PASS: PASS 2 — RECOVERY EXTRACTION`
+- final_pass: `PASS: FINAL PASS`
+- complete: `PASS: COMPLETE`
+
+preflight_render_contract:
+- `PASS: PREFLIGHT`
+- blank line
+- `Source detected: <preflight_report.source_title or attachment name>`
+- `Type: <preflight_report.media_type_label or preflight_report.media_type>`
+- `Length: <preflight_report.length_label or <unknown>>`
+- `Detected domain: <preflight_report.detected_domain_label or <unknown>>`
+- `Dated material: <preflight_report.dated_material_status or <unknown>>`
+- `Modernization: <preflight_report.modernization_status or <unknown>>`
+- `Repo baseline: <repo baseline status>`
+- `Ingestion strategy: <preflight_report.ingestion_strategy or planned chunking strategy>`
+- `Planned placement: <preflight_report.planned_repo_placement or <unknown>>`
+- blank line
+- `<preflight_report.preflight_summary_line>`
+- blank line
+- `Continue [Y/N]`
+
+canonical_preflight_required_visible_labels:
+- Source detected
+- Type
+- Length
+- Detected domain
+- Dated material
+- Modernization
+- Repo baseline
+- Ingestion strategy
+- Planned placement
+- Continue [Y/N]
+
+forbidden_thin_preflight_only_labels:
+- Attachment received
+- Detected artifact type
+- Readiness
+- Next step required
+
+ops:
+- fn: pass_compile
+  in: {inbound, attachments[], pass_state?, run_options?}
+  out: {lines, artifact?, state_delta}
+  rules:
+
+    - IF inbound is `/PASS` AND attachments[] is missing or empty
+      THEN:
+        - return:
+          - lines:
+            - `PASS RESULT: BLOCKED`
+            - `BREAK: /PASS requires at least one supported attachment.`
+            - `STATUS: No PASS workflow started.`
+          - state_delta:
+            - pass.active=false
+            - pass.phase=blocked
+            - pass.last_error=PASS_ATTACHMENT_REQUIRED
+          - stop
+
+    - IF inbound is `/PASS` AND attachments[] is present
+      THEN:
+        - create `pass.run_id`
+        - set pass.active=true
+        - set pass.phase=preflight
+        - call `EXECLIB.PASS.SOURCELIB.001 :: preflight` with:
+          - attachments[]
+          - inbound
+          - repo_category_entries[]=<repo_category_entries if already available>
+          - run_options?
+        - attempt repo baseline lookup through Exec repo runtime config:
+          - open `RAW_ROOT + indexes/INDEX_SKILLS.md`
+          - store entries as `pass.repo_category_entries[]`
+          - store retrieved content as `pass.repo_index_snapshot`
+        - validate the SourceLib `preflight_report` contains the canonical preflight packet fields:
+          - source_title or attachment_name
+          - media_type_label or media_type
+          - length_label
+          - detected_domain_label
+          - dated_material_status
+          - modernization_status
+          - ingestion_strategy
+          - planned_repo_placement
+          - preflight_summary_line
+        - missing values may be explicit `<unknown>` values; missing fields are invalid
+        - IF SourceLib returns invalid OR canonical preflight fields are missing
+          THEN:
+            - return:
+              - lines:
+                - `PASS RESULT: BLOCKED`
+                - `BREAK: Source preflight failed.`
+                - `DETAIL: <SourceLib err or PASS_PREFLIGHT_CANONICAL_FIELDS_MISSING>`
+                - `STATUS: No extraction started.`
+              - state_delta:
+                - pass.active=false
+                - pass.phase=blocked
+                - pass.last_error=<SourceLib err or PASS_PREFLIGHT_CANONICAL_FIELDS_MISSING>
+              - stop
+        - ELSE IF repo baseline lookup fails
+          THEN:
+            - return:
+              - lines:
+                - `PASS: PREFLIGHT`
+                - ``
+                - `Source detected: <preflight_report.source_title or attachment name>`
+                - `Type: <preflight_report.media_type_label or preflight_report.media_type>`
+                - `Length: <preflight_report.length_label or <unknown>>`
+                - `Detected domain: <preflight_report.detected_domain_label or <unknown>>`
+                - `Dated material: <preflight_report.dated_material_status or <unknown>>`
+                - `Modernization: <preflight_report.modernization_status or <unknown>>`
+                - `Repo baseline: BLOCKED — could not open indexes/INDEX_SKILLS.md`
+                - `Ingestion strategy: <preflight_report.ingestion_strategy or planned chunking strategy>`
+                - `Planned placement: <preflight_report.planned_repo_placement or <unknown>>`
+                - ``
+                - `<preflight_report.preflight_summary_line>`
+                - ``
+                - `Status: Preflight complete; repo compare/final packaging cannot run until repo baseline is available.`
+              - state_delta:
+                - pass.active=true
+                - pass.phase=preflight
+                - pass.source_record=<source_record>
+                - pass.preflight_report=<preflight_report>
+                - pass.last_error=PASS_REPO_BASELINE_UNAVAILABLE
+              - stop
+        - ELSE:
+            - return:
+              - lines:
+                - `PASS: PREFLIGHT`
+                - ``
+                - `Source detected: <preflight_report.source_title or attachment name>`
+                - `Type: <preflight_report.media_type_label or preflight_report.media_type>`
+                - `Length: <preflight_report.length_label or <unknown>>`
+                - `Detected domain: <preflight_report.detected_domain_label or <unknown>>`
+                - `Dated material: <preflight_report.dated_material_status or <unknown>>`
+                - `Modernization: <preflight_report.modernization_status or <unknown>>`
+                - `Repo baseline: active live Skills repo via indexes/INDEX_SKILLS.md`
+                - `Ingestion strategy: <preflight_report.ingestion_strategy or planned chunking strategy>`
+                - `Planned placement: <preflight_report.planned_repo_placement>`
+                - ``
+                - `<preflight_report.preflight_summary_line>`
+                - ``
+                - `Continue [Y/N]`
+              - state_delta:
+                - pass.active=true
+                - pass.phase=pass1
+                - pass.source_record=<source_record>
+                - pass.preflight_report=<preflight_report>
+                - pass.repo_index_snapshot=<repo_index_snapshot>
+                - pass.repo_category_entries[]=<repo_category_entries>
+              - stop
+
+    - IF pass.active=true AND pass.phase=pass1 AND inbound matches affirmative continuation
+      THEN:
+        - call `EXECLIB.PASS.EXTRACTLIB.001 :: harvest_pass1`
+        - IF extraction fails
+          THEN:
+            - return:
+              - lines:
+                - `PASS RESULT: BLOCKED`
+                - `BREAK: PASS 1 extraction failed.`
+                - `DETAIL: <ExtractLib err>`
+                - `STATUS: PASS stopped at PASS 1.`
+              - state_delta:
+                - pass.phase=blocked
+                - pass.last_error=<ExtractLib err>
+              - stop
+        - ELSE:
+            - return:
+              - lines:
+                - `PASS: PASS 1 — GUT EXTRACTION`
+                - `Concepts found: <pass1_counts.concepts or 0>`
+                - `Methods found: <pass1_counts.methods or 0>`
+                - `Patterns found: <pass1_counts.patterns or 0>`
+                - `Drills found: <pass1_counts.drills or 0>`
+                - `APs/workflows found: <pass1_counts.workflows or pass1_counts.aps or 0>`
+                - `Examples/references found: <pass1_counts.examples_references or 0>`
+                - `Variants found: <pass1_counts.variants or 0>`
+                - `Coverage: <extraction_ledger.coverage_status or explicit zero-candidate reason>`
+                - `Continue [Y/N]`
+              - state_delta:
+                - pass.phase=pass2
+                - pass.raw_candidates[]=<raw_candidates>
+                - pass.extraction_ledger=<extraction_ledger>
+              - stop
+
+    - IF pass.active=true AND pass.phase=pass2 AND inbound matches affirmative continuation
+      THEN:
+        - call `EXECLIB.PASS.EXTRACTLIB.001 :: harvest_recovery_pass`
+        - merge recovered candidates into `pass.raw_candidates[]`
+        - IF recovery extraction fails
+          THEN:
+            - return:
+              - lines:
+                - `PASS RESULT: BLOCKED`
+                - `BREAK: PASS 2 recovery extraction failed.`
+                - `DETAIL: <ExtractLib err>`
+                - `STATUS: PASS stopped at PASS 2.`
+              - state_delta:
+                - pass.phase=blocked
+                - pass.last_error=<ExtractLib err>
+              - stop
+        - ELSE:
+            - return:
+              - lines:
+                - `PASS: PASS 2 — RECOVERY EXTRACTION`
+                - `Additional concepts found: <pass2_counts.concepts or 0>`
+                - `Additional methods found: <pass2_counts.methods or 0>`
+                - `Additional patterns found: <pass2_counts.patterns or 0>`
+                - `Additional drills found: <pass2_counts.drills or 0>`
+                - `Additional APs/workflows found: <pass2_counts.workflows or pass2_counts.aps or 0>`
+                - `Additional examples/references found: <pass2_counts.examples_references or 0>`
+                - `Additional variants found: <pass2_counts.variants or 0>`
+                - `Coverage: <recovery_ledger.coverage_status or explicit zero-recovery reason>`
+                - `Continue [Y/N]`
+              - state_delta:
+                - pass.phase=final_pass
+                - pass.raw_candidates[]=<merged raw candidates>
+                - pass.recovered_candidates[]=<recovered_candidates>
+                - pass.recovery_ledger=<recovery_ledger>
+              - stop
+
+    - IF pass.active=true AND pass.phase=final_pass AND inbound matches affirmative continuation
+      THEN:
+        - call `EXECLIB.PASS.NORMALIZELIB.001 :: normalize_objects` with:
+          - raw_candidates[]=pass.raw_candidates[]
+          - recovered_candidates[]=pass.recovered_candidates[]
+          - source_record=pass.source_record
+          - modernization=pass.preflight_report.modernization_status
+          - repo_category_entries[]=pass.repo_category_entries[]
+        - IF NormalizeLib returns invalid
+          THEN block with `PASS RESULT: BLOCKED`, `BREAK: normalization failed`, and stop
+        - call `EXECLIB.PASS.REPOCOMPARELIB.001 :: compare_against_skills` with:
+          - normalized_objects[]
+          - repo_skills_snapshot=live repo baseline loaded from repo indexes and relevant skill files
+          - repo_index_snapshot=pass.repo_index_snapshot
+        - IF RepoCompareLib returns invalid
+          THEN block with `PASS RESULT: BLOCKED`, `BREAK: repo compare failed`, and stop
+        - call `EXECLIB.PASS.INDEXLIB.001 :: build_chain_indexes` with:
+          - merged_objects[]
+          - preserved_existing_objects[]
+          - repo_index_snapshot=pass.repo_index_snapshot
+        - IF IndexLib returns invalid
+          THEN block with `PASS RESULT: BLOCKED`, `BREAK: index build failed`, and stop
+        - call `EXECLIB.PASS.PACKAGELIB.001 :: build_repo_drop_archive` with:
+          - merged_objects[]
+          - index_files[]
+          - final_counts
+          - source_record=pass.source_record
+          - extraction_ledger=pass.extraction_ledger
+          - recovery_ledger=pass.recovery_ledger
+        - IF PackageLib returns invalid OR no archive_path is returned
+          THEN:
+            - return:
+              - lines:
+                - `PASS RESULT: BLOCKED`
+                - `BREAK: Final package build failed.`
+                - `DETAIL: <PackageLib err>`
+                - `STATUS: No archive was created.`
+              - state_delta:
+                - pass.phase=blocked
+                - pass.last_error=PASS_PACKAGE_FAILED
+              - stop
+        - ELSE:
+            - return:
+              - lines:
+                - `PASS: FINAL PASS`
+                - `New skill object files added: <final_counts.new_skill_object_files_added>`
+                - `Patterns added: <final_counts.patterns_added>`
+                - `Drills added: <final_counts.drills_added>`
+                - `APs added: <final_counts.aps_added or final_counts.workflows_added>`
+                - `Existing files modified with absorbed variants: <final_counts.existing_files_modified_with_absorbed_variants>`
+                - `Variants absorbed: <final_counts.variants_absorbed>`
+                - `Duplicates rejected: <final_counts.duplicates_rejected>`
+                - `Inferior rejected: <final_counts.inferior_rejected>`
+                - `Superior replacements: <final_counts.superior_replacements>`
+                - `Archive: CREATED`
+                - `Contents:`
+                - `- indexes/INDEX_SKILLS.md`
+                - `- skills/<category>/index.md`
+                - `- skill object markdown files`
+                - `- RUN_SUMMARY.md`
+              - artifact=<archive_path>
+              - state_delta:
+                - pass.active=false
+                - pass.phase=complete
+                - pass.archive_path=<archive_path>
+                - pass.run_summary=<run_summary>
+              - stop
+
+    - IF pass.active=true AND inbound matches negative continuation
+      THEN:
+        - return:
+          - lines:
+            - `PASS stopped.`
+          - state_delta:
+            - pass.active=false
+            - pass.phase=blocked
+          - stop
+
+    - ELSE:
+        - return:
+          - lines:
+            - `PASS RESULT: BLOCKED`
+            - `BREAK: PASS continuation state was missing or invalid.`
+            - `STATUS: Start a new PASS with /PASS + attachment.`
+          - state_delta:
+            - pass.active=false
+            - pass.phase=blocked
+          - stop
+
+output_contract:
+- Initial `/PASS + attachment` output must be `PASS: PREFLIGHT` or `PASS: STATE CHECK`.
+- `PASS: PREFLIGHT` must render the canonical rich preflight fields from `preflight_render_contract`.
+- `PASS: PREFLIGHT` must not degrade to attachment readiness only.
+- A preflight output is invalid if it contains only forbidden_thin_preflight_only_labels instead of canonical_preflight_required_visible_labels.
+- PASS 1 output must be `PASS: PASS 1 — GUT EXTRACTION`.
+- PASS 1 must be backed by `EXECLIB.PASS.EXTRACTLIB.001 :: harvest_pass1`.
+- PASS 2 output must be `PASS: PASS 2 — RECOVERY EXTRACTION`.
+- PASS 2 must be backed by `EXECLIB.PASS.EXTRACTLIB.001 :: harvest_recovery_pass`.
+- Final output must be `PASS: FINAL PASS`.
+- `Archive: CREATED` may print only when `artifact=<archive_path>` exists.
+- Program output must not claim completion unless the final archive exists on the same turn.
+- Intermediate staged outputs are valid Program outputs and must not be rejected for lacking a final archive.
+
+final_report_counts:
+- New skill object files added
+- Patterns added
+- Drills added
+- APs added
+- Existing files modified with absorbed variants
+- Variants absorbed
+- Duplicates rejected
+- Inferior rejected
+- Superior replacements
+
+archive_rules:
+- The generated archive name must follow:
+  - `YYYY-MM-DD_HH-MM_Skills.zip`
+- The archive must contain:
+  - `indexes/INDEX_SKILLS.md`
+  - category/subcategory indexes using lowercase `index.md`
+  - skill object markdown files
+  - `RUN_SUMMARY.md`
+- The archive must not contain:
+  - `PASS_FINAL_REPORT.md`
+  - `skills/INDEX.md`
+  - uppercase child `INDEX.md`
+  - source folders
+  - reference folders
+  - logs folders
+  - manifest.json
+  - standalone modernization overlays
+- `indexes/INDEX_SKILLS.md` must contain only top-level skillset index entries.
+- `indexes/INDEX_SKILLS.md` entries must use lowercase index filenames:
+  - `skills/<category>/index.md`
+- Subdirectory indexes own detailed links.
+- Non-index markdown filenames must be lowercase, human-readable, and not prefixed with object-code IDs.
+- Object stable IDs belong inside markdown content, not filenames.
+
+failure_outputs:
+- no_attachment:
+  lines:
+    - `PASS RESULT: BLOCKED`
+    - `BREAK: /PASS requires at least one supported attachment.`
+    - `STATUS: No PASS workflow started.`
+- unsupported_attachment:
+  lines:
+    - `PASS RESULT: BLOCKED`
+    - `BREAK: Attachment type is unsupported for PASS.`
+    - `STATUS: No PASS workflow started.`
+- preflight_failed:
+  lines:
+    - `PASS RESULT: BLOCKED`
+    - `BREAK: Source preflight failed.`
+    - `STATUS: No extraction started.`
+- extraction_failed:
+  lines:
+    - `PASS RESULT: BLOCKED`
+    - `BREAK: Extraction failed during the active PASS stage.`
+    - `STATUS: PASS stopped before final packaging.`
+- repo_compare_failed:
+  lines:
+    - `PASS RESULT: BLOCKED`
+    - `BREAK: Repo comparison failed or repo baseline was unavailable.`
+    - `STATUS: No archive was created.`
+- package_failed:
+  lines:
+    - `PASS RESULT: BLOCKED`
+    - `BREAK: Final package build failed.`
+    - `STATUS: No archive was created.`
+/module

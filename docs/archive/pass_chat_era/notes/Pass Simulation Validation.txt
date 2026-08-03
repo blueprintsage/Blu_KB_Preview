@@ -1,0 +1,177 @@
+## PASS SourceLib PREFLIGHT Validation Patch
+
+module: execlib.PASS_SOURCELIB_PREFLIGHT_CANON_2026_05_03
+lib_id: EXECLIB.PASS.SOURCELIB.001
+status: ACTIVE
+
+required_preflight_fields:
+- Source detected
+- Type
+- Length
+- Detected domain
+- Dated material
+- Modernization
+- Repo baseline
+- Ingestion strategy
+- Planned placement
+- Continue [Y/N]
+
+rules:
+- `PASS: PREFLIGHT` is invalid unless all required_preflight_fields are present.
+- Thin readiness outputs are invalid.
+- Forbidden-only PREFLIGHT lines:
+  - Attachment received
+  - Detected artifact type
+  - Readiness
+  - Next step required
+- If canonical fields cannot be built, return `PASS RESULT: BLOCKED` with missing fields.
+
+## PASS ExtractLib Phase Patch
+
+module: execlib.PASS_EXTRACT_PHASES_2026_05_03
+lib_id: EXECLIB.PASS.EXTRACTLIB.001
+status: ACTIVE
+
+entrypoints:
+- harvest_pass1
+- harvest_recovery_pass
+
+ops:
+- fn: harvest_pass1
+  purpose: perform first-pass gut extraction from attached source chunks.
+  output:
+    - raw_candidates[]
+    - extraction_ledger
+    - phase_status
+  rules:
+    - extract transformed learning objects only
+    - do not copy source text verbatim
+    - include concepts, methods, patterns, drills, workflows, examples, references, glossary terms, styles, genres, variants
+    - output stage header exactly:
+      - `PASS: PASS 1 — GUT EXTRACTION`
+
+- fn: harvest_recovery_pass
+  purpose: perform second-pass recovery extraction over missed/weak/variant material.
+  output:
+    - recovered_candidates[]
+    - recovery_ledger
+    - phase_status
+  rules:
+    - target omissions, duplicates, variants, edge cases, examples, correction candidates
+    - do not repeat PASS 1 blindly
+    - output stage header exactly:
+      - `PASS: PASS 2 — RECOVERY EXTRACTION`
+	  
+## PASS NormalizeLib Domain-Open Patch
+
+module: execlib.PASS_NORMALIZE_DOMAIN_OPEN_2026_05_03
+lib_id: EXECLIB.PASS.NORMALIZELIB.001
+status: ACTIVE
+
+object_types:
+- concept
+- method
+- pattern
+- drill
+- workflow
+- example
+- correction
+- reference
+- glossary_term
+- style
+- genre
+- variant
+
+rules:
+- PASS is domain-open.
+- Do not hardcode coding, teaching, or curriculum-only schemas.
+- Remove universal `stage_binding`.
+- Normalize every candidate into repo-ready Skills object shape.
+
+## PASS IndexLib Repo Rules Patch
+
+module: execlib.PASS_INDEX_REPO_RULES_2026_05_03
+lib_id: EXECLIB.PASS.INDEXLIB.001
+status: ACTIVE
+
+repo_index_rules:
+- root skills index: `indexes/INDEX_SKILLS.md`
+- category index: `skills/<category>/index.md`
+- forbidden:
+  - `skills/INDEX.md`
+  - `skills/<category>/INDEX.md`
+
+rules:
+- FINAL PASS must fail validation if generated index paths include forbidden paths.
+- Filenames must be lowercase, human-readable, and no ID/header prefixes.
+
+## PASS ABI Materialization Patch
+
+module: blu__06_programs.PASS_ABI_MATERIALIZED_2026_05_03
+status: ACTIVE
+
+dependency_calls:
+
+- entrypoint: pass_compile
+  phase_scoped: true
+  required_calls:
+    - phase: preflight
+      dep_id: PASS.PREFLIGHT
+      owner: EXECLIB.PASS.SOURCELIB.001
+      entrypoint: preflight
+      success_requires:
+        - canonical PREFLIGHT fields present
+        - thin fallback render rejected
+
+    - phase: pass1
+      dep_id: PASS.HARVEST.PASS1
+      owner: EXECLIB.PASS.EXTRACTLIB.001
+      entrypoint: harvest_pass1
+      success_requires:
+        - `PASS: PASS 1 — GUT EXTRACTION`
+        - raw_candidates[] present or explicit zero-candidate reason
+
+    - phase: pass2
+      dep_id: PASS.HARVEST.PASS2
+      owner: EXECLIB.PASS.EXTRACTLIB.001
+      entrypoint: harvest_recovery_pass
+      success_requires:
+        - `PASS: PASS 2 — RECOVERY EXTRACTION`
+        - recovered_candidates[] present or explicit zero-recovery reason
+
+    - phase: final_pass
+      dep_id: PASS.NORMALIZE
+      owner: EXECLIB.PASS.NORMALIZELIB.001
+      entrypoint: normalize_objects
+
+    - phase: final_pass
+      dep_id: PASS.INDEX
+      owner: EXECLIB.PASS.INDEXLIB.001
+      entrypoint: build_chain_indexes
+      success_requires:
+        - uses `indexes/INDEX_SKILLS.md`
+        - uses `skills/<category>/index.md`
+        - does not emit `skills/INDEX.md`
+        - does not emit uppercase child `INDEX.md`
+		
+		Gap classification
+Thin PREFLIGHT: validation gap
+harvest_pass1: missing real implementation
+harvest_recovery_pass: missing real implementation
+NormalizeLib coding/teaching bias: stale contract
+IndexLib old paths: stale contract
+Exec dispatch: already real
+Required DevMode tests added
+- `/DevMode test PASS rich preflight render`
+- `/DevMode test PASS pass1 gut extraction`
+- `/DevMode test PASS pass2 recovery extraction`
+- `/DevMode test PASS final repo index rules`
+- `/DevMode test PASS rejects skills/INDEX.md`
+- `/DevMode test PASS rejects uppercase child INDEX.md`
+Required burn-in
+/DevMode tracert PASS
+/DevMode dryrun /PASS
+/PASS + small PDF
+Y
+Y
+Y

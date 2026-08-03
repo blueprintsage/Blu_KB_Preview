@@ -1,6 +1,7 @@
 # Patterns Index
 
 ## Entries
+
 - abstraction_hides_low_level_detail.md
 - aggregation_before_inheritance.md
 - avoid_unnecessary_indirection.md
@@ -31,6 +32,7 @@
 - override_as_polymorphism_safety_check.md
 - polymorphism_for_solver_choice.md
 - prefer_value_semantics.md
+- runtime_bridge_degradation_boundary.md
 - separate_interface_from_implementation.md
 - separate_policy_from_mechanism.md
 - small_public_interface.md
