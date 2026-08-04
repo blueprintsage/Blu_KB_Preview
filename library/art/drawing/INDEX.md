@@ -4,4 +4,4 @@
 
 ## Topics
 
-- [Figure Construction](figure-construction/INDEX.md) - 46 object(s).
+- [Figure Construction](figure-construction/INDEX.md) - 49 object(s).

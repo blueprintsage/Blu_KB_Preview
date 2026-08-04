@@ -53,6 +53,31 @@ Before attributing a visual result to SkillForge, verify that SkillForge was act
 active through discovery, installed knowledge, or an explicitly logged resolver/card
 pass. Image registration is a separate artifact criterion and must be checked directly.
 
+### Approval and precedent-calibration gate — stop before downstream commitment
+
+For an open-ended request to draw or design an image, default to the approval-gated
+visual route unless the user explicitly asks for a finished image immediately:
+
+1. generate **Stage 0 only** and stop;
+2. revise or secure approval of camera, framing, action, silhouette, major placement,
+   negative space, and value idea;
+3. generate the registered Stage 1–4 walkthrough;
+4. compare every stage with the approved same-stage visual precedent and the next
+   stage as its information ceiling;
+5. stop for walkthrough approval;
+6. create the standalone Stage 4 render from the approved Stage 3 and Stage 4 preview;
+7. inspect global drift and local drift separately.
+
+A stage label is not evidence. If a generated stage resembles the next precedent more
+closely than its own, reject or simplify it. In particular, Stage 2 must look like a
+primitive articulated maquette, not an attractive grayscale character drawing.
+
+“Extract/crop the panel” and “give me the final Stage 4 render” are different tasks.
+Crop only for literal extraction. A standalone final is a constrained full render from
+the approved visual sources and must preserve camera, crop intent, subject scale,
+structure, endpoints, prop contacts, and directional axes while allowing lighting,
+color, materials, atmosphere, texture, and focal impact to intensify.
+
 ## How to use it
 
 1. **Restate the craft problem** as a short phrase: the decision or artifact, not

@@ -4,16 +4,16 @@
 **Chapter:** 4 — “Figure Invention: Controlling Size in Foreshortened Forms”  
 **Printed pages:** 105–134  
 **Scan pages:** 106–135  
-**Status:** Full chapter read, guided review, object extraction, and test-environment correction complete.  
+**Status:** Full chapter read, guided review, practical render tests, corrective review, and object extraction complete.  
 **Active repository supplied for this run:** `PASS_WuSao_Ch_4.zip`  
 **Deliverable state:** one chapter AP, four Patterns, three Drills, one hand-construction variant, and revisions to the staged-construction workflow prepared for merge.  
-**Final authority:** provisional until Chapters 5–6, *Drawing Dynamic Hands*, varied bodies and species, other artists, and valid SkillForge-enabled production tests have been reviewed.
+**Final authority:** provisional until Chapters 5–6, *Drawing Dynamic Hands*, varied bodies and species, other artists, and reliable image-to-image production tests have been reviewed.
 
 ---
 
 # 1. Why this memcap exists
 
-The exported cards preserve executable decisions. This memcap also preserves a deployment lesson discovered after closeout: repository files being visible to a chat is not the same as SkillForge being active in that chat's runtime.
+The exported cards preserve executable decisions. They do not preserve the complete apprenticeship that produced those decisions, especially the distinction between a rule that improves a drawing and a runtime that can actually obey that rule.
 
 This memcap retains:
 
@@ -23,18 +23,18 @@ This memcap retains:
 - the difference between a thumbnail idea and the registered Stage 1–4 sequence;
 - the local rollback and full restart choices when Stage 2 fails;
 - the “ducks in a row” requirement for stage-to-stage registration;
-- the SkillForge discovery repair and its environment-specific limits;
-- the correction that the hosted-project image sequence was not a valid SkillForge portability test;
+- the SkillForge discovery repair and the later finding that retrieval does not guarantee layer-preserving image behavior;
+- the practical test that improved foreshortening but still drifted when asked to simplify an accepted image;
 - what must be reconsidered after Chapters 5 and 6.
 
-The most important long-term deployment lesson is:
+The most important long-term lesson is dual:
 
 ```text
-a repository can be present without SkillForge being active
-validate the test environment before judging portability
+portable knowledge improved the drawing
+but portable instructions did not guarantee portable visual behavior
 ```
 
-That correction must not be lost during final review.
+That distinction must not be lost during final review.
 
 ---
 
@@ -380,7 +380,7 @@ The prior-stage image is the visual Wu Sao: the control reference that prevents 
 
 ---
 
-# 13. SkillForge discovery and runtime access are different
+# 13. SkillForge discovery was repaired
 
 The first practical test exposed that the correct cards had not been loaded automatically.
 
@@ -396,52 +396,79 @@ but lacked the GPT/Codex discovery adapter:
 .agents/skills/skillforge/SKILL.md
 ```
 
-`AGENTS.md` also lacked a mandatory manual resolver fallback. The discovery overlay corrected those repository-level issues.
+`AGENTS.md` also lacked a mandatory manual resolver fallback.
 
-The later clarification is equally important: an uploaded repository inside a hosted project chat is still only attached source material unless that host discovers the adapter, installs the knowledge, or explicitly runs the resolver and loads the selected cards. Repository placement that works in Codex does not automatically become a capability of every chat environment.
+The discovery overlay corrected both:
 
----
+- a thin `.agents` adapter matching the `.claude` adapter;
+- mandatory SkillForge preflight in `AGENTS.md`;
+- a manual `tools/resolve.py` fallback when discovery does not fire.
 
-# 14. What the practical images showed — and did not show
-
-The image attempts produced useful observations about foreshortening, stage boundaries, and registration drift. They also showed that the assistant could generate strong standalone images such as the later tank and Pegasus without SkillForge involvement.
-
-Because SkillForge activation was not consistently verified as part of the image runtime, none of those outputs can be used as clean evidence for or against SkillForge portability. A visually improved result is not proof that SkillForge caused the improvement, and a drifting result is not proof that SkillForge failed.
+This repair was necessary and correct. The later failure does not invalidate it.
 
 ---
 
-# 15. Environment correction: the portability test was invalid
+# 14. The practical test: what improved
 
-The prior closeout treated the drifting Stage 0 simplification as a SkillForge visual-portability failure. That conclusion is reverted.
+After SkillForge was explicitly used, the flying-figure test improved in visible ways:
 
-The actual environment was:
+- stronger front-facing foreshortening;
+- clearer advancing fist;
+- better torso mass;
+- more coherent depth order;
+- more useful construction marks;
+- a result closer to Stage 2 than the earlier ungrounded attempt.
+
+This demonstrates that the cards can improve structural judgment and prompt selection.
+
+The cards were not all for naught.
+
+---
+
+# 15. The portability failure: retrieval is not registration
+
+The decisive failure occurred when the accepted foreshortened image was supposed to be simplified into Stage 0.
+
+Instead of editing the exact image in place, the system generated a new interpretation:
+
+- camera and pose changed;
+- proportions changed;
+- crop and silhouette changed;
+- the advancing fist and body relation changed;
+- the result could not be overlaid on the accepted image.
+
+This violated the onion-skin card even though the card had been retrieved.
+
+The honest conclusion is:
 
 ```text
-SkillForge repository files were accessible
-≠
-SkillForge was installed, discovered, and active in the image-generation runtime
+SkillForge controls what knowledge enters context.
+It does not guarantee that the image runtime performs a layer-preserving edit.
 ```
 
-The pose, camera, crop, proportions, and silhouette did drift. That remains a real observation about the hosted image workflow used in the session. It does not establish that SkillForge failed to transfer artistic behavior, because the intended SkillForge execution path was not under controlled test.
+Portable knowledge and portable behavior are different problems.
 
-The correct diagnosis is **test-environment mismatch**, not SkillForge failure.
+The training performed reliably inside a long, tightly corrected conversation because the local teaching context itself acted as a strong behavioral state. The library can preserve the rules, examples, and corrections, but the current hosted image workflow may still reinterpret an edit as a fresh generation.
+
+This is a capability boundary, not a reason to pretend success.
 
 ---
 
-# 16. Correct protocol for the eventual portability test
+# 16. New fail-closed visual continuity rule
 
-For a future controlled test:
+For any future staged visual task:
 
-1. Use an environment where SkillForge is genuinely available: for example, Codex operating inside the repository or a Custom GPT with the relevant SkillForge knowledge installed.
-2. Verify discovery or invocation before the art task begins.
-3. Record the resolver query and the exact cards loaded.
-4. Confirm that those cards are present in the active working context.
-5. Establish one accepted source image and one requested stage change.
-6. Use the accepted source as the edit target rather than regenerating from the verbal idea.
-7. Compare camera, crop, silhouette, landmarks, joints, attachments, masses, depth order, and unaffected content.
-8. Report SkillForge retrieval and image registration as separate test results.
+1. Load the relevant SkillForge cards.
+2. Identify the exact accepted image that controls the next pass.
+3. Verify that the runtime can use that image as the active edit target.
+4. Request one constrained stage change only.
+5. Compare camera, crop, silhouette, joints, attachments, masses, and unaffected objects.
+6. Reject any output that drifts; do not relabel it as the requested stage.
+7. If exact image-to-image control cannot be verified, stop and disclose the limit rather than generate a fresh interpretation.
 
-The registration safeguards remain useful production rules. They are not evidence that SkillForge failed in the previous hosted chat.
+The phrase “draw over it” is not enough. The workflow needs an enforceable image target and a registration check.
+
+A future `.skillforge/` centralization may improve adapter maintenance, but it will not by itself solve image registration. Discovery and execution are separate layers.
 
 ---
 
@@ -526,14 +553,13 @@ No generated Chapter 4 reference image ships. The practical images were diagnost
 - Moving unrelated objects during a local correction.
 - generating several stages independently in one panel and expecting registration.
 
-## Tooling and test-environment failures
+## Tooling and portability failures
 
-- Treating an attached repository as though it were an installed runtime skill.
-- Claiming SkillForge shaped an output without logging discovery, resolver use, and loaded cards.
-- Using ordinary image generations as evidence for or against SkillForge portability.
-- Starting from the verbal prompt instead of the accepted image during a continuity test.
+- Claiming that loading a skill card guarantees that the image tool followed it.
+- Starting from the verbal prompt instead of the accepted image.
 - Treating a new interpretation as an overlay.
-- Combining SkillForge activation and image registration into one untraceable pass/fail claim.
+- Continuing to test an unverified layer workflow after drift is already clear.
+- Blaming the library for a runtime registration failure without distinguishing the two.
 
 ---
 
@@ -561,16 +587,15 @@ Reopen this memcap when any of the following occurs:
    - compare intuitive, observational, shape-first, planar, painterly, animation, and graphic solutions;
    - keep Hogarth’s cylinder method as one rational route rather than universal law.
 
-6. **When a valid SkillForge-enabled test environment is available**
-   - verify repository discovery or installed-knowledge retrieval before generation;
-   - record the resolver query and selected cards;
-   - rerun the staged test with exact source-image targeting;
+6. **When a reliable image-edit runtime is available**
+   - rerun the same staged test with exact source-image targeting;
    - verify landmark registration quantitatively or by disciplined overlay;
-   - report SkillForge activation and artifact continuity separately.
+   - test simplification as well as development;
+   - distinguish prompt compliance from true artifact continuity.
 
 7. **Before promoting the staged workflow as portable behavior**
-   - require repeated success across environments where SkillForge is demonstrably active;
-   - do not infer reliability or failure from one heavily trained conversation or one host that merely exposes the source files.
+   - require repeated success across new chats and tasks;
+   - do not infer reliability from one heavily trained conversation.
 
 ---
 
@@ -599,9 +624,8 @@ Guided corrections:
 - thumbnail may change into Stage 1;
 - Stage 2 through Stage 4 must remain ducks in a row;
 - if Stage 3 cannot fit Stage 2, correct Stage 2 every time;
-- the prior SkillForge portability conclusion was invalid because SkillForge was not active in the hosted-project runtime;
-- future tests must verify SkillForge activation and image registration separately;
-- exact edit-target capability and landmark checks are still required before claiming onion-skinned continuity.
+- SkillForge retrieval improved structure but did not guarantee image registration;
+- exact edit-target capability and landmark checks are required before claiming onion-skinned continuity.
 ```
 
 ---
@@ -617,6 +641,58 @@ Chapter 4: how does the same form keep its size identity?
 Chapter 5: how is the correct projected length selected?
 ```
 
-Do not use the previous hosted-project sequence as evidence for or against SkillForge. Resume the portability test only in an environment where SkillForge activation can be verified; then test image registration as a separate requirement.
+Do not resume staged image testing merely to seek reassurance. Resume only when the runtime can verifiably edit the accepted artifact in place or when the exercise is explicitly framed as a fresh interpretation rather than an onion-skinned continuation.
 
-**Chapter 4 status:** Chkt and firmed by explicit user closeout, with the prior visual-portability conclusion reverted as an invalid test-environment result.
+**Chapter 4 status:** Chkt and firmed by explicit user closeout, with the visual-portability failure preserved rather than hidden.
+
+---
+
+# 22. Post-Chapter visual validation addendum
+
+## Approval-gated production
+
+Subsequent Warbot and zero-gravity astronaut tests established a more reliable default production route:
+
+```text
+Stage 0 only
+→ user approval or revision
+→ registered Stage 1–4 walkthrough
+→ user approval or structural correction
+→ standalone Stage 4 render
+→ drift inspection
+```
+
+Do not invest downstream work before the upstream image is approved. A rejection at Stage 0 should produce another cheap picture idea, not a polished defense of the wrong composition.
+
+## Precedent calibration
+
+Before and after generating each stage, compare it with the approved same-stage process images in the repository and with the next stage as the forbidden ceiling. Compare purpose, information class, density, and degree of commitment—not subject matter. If the result resembles the next stage more closely than its own, it is over-rendered and must be simplified or rebuilt.
+
+Stage 2 remains the most persistent weakness. The Warbot and astronaut process sheets both solved their figures well but borrowed anatomy, mechanical detail, contour polish, and environmental rendering from Stage 3. Preserve these sheets as cautionary cases, not positive Stage 2 density targets.
+
+## Global drift and local drift
+
+The staged workflow greatly reduced whole-picture reinterpretation but did not eliminate drift:
+
+- **Global drift** changes camera, framing, crop, subject scale, major silhouette, action, placement, or depth order. It changes the picture and should be rejected.
+- **Local drift** damages one chain or endpoint while the approved picture survives. It may be repaired locally when the correction can preserve the whole.
+
+The astronaut final is the key example: its cinematic amplification was stronger than the process-sheet preview, but the left leg became corkscrewed across the hip → knee → ankle → foot chain. The Warbot examples exposed framing drift and a firing effect that did not follow the muzzle axis.
+
+## Stage 4 controlled amplification
+
+The final rule is not “change nothing.” It is:
+
+> Preserve every approved structural relationship while allowing controlled presentational amplification.
+
+Stage 4 may intensify lighting, color, material, texture, atmosphere, depth cues, edge control, and focal impact. It may not invent a joint rotation, alter endpoint function, change prop contacts, move the camera, reframe the subject without approval, or bend a straight beam/projectile/tether away from its emitter or attachment axis.
+
+When asked for a final Stage 4 render, create a full standalone render from the approved Stage 3 and Stage 4 preview. Do not substitute a crop unless the request is explicitly to extract the existing panel.
+
+## New durable objects
+
+- `AP_gate_staged_visual_work_by_approval`
+- `PAT_calibrate_stage_information_density_against_precedent`
+- `PAT_preserve_structure_during_stage4_amplification`
+
+The Warbot and astronaut process and final images ship as named precedents with notes identifying both their successes and their failures.

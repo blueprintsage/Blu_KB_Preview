@@ -22,6 +22,8 @@ cross_links:
   target_object_id: AP_plan_and_build_work_from_thumbnail_to_final
 - rel: related_to
   target_object_id: AP_control_foreshortened_form_size_in_stage_two
+- rel: related_to
+  target_object_id: PAT_calibrate_stage_information_density_against_precedent
 reference:
   source_id: gen1_art_fundamentals_4step
   source_title: PASS Gen 1 Universal Step 0 + Four-Stage Workflow
@@ -69,6 +71,7 @@ variants:
 - Preserve fixed attachment regions: each neck, limb, wing, tail, tread assembly, or mechanical appendage begins once from one clear parent mass and continues through a readable chain.
 - Use guide lines only when they explain the same construction; keep them through the block when useful, then let specific form replace them during the rough stage.
 - Choose primitives that suit the subject instead of forcing one mannequin vocabulary onto every organic or inorganic design.
+- Compare the proposed block with the approved blocking panel before and after generation; if it resembles the developed-form panel more closely, strip the next-stage information before advancing.
 - Keep the visible vocabulary at maquette level: simple masses, joint blocks, wedges, centerlines, cross-contours, and overlap. Use no tone, or one flat separation value only when depth order would otherwise be ambiguous.
 - Check the block at thumbnail scale and mentally reduce it back to its framework; the action, silhouette, view, and intent should survive.
 - Treat the accepted block as the controlling reference for later stages. When one region fails, erase that region, restate a quick local framework, and rebuild it without moving unaffected figures, objects, spacing, or camera relationships.
@@ -90,6 +93,7 @@ variants:
 - The intended specific form can be developed over the block without relocating the accepted masses or silently redesigning the composition.
 - The block remains fully readable after all anatomy, identity, costume detail, surface modeling, lighting, and polish are mentally removed.
 - No visible information exists only to make Stage 2 look like an attractive grayscale illustration.
+- The block matches the information density of the approved Stage 2 precedent more closely than the Stage 3 precedent.
 
 ## Notes
 The block is the proof stage between a readable simple skeleton and a specific rough figure. Stage 1 must not pre-solve the block: when limb thickness, cross-contours, modeled torso masses, anatomy, costume, or polished silhouette are already present, simplify back to location symbols before building Stage 2. It must preserve the chosen idea while making volume and spatial logic testable. Its job is to solve the body, not describe or present it. A polished surface cannot repair a view, attachment, or balance decision that was never solved in the masses, and attractive anatomy or lighting can make an unresolved block harder to diagnose. Guided Chapter 4 review establishes Stage 2 as the principal lock point: major problems first become visible here, so careful work now is cheaper than anatomy or finish built on a failing composition. A local rollback is preferred when it can preserve the whole; a full Stage 1 restart is required when it cannot.

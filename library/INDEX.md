@@ -9,7 +9,7 @@
 ## Packages
 
 - [Metaskills](metaskills/INDEX.md) - mandatory; 1 object(s).
-- [Art](art/INDEX.md) - optional; 46 object(s). Requires: metaskills.
+- [Art](art/INDEX.md) - optional; 49 object(s). Requires: metaskills.
 - [Software Engineering](software-engineering/INDEX.md) - optional; 212 object(s).
 
 ## Installation

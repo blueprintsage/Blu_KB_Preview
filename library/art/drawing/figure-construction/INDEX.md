@@ -10,6 +10,7 @@
 - [Build Figure Structure Into Clear Masses](PAT_build_gesture_into_clear_masses.md) - pattern; 2 block.
   - Variants: `Ovoid, Column, and Spatulate Figure Mass Selection` (method_sequence).
 - [Build Overlap Sequences From Complete and Partial Forms](DRILL_build_overlap_sequences_from_complete_and_partial_forms.md) - drill; 2 block.
+- [Calibrate Stage Information Density Against Approved Precedent](PAT_calibrate_stage_information_density_against_precedent.md) - pattern; 0 design.
 - [Carry Form Flow Through Joint Transitions](PAT_carry_form_flow_through_joint_transitions.md) - pattern; 3 rough.
 - [Carry Leg Force Into Foot Support](PAT_carry_leg_force_into_foot_support.md) - pattern; 2 block.
 - [Carry the Action Line Into the Torso Centerline](PAT_carry_action_line_into_torso_centerline.md) - pattern; 2 block.
@@ -30,6 +31,7 @@
 - [Diagnose Joint Interlock by Reversing Depth](DRILL_diagnose_joint_interlock_by_reversing_depth.md) - drill; 2 block.
 - [Draw a Figure Through Onion-Skinned Stages](AP_draw_a_figure_through_onion_skinned_stages.md) - ap; 0 design.
 - [Edit an Action Phase Sequence for Energy](DRILL_edit_action_phase_sequence_for_energy.md) - drill; 2 block.
+- [Gate Staged Visual Work by Approval](AP_gate_staged_visual_work_by_approval.md) - ap; 0 design.
 - [Hold Member Identity With Constant Width](PAT_hold_member_identity_with_constant_width.md) - pattern; 2 block.
 - [Integrate the Shoulder Mass With the Rib Cage](PAT_integrate_shoulder_mass_with_rib_cage.md) - pattern; 2 block.
 - [Join Rib Cage and Pelvis Through a Flexible Waist](PAT_join_rib_cage_and_pelvis_through_flexible_waist.md) - pattern; 2 block.
@@ -41,6 +43,7 @@
 - [Orient the Rib Cage With Curved Openings](PAT_orient_rib_cage_with_curved_openings.md) - pattern; 2 block.
 - [Place Chest Landmarks on the Rib-Cage Barrel](PAT_place_chest_landmarks_on_rib_cage_barrel.md) - pattern; 2 block.
 - [Preserve One Continuous Joint Chain per Limb](PAT_preserve_articulated_limb_chain.md) - pattern; 1 skeleton.
+- [Preserve Structure During Stage 4 Amplification](PAT_preserve_structure_during_stage4_amplification.md) - pattern; 4 final.
 - [Project Form Curves From the Camera View](PAT_project_form_curves_from_camera_view.md) - pattern; 3 rough.
 - [Resolve the Head and Neck Last From Context](PAT_resolve_head_and_neck_last_from_context.md) - pattern; 2 block.
 - [Rotate Cranial Ball and Facial Wedge Head Blocks](DRILL_rotate_cranial_ball_and_facial_wedge.md) - drill; 2 block.
