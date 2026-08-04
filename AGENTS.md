@@ -1,7 +1,7 @@
 # PASS — Assistant Instructions
 
 status: active
-last_reviewed: 2026-08-02
+last_reviewed: 2026-08-03
 audience: GPT, Claude, Codex, and other coding assistants
 canonical: true
 
@@ -17,6 +17,19 @@ work.
 live here. If the two disagree, this file wins unless the user says otherwise.
 
 ---
+
+## Repository boot discovery
+
+When repository navigation begins at `MASTER_INDEX.md`:
+
+1. Resolve and read the indexed root `AGENTS.md` before non-trivial task work.
+2. Read `indexes/INDEX_SKILLS.md` to discover installed SkillForge adapters and
+   domain skill indexes.
+3. Continue with the required load order below.
+
+Do not treat `MASTER_INDEX.md` alone as sufficient task guidance. It is a
+navigation map; `AGENTS.md` is the canonical assistant routing entrypoint.
+
 
 ## Capability honesty — stop, don't bluff
 
@@ -142,14 +155,16 @@ Handoff packets live in `docs/assistants/handoffs/`.
 For any non-trivial task:
 
 1. Read this `AGENTS.md`.
-2. Read `CLAUDE.md` only for tool-specific compatibility notes.
-3. Read `docs/dev/docs_index.md`.
-4. Read `docs/dev/assistant_coding_behavior.md`.
-5. Read the domain index for the task (see `docs/dev/docs_index.md` for the map).
-6. For a non-trivial task in a covered craft domain, run the SkillForge preflight
+2. Read `indexes/INDEX_SKILLS.md` to discover installed SkillForge adapters and
+   domain skill indexes.
+3. Read `CLAUDE.md` only for tool-specific compatibility notes.
+4. Read `docs/dev/docs_index.md`.
+5. Read `docs/dev/assistant_coding_behavior.md`.
+6. Read the domain index for the task (see `docs/dev/docs_index.md` for the map).
+7. For a non-trivial task in a covered craft domain, run the SkillForge preflight
    above and load the returned contract, metaskill, foundations, and cards.
-7. Read relevant assistant packets under `docs/assistants/{agents,skills,patterns,drills}/`.
-8. If continuing existing work, read that domain's `worklog.md`, `decisions.md`,
+8. Read relevant assistant packets under `docs/assistants/{agents,skills,patterns,drills}/`.
+9. If continuing existing work, read that domain's `worklog.md`, `decisions.md`,
    `failures.md`, and `next_steps.md`.
 
 If a required doc is missing, report the missing path before changing files.

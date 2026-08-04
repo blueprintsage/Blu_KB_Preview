@@ -1,13 +1,17 @@
 # MASTER_INDEX
 repo: Blu_KB_Preview
 tz: America/Chicago
-updated: 2026-03-06
+updated: 2026-08-03
 
 Canonical navigation map (TOC). Keep it short, scannable, and stable.
 
 Rule:
 - Prefer linking folders (chapters).
 - Index files are views into chapters.
+
+## Boot entrypoints
+- AGENTS.md — canonical assistant routing entrypoint; load before non-trivial task work.
+- indexes/INDEX_SKILLS.md — installed skill and SkillForge discovery map.
 
 ## Chapters
 - about/
